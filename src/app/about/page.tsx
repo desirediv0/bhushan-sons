@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { IconArrowRight } from "@tabler/icons-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/animations/animated-section";
 import { PageHero } from "@/components/ui/page-hero";
 import { GoldDivider } from "@/components/ui/gold-divider";
-import { Button } from "@/components/ui/button";
 import { CTASection } from "@/components/sections/cta-section";
 import { FIRM_TIMELINE, FIRM_STATS } from "@/config/constants";
 
@@ -65,14 +62,14 @@ export default function AboutPage() {
                 <p>
                   From its early days as a boutique litigation practice, the firm grew
                   steadily — expanding into corporate advisory, intellectual property,
-                  real estate, and international arbitration as India's economy opened
+                  real estate, and international arbitration as India&apos;s economy opened
                   and legal needs evolved.
                 </p>
                 <p>
                   Today, with offices in New Delhi, Mumbai, and Bangalore, and a team
-                  of over 50 legal professionals drawn from India's finest institutions
+                  of over 50 legal professionals drawn from India&apos;s finest institutions
                   and global law schools, Bhushan & Sons remains the trusted counsel
-                  of choice for India's leading corporations, high-net-worth individuals,
+                  of choice for India&apos;s leading corporations, high-net-worth individuals,
                   and international institutions.
                 </p>
               </div>
@@ -174,7 +171,7 @@ export default function AboutPage() {
             {/* Content */}
             <AnimatedSection direction="left" delay={0.15}>
               <div className="flex flex-col gap-3 mb-8">
-                <p className="overline text-secondary">Founder's Message</p>
+                <p className="overline text-secondary">Founder&apos;s Message</p>
                 <GoldDivider />
               </div>
               <h2
@@ -250,7 +247,7 @@ export default function AboutPage() {
             <div className="absolute left-[5.5rem] top-0 bottom-0 w-px bg-white/10 hidden lg:block" />
 
             <StaggerContainer className="flex flex-col gap-12">
-              {FIRM_TIMELINE.map((event, index) => (
+              {FIRM_TIMELINE.map((event) => (
                 <StaggerItem key={event.year} direction="right">
                   <div className="flex gap-8 lg:gap-16 items-start">
                     {/* Year */}

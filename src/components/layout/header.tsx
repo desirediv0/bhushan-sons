@@ -158,9 +158,11 @@ export function Header() {
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between px-6 py-5 border-b border-border">
                   <div className="flex items-center gap-3">
-                    <img
+                    <Image
                       src="/logo.jpeg"
                       alt="Bhushan & Sons Logo"
+                      width={32}
+                      height={32}
                       className="w-8 h-8 object-contain rounded"
                     />
                     <div>
