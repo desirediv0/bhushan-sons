@@ -29,7 +29,7 @@ export default function TeamPage() {
       {/* Hero */}
       <PageHero
         label="Teams"
-        title="Home"
+
         titleAccent="Team"
         description="Meet Our Expert Team"
         image="/our-team.png"

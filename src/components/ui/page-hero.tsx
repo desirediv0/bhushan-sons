@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 interface PageHeroProps {
   label?: string;
-  title: string;
+
   titleAccent?: string;
   description?: string;
   image?: string;
@@ -20,7 +20,7 @@ interface PageHeroProps {
 
 export function PageHero({
   label,
-  title,
+
   titleAccent,
   description,
   image,
@@ -56,7 +56,7 @@ export function PageHero({
           )}
           <h1 className="font-heading text-white font-bold leading-tight max-w-2xl"
             style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)" }}>
-            {title}
+
             {titleAccent && (
               <span className="block text-white/90 italic font-medium" style={{ fontFamily: "var(--font-accent)" }}>
                 {titleAccent}
@@ -118,7 +118,7 @@ export function PageHero({
           )}
           style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
         >
-          {title}
+
           {titleAccent && (
             <span
               className={cn("block", variant === "dark" ? "text-white/90" : "text-[#111111]")}

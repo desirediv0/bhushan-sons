@@ -26,7 +26,6 @@ export default function PracticeAreasPage() {
       {/* Hero */}
       <PageHero
         label="Services"
-        title="Home"
         titleAccent="Service"
         description="Our Services"
         image="/practice-areas.png"

@@ -29,7 +29,7 @@ export default function ContactPage() {
       {/* Hero */}
       <PageHero
         label="Contact"
-        title="Home"
+
         titleAccent="Contact"
         description="For career opportunities and other requirements"
         image="/contact-us.png"

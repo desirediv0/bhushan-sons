@@ -23,7 +23,6 @@ export default function AboutPage() {
       {/* Hero */}
       <PageHero
         label="About Us"
-        title="Home"
         titleAccent="About Us"
         description="Learn about our journey, our values, and the expert leadership shaping supportive family legal practice."
         image="/about.png"
