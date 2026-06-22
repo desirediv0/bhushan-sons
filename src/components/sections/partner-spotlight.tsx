@@ -48,9 +48,9 @@ export function PartnerSpotlight() {
                 className="font-accent italic text-white/70 text-xl leading-relaxed"
                 style={{ fontFamily: "var(--font-accent)" }}
               >
-                "Law is not merely a profession — it is a vocation of service.
+                &ldquo;Law is not merely a profession &mdash; it is a vocation of service.
                 Every client who trusts us deserves our complete commitment,
-                our deepest expertise, and our most strategic thinking."
+                our deepest expertise, and our most strategic thinking.&rdquo;
               </p>
             </div>
 

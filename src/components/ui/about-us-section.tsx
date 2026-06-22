@@ -4,6 +4,7 @@ import type React from "react"
 
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import {
   Scale,
   Briefcase,
@@ -21,10 +22,8 @@ import {
 import { motion, useScroll, useTransform, useInView, type Variants } from "framer-motion"
 
 export default function AboutUsSection() {
-  const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(sectionRef, { once: false, amount: 0.1 })
-
 
   // Parallax effect for decorative elements
   const { scrollYProgress } = useScroll({
@@ -36,10 +35,6 @@ export default function AboutUsSection() {
   const y2 = useTransform(scrollYProgress, [0, 1], [0, 50])
   const rotate1 = useTransform(scrollYProgress, [0, 1], [0, 20])
   const rotate2 = useTransform(scrollYProgress, [0, 1], [0, -20])
-
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -212,9 +207,11 @@ export default function AboutUsSection() {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
               >
-                <img
+                <Image
                   src="/law_firm_office.png"
                   alt="Bhushan & Sons Law Firm Office"
+                  width={320}
+                  height={400}
                   className="w-full h-full object-cover"
                 />
                 <motion.div
