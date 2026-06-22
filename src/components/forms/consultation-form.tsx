@@ -43,7 +43,7 @@ export function ConsultationForm({
     resolver: zodResolver(consultationSchema),
   });
 
-  const onSubmit = async (data: ConsultationFormData) => {
+  const onSubmit = async (_data: ConsultationFormData) => {
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1500));
     setIsSubmitted(true);
