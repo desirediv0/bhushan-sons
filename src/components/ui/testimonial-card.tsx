@@ -27,7 +27,7 @@ export function TestimonialCard({
       <div className="mb-8">
         <IconQuote
           size={32}
-          className="text-secondary opacity-60"
+          className="text-white opacity-60"
           style={{ transform: "scaleX(-1)" }}
         />
       </div>

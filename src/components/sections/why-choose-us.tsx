@@ -26,16 +26,16 @@ export function WhyChooseUs() {
         {/* Header */}
         <AnimatedSection direction="up" className="text-center max-w-2xl mx-auto mb-20">
           <div className="flex flex-col items-center gap-3 mb-6">
-            <p className="overline text-secondary">Our Commitment</p>
+            <p className="overline text-white">Our Commitment</p>
             <GoldDivider align="center" />
           </div>
           <h2
             className="font-heading font-bold text-primary leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)" }}
           >
-            Why Clients Choose{" "}
+            Why Choose{" "}
             <span
-              className="text-secondary"
+              className="text-black"
               style={{ fontFamily: "var(--font-accent)", fontStyle: "italic", fontWeight: 500 }}
             >
               Bhushan & Sons
@@ -58,7 +58,7 @@ export function WhyChooseUs() {
                       />
                     </div>
                     <span
-                      className="font-body text-5xl font-light text-border group-hover:text-secondary/20 transition-colors duration-400"
+                      className="font-body text-5xl font-light text-border group-hover:text-white/20 transition-colors duration-400"
                       style={{ fontFamily: "var(--font-accent)" }}
                     >
                       {String(index + 1).padStart(2, "0")}

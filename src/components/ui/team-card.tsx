@@ -38,7 +38,7 @@ export function TeamCard({
           <p className="font-heading font-semibold text-primary text-lg leading-tight">
             {member.name}
           </p>
-          <p className="font-body text-sm text-secondary mt-1">
+          <p className="font-body text-sm text-neutral-500 mt-1">
             {member.designation}
           </p>
           <div className="flex flex-wrap gap-1.5 mt-3">
@@ -101,14 +101,14 @@ export function TeamCard({
             <p className="font-heading font-semibold text-primary text-lg leading-tight">
               {member.name}
             </p>
-            <p className="font-body text-sm text-secondary mt-1">
+            <p className="font-body text-sm text-neutral-500 mt-1">
               {member.designation}
             </p>
           </div>
           <span className="shrink-0 mt-1">
             <IconArrowUpRight
               size={18}
-              className="text-border group-hover:text-secondary transition-colors duration-300"
+              className="text-border group-hover:text-white transition-colors duration-300"
             />
           </span>
         </div>

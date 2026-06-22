@@ -19,14 +19,14 @@ export function MetricsSection() {
 
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <AnimatedSection direction="up" className="text-center mb-16">
-          <p className="overline text-secondary mb-3">Our Track Record</p>
+          <p className="overline text-white mb-3">Our Track Record</p>
           <h2
             className="font-heading font-bold text-primary leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)" }}
           >
             Decades of
             <span
-              className="text-secondary ml-3"
+              className="text-white ml-3"
               style={{ fontFamily: "var(--font-accent)", fontStyle: "italic", fontWeight: 500 }}
             >
               Measurable Excellence

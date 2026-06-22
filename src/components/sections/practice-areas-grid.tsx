@@ -21,16 +21,17 @@ const PRACTICE_ICONS: Record<string, React.ElementType> = {
   "criminal-law": IconShield,
   "family-law": IconHome,
   "corporate-law": IconBuilding,
-  "real-estate": IconKey,
+  "realestate-law": IconKey,
   "immigration-law": IconPlane,
-  "labour-law": IconBriefcase,
-  "ip-law": IconBulb,
+  "labour-laws": IconBriefcase,
   "banking-finance": IconCoin,
-  "commercial-disputes": IconGavel,
+  "ip-law": IconBulb,
+  "commercial-consumer-disputes": IconScale,
+  "dispute-resolution": IconGavel,
 };
 
 export function PracticeAreasGrid() {
-  const displayAreas = PRACTICE_AREAS.slice(0, 8);
+  const displayAreas = PRACTICE_AREAS;
 
   return (
     <section className="py-12 lg:py-14 bg-[#FAFAFA]">
@@ -55,7 +56,7 @@ export function PracticeAreasGrid() {
           <AnimatedSection direction="up" delay={0.1}>
             <Link
               href="/practice-areas"
-              className="group inline-flex items-center gap-2 font-body text-sm font-medium text-text-muted hover:text-secondary transition-colors"
+              className="group inline-flex items-center gap-2 font-body text-sm font-medium text-text-muted hover:text-white transition-colors"
             >
               <span className="relative">
                 View All Practice Areas

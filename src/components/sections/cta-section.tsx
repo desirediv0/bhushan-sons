@@ -39,7 +39,7 @@ export function CTASection() {
           </h2>
 
           <p className="font-body text-white/60 text-xl leading-relaxed max-w-2xl mx-auto mb-12">
-            Schedule a confidential consultation with our senior attorneys.
+            Schedule a confidential consultation with our expert legal allies.
             We will assess your situation and chart the clearest path forward.
           </p>
 
@@ -48,23 +48,23 @@ export function CTASection() {
               <Button
                 variant="secondary"
                 size="xl"
-                className="group gap-3 px-10"
+                className="group gap-3 px-10 bg-[#111111] border border-white text-white hover:bg-[#333333]"
               >
                 <IconCalendar size={20} />
-                Book a Consultation
+                Get Callback
                 <IconArrowRight
                   size={18}
                   className="transition-transform group-hover:translate-x-1"
                 />
               </Button>
             </Link>
-            <a href={`tel:+911145678900`}>
+            <a href={`tel:+919306185801`}>
               <Button
                 variant="ghost"
                 size="xl"
-                className="text-white/70 hover:text-white hover:bg-white/50 gap-3 px-10"
+                className="text-white/70 hover:text-white hover:bg-white/5 gap-3 px-10"
               >
-                +91 11 4567 8900
+                +91-9306185801
               </Button>
             </a>
           </div>

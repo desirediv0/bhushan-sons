@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { TEAM_MEMBERS } from "@/config/constants";
 
 export function PartnerSpotlight() {
-  const partner = TEAM_MEMBERS[0]; // Rajesh Bhushan — Founder
+  const partner = TEAM_MEMBERS[0]; // Adv. Sunil Kr. Yadav
 
   return (
     <section className="py-12 lg:py-14 bg-[#0A0A0A] overflow-hidden">
@@ -16,7 +16,7 @@ export function PartnerSpotlight() {
           {/* Content Left */}
           <AnimatedSection direction="right">
             <div className="flex flex-col gap-3 mb-8">
-              <p className="overline text-secondary">Leadership</p>
+              <p className="overline text-white">Expert Leadership</p>
               <GoldDivider />
             </div>
 
@@ -24,12 +24,12 @@ export function PartnerSpotlight() {
               className="font-heading font-bold text-white leading-tight mb-6"
               style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)" }}
             >
-              Founding Partner
+              Senior Legal Counsel
               <span
-                className="block text-secondary mt-1"
+                className="block text-white mt-1"
                 style={{ fontFamily: "var(--font-accent)", fontStyle: "italic", fontWeight: 500, fontSize: "0.85em" }}
               >
-                &amp; Senior Advocate
+                Supreme Court Practitioner
               </span>
             </h2>
 
@@ -41,20 +41,18 @@ export function PartnerSpotlight() {
             <div className="relative pl-6 border-l border-secondary mb-8">
               <IconQuote
                 size={24}
-                className="text-secondary/40 absolute -top-2 -left-1"
+                className="text-white/40 absolute -top-2 -left-1"
                 style={{ transform: "scaleX(-1)" }}
               />
               <p
                 className="font-accent italic text-white/70 text-xl leading-relaxed"
                 style={{ fontFamily: "var(--font-accent)" }}
               >
-                &ldquo;Law is not merely a profession &mdash; it is a vocation of service.
-                Every client who trusts us deserves our complete commitment,
-                our deepest expertise, and our most strategic thinking.&rdquo;
+                &ldquo;Justice must be both accessible and effectively delivered, combining scholarly legal knowledge with practical wisdom.&rdquo;
               </p>
             </div>
 
-            <p className="font-body text-white/60 leading-relaxed mb-10">
+            <p className="font-body text-white/60 leading-relaxed mb-10 text-sm">
               {partner.bio}
             </p>
 
@@ -62,8 +60,8 @@ export function PartnerSpotlight() {
             <div className="grid grid-cols-2 gap-4 mb-10">
               {[
                 { label: "Experience", value: partner.experience },
-                { label: "Education", value: "Harvard LLM" },
-                { label: "Specialization", value: "Corporate Law" },
+                { label: "Education", value: "Supreme Court & High Court" },
+                { label: "Specialization", value: "Civil, Criminal, Family" },
                 { label: "Bar Enrollment", value: "Bar Council of Delhi" },
               ].map((item) => (
                 <div
@@ -86,7 +84,7 @@ export function PartnerSpotlight() {
                 size="lg"
                 className="group gap-3 border-white/25 text-white hover:bg-white hover:text-black transition-colors"
               >
-                Meet the Full Team
+                Meet Our Expert Team
                 <IconArrowRight
                   size={16}
                   className="transition-transform group-hover:translate-x-1"
@@ -99,12 +97,11 @@ export function PartnerSpotlight() {
           <AnimatedSection direction="left" delay={0.15} className="relative">
             <div className="relative aspect-[3/4] overflow-hidden">
               <Image
-                src={partner.image}
+                src="/sunil-square.jpeg"
                 alt={`${partner.name} — ${partner.designation}`}
                 fill
-                className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/60 to-transparent" />
             </div>
 
             {/* White corner accent */}

@@ -12,7 +12,7 @@ export function FAQSection() {
           <AnimatedSection direction="right" className="lg:col-span-2">
             <div className="lg:sticky lg:top-36">
               <div className="flex flex-col gap-3 mb-6">
-                <p className="overline text-secondary">Frequently Asked</p>
+                <p className="overline text-white">Frequently Asked</p>
                 <GoldDivider />
               </div>
               <h2
@@ -21,7 +21,7 @@ export function FAQSection() {
               >
                 Questions
                 <span
-                  className="block text-secondary"
+                  className="block text-white"
                   style={{ fontFamily: "var(--font-accent)", fontStyle: "italic", fontWeight: 500 }}
                 >
                   &amp; Answers
@@ -39,7 +39,7 @@ export function FAQSection() {
                 </p>
                 <a
                   href="/contact"
-                  className="font-body text-sm font-medium text-secondary hover:text-secondary-hover transition-colors inline-flex items-center gap-1 underline underline-offset-2"
+                  className="font-body text-sm font-medium text-white hover:text-white-hover transition-colors inline-flex items-center gap-1 underline underline-offset-2"
                 >
                   Contact us directly →
                 </a>

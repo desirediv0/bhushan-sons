@@ -10,7 +10,7 @@ export function TestimonialsSection() {
         {/* Header */}
         <AnimatedSection direction="up" className="max-w-2xl mb-20">
           <div className="flex flex-col gap-3 mb-6">
-            <p className="overline text-secondary">Client Testimonials</p>
+            <p className="overline text-white">Client Testimonials</p>
             <GoldDivider />
           </div>
           <h2
@@ -19,7 +19,7 @@ export function TestimonialsSection() {
           >
             What Our Clients
             <span
-              className="block text-secondary"
+              className="block text-white"
               style={{ fontFamily: "var(--font-accent)", fontStyle: "italic", fontWeight: 500 }}
             >
               Say About Us

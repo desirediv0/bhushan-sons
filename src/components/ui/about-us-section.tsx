@@ -9,7 +9,6 @@ import {
   Scale,
   Briefcase,
   Shield,
-  FileText,
   Gavel,
   Scroll,
   CheckCircle,
@@ -20,6 +19,9 @@ import {
 
 } from "lucide-react"
 import { motion, useScroll, useTransform, useInView, type Variants } from "framer-motion"
+
+import { PRACTICE_AREAS } from "@/config/constants";
+import { Heart } from "lucide-react";
 
 export default function AboutUsSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -56,56 +58,58 @@ export default function AboutUsSection() {
     },
   }
 
-  const services = [
-    {
-      icon: <Briefcase className="w-6 h-6" />,
-      secondaryIcon: <Sparkles className="w-4 h-4 absolute -top-1 -right-1 text-[#A9BBC8]" />,
-      title: "Corporate Law",
-      description:
-        "Strategic advice on mergers & acquisitions, corporate governance, joint ventures, restructuring, and compliance.",
-      position: "left",
-    },
-    {
-      icon: <Gavel className="w-6 h-6" />,
-      secondaryIcon: <CheckCircle className="w-4 h-4 absolute -top-1 -right-1 text-[#A9BBC8]" />,
-      title: "Dispute Resolution",
-      description:
-        "Exceptional representation in commercial litigation, domestic & international arbitration, and mediation.",
-      position: "left",
-    },
-    {
-      icon: <Scale className="w-6 h-6" />,
-      secondaryIcon: <Star className="w-4 h-4 absolute -top-1 -right-1 text-[#A9BBC8]" />,
-      title: "Banking & Finance",
-      description:
-        "Advising lenders, borrowers, and financial institutions on complex transactions and regulatory frameworks.",
-      position: "left",
-    },
-    {
-      icon: <Shield className="w-6 h-6" />,
-      secondaryIcon: <Sparkles className="w-4 h-4 absolute -top-1 -right-1 text-[#A9BBC8]" />,
-      title: "Intellectual Property",
-      description:
-        "Comprehensive protection, management, and enforcement of trademarks, patents, and copyright assets.",
-      position: "right",
-    },
-    {
-      icon: <Scroll className="w-6 h-6" />,
-      secondaryIcon: <CheckCircle className="w-4 h-4 absolute -top-1 -right-1 text-[#A9BBC8]" />,
-      title: "Real Estate",
-      description:
-        "Advising on property acquisitions, joint developments, project financing, leasing, and title verification.",
-      position: "right",
-    },
-    {
-      icon: <FileText className="w-6 h-6" />,
-      secondaryIcon: <Star className="w-4 h-4 absolute -top-1 -right-1 text-[#A9BBC8]" />,
-      title: "Taxation & Advisory",
-      description:
-        "Providing robust legal advice on direct & indirect tax matters, structuring, and regulatory disputes.",
-      position: "right",
-    },
-  ]
+  const selectedAreaIds = [
+    "civil-law",
+    "criminal-law",
+    "family-law",
+    "corporate-law",
+    "realestate-law",
+    "dispute-resolution",
+  ];
+
+  const getIcon = (id: string) => {
+    switch (id) {
+      case "civil-law":
+        return <Scale className="w-6 h-6" />;
+      case "criminal-law":
+        return <Shield className="w-6 h-6" />;
+      case "family-law":
+        return <Heart className="w-6 h-6" />;
+      case "corporate-law":
+        return <Briefcase className="w-6 h-6" />;
+      case "realestate-law":
+        return <Scroll className="w-6 h-6" />;
+      case "dispute-resolution":
+        return <Gavel className="w-6 h-6" />;
+      default:
+        return <Scale className="w-6 h-6" />;
+    }
+  };
+
+  const getSecondaryIcon = (id: string) => {
+    switch (id) {
+      case "civil-law":
+      case "family-law":
+      case "realestate-law":
+        return <Sparkles className="w-4 h-4 absolute -top-1 -right-1 text-[#A9BBC8]" />;
+      case "criminal-law":
+      case "dispute-resolution":
+        return <CheckCircle className="w-4 h-4 absolute -top-1 -right-1 text-[#A9BBC8]" />;
+      default:
+        return <Star className="w-4 h-4 absolute -top-1 -right-1 text-[#A9BBC8]" />;
+    }
+  };
+
+  const services = selectedAreaIds.map((id, index) => {
+    const area = PRACTICE_AREAS.find((a) => a.id === id) || PRACTICE_AREAS[0];
+    return {
+      icon: getIcon(id),
+      secondaryIcon: getSecondaryIcon(id),
+      title: area.title,
+      description: area.description,
+      position: index < 3 ? "left" : "right",
+    };
+  });
 
 
   return (
@@ -208,30 +212,13 @@ export default function AboutUsSection() {
                 whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
               >
                 <Image
-                  src="/law_firm_office.png"
-                  alt="Bhushan & Sons Law Firm Office"
+                  src="/about.png"
+                  alt="Bhushan & Sons Law Firm"
                   width={320}
                   height={400}
                   className="w-full h-full object-cover"
                 />
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-[#202e44]/50 to-transparent flex items-end justify-center p-4"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.9 }}
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Link
-                      href="/practice-areas"
-                      className="bg-white text-[#202e44] px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium cursor-pointer"
-                    >
-                      Our Portfolio <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </motion.div>
-                </motion.div>
+
               </motion.div>
               <motion.div
                 className="absolute inset-0 border-4 border-[#111111] rounded-md -m-3 z-[-1]"

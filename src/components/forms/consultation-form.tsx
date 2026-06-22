@@ -6,19 +6,16 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { IconCheck, IconLoader2, IconArrowRight } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
-import { PRACTICE_AREA_OPTIONS } from "@/config/constants";
 import { cn } from "@/lib/utils";
 
 const consultationSchema = z.object({
   name: z.string().min(2, "Full name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
   phone: z
     .string()
     .min(10, "Please enter a valid phone number")
     .max(15, "Phone number too long"),
-  practiceArea: z.string().min(1, "Please select a practice area"),
-  message: z.string().min(20, "Please describe your matter in at least 20 characters"),
-  preferredTime: z.string().optional(),
+  category: z.string().min(1, "Please select a case category"),
+  issue: z.string().min(1, "Please select your issue"),
 });
 
 type ConsultationFormData = z.infer<typeof consultationSchema>;
@@ -69,26 +66,25 @@ export function ConsultationForm({
     return (
       <div
         className={cn(
-          "flex flex-col items-center justify-center text-center p-12 border min-h-[400px]",
+          "flex flex-col items-center justify-center text-center p-8 border min-h-[300px]",
           isDark ? "border-white/10 bg-white/5" : "border-border bg-[#FAFAFA]",
           className
         )}
       >
         <div className="w-16 h-16 rounded-full bg-secondary/10 border border-secondary/30 flex items-center justify-center mb-6">
-          <IconCheck size={28} className="text-secondary" />
+          <IconCheck size={28} className="text-white" />
         </div>
         <h3 className={cn("font-heading font-semibold text-xl mb-3", isDark ? "text-white" : "text-primary")}>
-          Thank You for Reaching Out
+          We Will Call You Back
         </h3>
-        <p className={cn("font-body leading-relaxed mb-8 max-w-sm", isDark ? "text-white/60" : "text-text-muted")}>
-          We have received your consultation request. A senior attorney will
-          contact you within one business day.
+        <p className={cn("font-body leading-relaxed mb-6 max-w-sm text-sm", isDark ? "text-white/60" : "text-text-muted")}>
+          Thank you for requesting a call back. A senior attorney will get in touch shortly to assist with your issue.
         </p>
         <button
           onClick={() => { setIsSubmitted(false); reset(); }}
-          className="font-body text-sm text-secondary hover:text-secondary-hover underline underline-offset-2"
+          className="font-body text-sm text-white hover:text-white-hover underline underline-offset-2"
         >
-          Submit another enquiry
+          Submit another request
         </button>
       </div>
     );
@@ -97,137 +93,104 @@ export function ConsultationForm({
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className={cn("space-y-5", className)}
+      className={cn("space-y-4", className)}
       noValidate
     >
-      {/* Name + Email */}
-      <div className="grid sm:grid-cols-2 gap-5">
-        <div>
-          <label htmlFor="name" className={labelClass}>
-            Full Name *
-          </label>
-          <input
-            id="name"
-            type="text"
-            placeholder="Your full name"
-            className={inputClass}
-            {...register("name")}
-          />
-          {errors.name && <p className={errorClass}>{errors.name.message}</p>}
-        </div>
-        <div>
-          <label htmlFor="email" className={labelClass}>
-            Email Address *
-          </label>
-          <input
-            id="email"
-            type="email"
-            placeholder="your@email.com"
-            className={inputClass}
-            {...register("email")}
-          />
-          {errors.email && <p className={errorClass}>{errors.email.message}</p>}
-        </div>
-      </div>
-
-      {/* Phone + Practice Area */}
-      <div className="grid sm:grid-cols-2 gap-5">
-        <div>
-          <label htmlFor="phone" className={labelClass}>
-            Phone Number *
-          </label>
-          <input
-            id="phone"
-            type="tel"
-            placeholder="+91 XXXXX XXXXX"
-            className={inputClass}
-            {...register("phone")}
-          />
-          {errors.phone && <p className={errorClass}>{errors.phone.message}</p>}
-        </div>
-        <div>
-          <label htmlFor="practiceArea" className={labelClass}>
-            Practice Area *
-          </label>
-          <select
-            id="practiceArea"
-            className={cn(inputClass, "cursor-pointer")}
-            {...register("practiceArea")}
-            defaultValue=""
-          >
-            <option value="" disabled>
-              Select a practice area
-            </option>
-            {PRACTICE_AREA_OPTIONS.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-          {errors.practiceArea && (
-            <p className={errorClass}>{errors.practiceArea.message}</p>
-          )}
-        </div>
-      </div>
-
-      {/* Preferred Time */}
+      {/* Name */}
       <div>
-        <label htmlFor="preferredTime" className={labelClass}>
-          Preferred Consultation Time
+        <label htmlFor="name" className={labelClass}>
+          Full Name *
+        </label>
+        <input
+          id="name"
+          type="text"
+          placeholder="Your full name"
+          className={inputClass}
+          {...register("name")}
+        />
+        {errors.name && <p className={errorClass}>{errors.name.message}</p>}
+      </div>
+
+      {/* Phone */}
+      <div>
+        <label htmlFor="phone" className={labelClass}>
+          Phone Number *
+        </label>
+        <input
+          id="phone"
+          type="tel"
+          placeholder="+91 XXXXX XXXXX"
+          className={inputClass}
+          {...register("phone")}
+        />
+        {errors.phone && <p className={errorClass}>{errors.phone.message}</p>}
+      </div>
+
+      {/* Select Case Category */}
+      <div>
+        <label htmlFor="category" className={labelClass}>
+          Select Case Category *
         </label>
         <select
-          id="preferredTime"
+          id="category"
           className={cn(inputClass, "cursor-pointer")}
-          {...register("preferredTime")}
+          {...register("category")}
           defaultValue=""
         >
-          <option value="">No preference</option>
-          <option value="morning">Morning (9:00 AM – 12:00 PM)</option>
-          <option value="afternoon">Afternoon (12:00 PM – 4:00 PM)</option>
-          <option value="evening">Evening (4:00 PM – 7:00 PM)</option>
+          <option value="" disabled>
+            Select Case Category
+          </option>
+          <option value="civil-law">Civil Law</option>
+          <option value="criminal-law">Criminal Law</option>
+          <option value="family-law">Family Law</option>
+          <option value="corporate-law">Corporate Law</option>
+          <option value="realestate-law">Realestate Law</option>
+          <option value="immigration-law">Immigration Law</option>
         </select>
+        {errors.category && <p className={errorClass}>{errors.category.message}</p>}
       </div>
 
-      {/* Message */}
+      {/* Select Your Issue */}
       <div>
-        <label htmlFor="message" className={labelClass}>
-          Describe Your Legal Matter *
+        <label htmlFor="issue" className={labelClass}>
+          Select Your Issue *
         </label>
-        <textarea
-          id="message"
-          rows={5}
-          placeholder="Briefly describe your legal matter, concerns, or questions..."
-          className={cn(inputClass, "resize-none")}
-          {...register("message")}
-        />
-        {errors.message && (
-          <p className={errorClass}>{errors.message.message}</p>
-        )}
+        <select
+          id="issue"
+          className={cn(inputClass, "cursor-pointer")}
+          {...register("issue")}
+          defaultValue=""
+        >
+          <option value="" disabled>
+            Select Your Issue
+          </option>
+          <option value="divorce">Divorce & Matrimonial</option>
+          <option value="child-custody">Child Custody</option>
+          <option value="property">Property Transactions & Disputes</option>
+          <option value="criminal">Vigorous Defense / Bail</option>
+          <option value="corporate">Business / Corporate Counsel</option>
+          <option value="other">General Civil Litigation</option>
+        </select>
+        {errors.issue && <p className={errorClass}>{errors.issue.message}</p>}
       </div>
-
-      {/* Privacy note */}
-      <p className={cn("font-body text-xs leading-relaxed", isDark ? "text-white/40" : "text-text-muted/70")}>
-        All communications are protected by attorney-client privilege and treated
-        with absolute confidentiality.
-      </p>
 
       {/* Submit */}
       <Button
         type="submit"
         variant="secondary"
         size="lg"
-        className="w-full group gap-3 font-medium"
+        className="w-full group gap-3 font-medium bg-[#111111] text-white hover:bg-[#333333]"
         loading={isSubmitting}
         disabled={isSubmitting}
       >
         {isSubmitting ? (
           <>
             <IconLoader2 size={18} className="animate-spin" />
-            Submitting Request...
+            Requesting Callback...
           </>
         ) : (
           <>
-            Request Consultation
+            GET FREE CONSULTATION
             <IconArrowRight
               size={16}
               className="transition-transform group-hover:translate-x-1"

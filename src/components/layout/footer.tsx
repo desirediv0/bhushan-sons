@@ -45,20 +45,20 @@ export function Footer() {
               <div className="flex flex-col gap-3">
                 <a
                   href={`tel:${SITE_CONFIG.phone}`}
-                  className="flex items-center gap-3 text-sm text-text-muted hover:text-secondary transition-colors font-body"
+                  className="flex items-center gap-3 text-sm text-text-muted hover:text-white transition-colors font-body"
                 >
-                  <IconPhone size={16} className="text-secondary" />
+                  <IconPhone size={16} className="text-white" />
                   {SITE_CONFIG.phone}
                 </a>
                 <a
                   href={`mailto:${SITE_CONFIG.email}`}
-                  className="flex items-center gap-3 text-sm text-text-muted hover:text-secondary transition-colors font-body"
+                  className="flex items-center gap-3 text-sm text-text-muted hover:text-white transition-colors font-body"
                 >
-                  <IconMail size={16} className="text-secondary" />
+                  <IconMail size={16} className="text-white" />
                   {SITE_CONFIG.email}
                 </a>
                 <div className="flex items-start gap-3 text-sm text-text-muted font-body">
-                  <IconMapPin size={16} className="text-secondary mt-0.5 shrink-0" />
+                  <IconMapPin size={16} className="text-white mt-0.5 shrink-0" />
                   <span>
                     {SITE_CONFIG.address.street}, {SITE_CONFIG.address.city} -{" "}
                     {SITE_CONFIG.address.pincode}
@@ -77,12 +77,12 @@ export function Footer() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-sm text-text-muted hover:text-secondary transition-colors font-body inline-flex items-center gap-1 group"
+                      className="text-sm text-text-muted hover:text-white transition-colors font-body inline-flex items-center gap-1 group"
                     >
                       {item.label}
                       <IconArrowRight
                         size={12}
-                        className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-secondary"
+                        className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-white"
                       />
                     </Link>
                   </li>
@@ -100,12 +100,12 @@ export function Footer() {
                   <li key={area.id}>
                     <Link
                       href={`/practice-areas#${area.id}`}
-                      className="text-sm text-text-muted hover:text-secondary transition-colors font-body inline-flex items-center gap-1 group"
+                      className="text-sm text-text-muted hover:text-white transition-colors font-body inline-flex items-center gap-1 group"
                     >
                       {area.title}
                       <IconArrowRight
                         size={12}
-                        className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-secondary"
+                        className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-white"
                       />
                     </Link>
                   </li>
@@ -144,19 +144,19 @@ export function Footer() {
           <div className="flex items-center gap-6">
             <Link
               href="/privacy"
-              className="text-xs text-text-muted hover:text-secondary transition-colors font-body"
+              className="text-xs text-text-muted hover:text-white transition-colors font-body"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms"
-              className="text-xs text-text-muted hover:text-secondary transition-colors font-body"
+              className="text-xs text-text-muted hover:text-white transition-colors font-body"
             >
               Terms of Service
             </Link>
             <Link
               href="/disclaimer"
-              className="text-xs text-text-muted hover:text-secondary transition-colors font-body"
+              className="text-xs text-text-muted hover:text-white transition-colors font-body"
             >
               Disclaimer
             </Link>

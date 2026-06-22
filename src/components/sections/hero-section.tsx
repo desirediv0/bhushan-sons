@@ -3,31 +3,30 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { IconArrowRight, IconBuilding, IconFileText, IconUsers, IconGavel } from "@tabler/icons-react";
+import { IconBuilding, IconFileText, IconUsers, IconGavel } from "@tabler/icons-react";
 import { AnimatedSection } from "@/components/animations/animated-section";
-import { SITE_CONFIG, FIRM_STATS } from "@/config/constants";
-import { TextRotate } from "@/components/ui/text-rotate";
+import { FIRM_STATS } from "@/config/constants";
 
 const SERVICES_DATA = [
   {
-    title: "Corporate Law Services",
-    desc: "Strategic legal counsel for complex corporate transactions, governance, and regulatory compliance.",
-    href: "/practice-areas#corporate-law",
+    title: "Civil Law Services",
+    desc: "Committed to Upholding Civil Rights: Advocating for Equality, Justice, and Freedom.",
+    href: "/practice-areas#civil-law",
   },
   {
-    title: "Commercial Disputes Resolution",
-    desc: "Exceptional representation in commercial litigation, domestic & international arbitration, and mediation.",
-    href: "/practice-areas#commercial-disputes",
-  },
-  {
-    title: "Intellectual Property Protection",
-    desc: "Comprehensive protection, management, and enforcement of trademarks, patents, and copyright assets.",
-    href: "/practice-areas#ip-law",
-  },
-  {
-    title: "Criminal Defense Advocacy",
-    desc: "Vigorous criminal defense and prosecution support with an unwavering commitment to justice.",
+    title: "Criminal Law Services",
+    desc: "Committed to Vigorous Criminal Defense, Protecting Your Rights and Preserving Your Freedom.",
     href: "/practice-areas#criminal-law",
+  },
+  {
+    title: "Family Law Services",
+    desc: "Dedicated to Providing Compassionate and Expert Legal Guidance for All Your Family Law Matters.",
+    href: "/practice-areas#family-law",
+  },
+  {
+    title: "Corporate Law Services",
+    desc: "We specialize in providing comprehensive corporate legal services to businesses of all sizes.",
+    href: "/practice-areas#corporate-law",
   },
 ];
 
@@ -75,31 +74,14 @@ export function HeroSection() {
             <h1
               className="font-heading font-bold leading-[1.3] mb-5 text-[#111111] text-3xl sm:text-5xl lg:text-[4rem] flex flex-col items-start gap-1.5"
             >
-              <span>Unraveling</span>
-              <TextRotate
-                texts={[
-                  "Complexities",
-                  "Disputes",
-                  "Challenges",
-                  "Transactions",
-                ]}
-                mainClassName="text-white px-3 sm:px-4 bg-black py-2 sm:py-3 rounded-md inline-block text-2xl sm:text-4xl lg:text-[3rem] leading-none"
-                staggerFrom={"last"}
-                initial={{ y: "100%", opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: "-100%", opacity: 0 }}
-                staggerDuration={0.02}
-                splitLevelClassName="overflow-visible pb-0"
-                transition={{ type: "spring", damping: 30, stiffness: 400 }}
-                rotationInterval={2500}
-              />
+              <span>Bhushan & Sons</span>
               <span
-                className="text-primary italic font-semibold"
+                className="text-primary italic font-semibold text-2xl sm:text-3xl lg:text-[2.25rem]"
                 style={{
                   fontFamily: "var(--font-accent)",
                 }}
               >
-                Together
+                Advocates & Solicitors
               </span>
             </h1>
           </AnimatedSection>
@@ -108,25 +90,21 @@ export function HeroSection() {
             <p
               className="font-body leading-[1.8] mb-8 text-sm sm:text-base text-[#666666] max-w-md lg:max-w-[320px]"
             >
-              {SITE_CONFIG.description}
+              Bringing Expertise, Compassion, and Results to Your Family&apos;s Legal Needs.
             </p>
           </AnimatedSection>
 
           <AnimatedSection direction="up" delay={0.3}>
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col gap-4 items-start">
               <Link
                 href="/contact"
-                className="font-body font-medium text-white bg-[#111111] px-6 py-3 text-sm rounded-full inline-flex items-center gap-2 transition-all duration-200 hover:-translate-y-0.5"
+                className="font-body font-medium text-white bg-[#111111] px-6 py-3.5 text-xs sm:text-sm uppercase tracking-wider rounded-md inline-flex items-center gap-2 transition-all duration-200 hover:bg-[#333333]"
               >
-                Consult Now
+                GET FREE CONSULTATION
               </Link>
-              <Link
-                href="/practice-areas"
-                className="font-body font-medium flex items-center gap-2 text-sm text-[#111111] hover:underline transition-colors duration-200"
-              >
-                Explore Practice Areas
-                <IconArrowRight size={14} />
-              </Link>
+              <span className="font-body text-xs text-[#888888] italic">
+                Get Free 15 Minutes Legal Consultation
+              </span>
             </div>
           </AnimatedSection>
         </div>

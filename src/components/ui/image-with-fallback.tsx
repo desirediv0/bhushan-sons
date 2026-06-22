@@ -34,7 +34,7 @@ const ImageWithFallback = forwardRef<HTMLDivElement, ImageWithFallbackProps>(
       >
         {fallback || (
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-heading text-3xl text-secondary/40">
+            <span className="font-heading text-3xl text-white/40">
               {alt
                 .split(" ")
                 .map((word) => word[0])

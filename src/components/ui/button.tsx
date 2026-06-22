@@ -14,15 +14,15 @@ const buttonVariants = cva(
         outline:
           "border border-primary text-primary bg-transparent hover:bg-primary hover:text-white",
         "outline-gold":
-          "border border-secondary text-secondary bg-transparent hover:bg-secondary hover:text-white",
+          "border border-secondary text-white bg-transparent hover:bg-secondary hover:text-white",
         ghost:
           "text-text hover:bg-background-alt active:bg-background-alt/80",
         "ghost-gold":
-          "text-secondary hover:bg-secondary/10 active:bg-secondary/15",
+          "text-white hover:bg-secondary/10 active:bg-secondary/15",
         link:
           "text-primary underline-offset-4 hover:underline p-0 h-auto",
         "link-gold":
-          "text-secondary underline-offset-4 hover:underline p-0 h-auto",
+          "text-white underline-offset-4 hover:underline p-0 h-auto",
       },
       size: {
         sm: "h-9 px-4 text-sm rounded",
@@ -43,7 +43,7 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  VariantProps<typeof buttonVariants> {
   loading?: boolean;
 }
 

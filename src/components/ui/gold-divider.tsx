@@ -36,8 +36,8 @@ export function GoldDivider({
           align === "center"
             ? "linear-gradient(90deg, transparent, #111111, transparent)"
             : align === "right"
-            ? "linear-gradient(90deg, transparent, #111111)"
-            : "linear-gradient(90deg, #111111, transparent)",
+              ? "linear-gradient(90deg, transparent, #111111)"
+              : "linear-gradient(90deg, #111111, transparent)",
       }}
     />
   );
@@ -56,7 +56,7 @@ export function SectionLabel({
 }: SectionLabelProps) {
   return (
     <div className={cn("flex flex-col gap-3", align === "center" && "items-center", className)}>
-      <p className="overline text-secondary">{children}</p>
+      <p className="overline text-white">{children}</p>
       <GoldDivider align={align === "center" ? "center" : "left"} />
     </div>
   );

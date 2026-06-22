@@ -77,7 +77,7 @@ export function Header() {
                     className={cn(
                       "relative px-4 py-2 text-sm font-body font-medium transition-colors duration-200",
                       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40",
-                      isActive ? "text-secondary" : "text-[#444] hover:text-secondary"
+                      isActive ? "text-black" : "text-[#444] hover:text-black"
                     )}
                   >
                     {item.label}
@@ -120,7 +120,7 @@ export function Header() {
             {/* Mobile toggle */}
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className="lg:hidden p-2 text-primary hover:text-secondary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
+              className="lg:hidden p-2 text-primary hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40"
               aria-label="Toggle menu"
               aria-expanded={isMobileOpen}
             >
@@ -190,7 +190,7 @@ export function Header() {
                             href={item.href}
                             className={cn(
                               "block px-4 py-3 text-base font-body font-medium transition-colors",
-                              isActive ? "text-secondary" : "text-[#444] hover:text-secondary"
+                              isActive ? "text-white" : "text-[#444] hover:text-white"
                             )}
                           >
                             {item.label}

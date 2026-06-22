@@ -10,13 +10,13 @@ import { CTASection } from "@/components/sections/cta-section";
 import { PRACTICE_AREAS } from "@/config/constants";
 
 export const metadata: Metadata = {
-  title: "Practice Areas | Bhushan & Sons — Advocates & Solicitors",
+  title: "Services | Bhushan & Sons — Advocates & Solicitors",
   description:
-    "Comprehensive legal services across Civil Law, Criminal Law, Corporate Law, Family Law, Real Estate, Immigration, Intellectual Property, Banking & Finance, and Commercial Disputes.",
+    "Comprehensive legal services across Civil, Criminal, Family, Corporate, Real Estate, Immigration, Labour, Banking, IP, Commercial, and Dispute Resolution.",
   openGraph: {
-    title: "Practice Areas | Bhushan & Sons",
+    title: "Our Services | Bhushan & Sons",
     description:
-      "Expert legal counsel across 10+ practice areas. Serving individuals, corporations, and institutions across India.",
+      "Expert legal counsel across 11 practice areas.",
   },
 };
 
@@ -25,10 +25,10 @@ export default function PracticeAreasPage() {
     <>
       {/* Hero */}
       <PageHero
-        label="Legal Expertise"
-        title="Our Practice Areas"
-        titleAccent="Comprehensive Legal Coverage"
-        description="Our attorneys command deep expertise across the full spectrum of legal practice — bringing world-class legal thinking to every client matter, regardless of complexity."
+        label="Services"
+        title="Home"
+        titleAccent="Service"
+        description="Our Services"
         image="/practice-areas.png"
         variant="split"
       />
@@ -83,7 +83,7 @@ export default function PracticeAreasPage() {
                   className={isEven ? "order-2 lg:order-2" : "order-2 lg:order-1"}
                 >
                   <div className="flex flex-col gap-3 mb-8">
-                    <p className="overline text-secondary">Practice Area</p>
+                    <p className="overline text-white">Practice Area</p>
                     <GoldDivider />
                   </div>
 
@@ -131,7 +131,7 @@ export default function PracticeAreasPage() {
                           <div key={benefit} className="flex items-start gap-3">
                             <IconCheck
                               size={14}
-                              className="text-secondary mt-1 shrink-0"
+                              className="text-white mt-1 shrink-0"
                             />
                             <span className="font-body text-sm text-white/70">
                               {benefit}

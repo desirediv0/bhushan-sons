@@ -3,7 +3,6 @@ import {
   IconPhone,
   IconMail,
   IconMapPin,
-  IconClock,
   IconArrowRight,
 } from "@tabler/icons-react";
 import { AnimatedSection } from "@/components/animations/animated-section";
@@ -11,7 +10,7 @@ import { PageHero } from "@/components/ui/page-hero";
 import { GoldDivider } from "@/components/ui/gold-divider";
 import { FAQAccordion } from "@/components/ui/faq-accordion";
 import { ConsultationForm } from "@/components/forms/consultation-form";
-import { OFFICE_LOCATIONS, FAQ_ITEMS, SITE_CONFIG } from "@/config/constants";
+import { OFFICE_LOCATIONS, FAQ_ITEMS } from "@/config/constants";
 
 export const metadata: Metadata = {
   title: "Contact Us | Bhushan & Sons — Advocates & Solicitors",
@@ -29,10 +28,10 @@ export default function ContactPage() {
     <>
       {/* Hero */}
       <PageHero
-        label="Contact Us"
-        title="Let's Discuss"
-        titleAccent="Your Legal Needs"
-        description="Every matter begins with a conversation. Reach out to schedule a confidential consultation with one of our senior attorneys."
+        label="Contact"
+        title="Home"
+        titleAccent="Contact"
+        description="For career opportunities and other requirements"
         image="/contact-us.png"
         variant="split"
       />
@@ -44,7 +43,7 @@ export default function ContactPage() {
             {/* Left: Contact Info */}
             <AnimatedSection direction="right" className="lg:col-span-2">
               <div className="flex flex-col gap-3 mb-8">
-                <p className="overline text-secondary">Get in Touch</p>
+                <p className="overline text-white">Get in Touch</p>
                 <GoldDivider />
               </div>
 
@@ -54,86 +53,46 @@ export default function ContactPage() {
               >
                 Contact
                 <span
-                  className="block text-secondary"
+                  className="block text-white"
                   style={{ fontFamily: "var(--font-accent)", fontStyle: "italic", fontWeight: 500 }}
                 >
                   Information
                 </span>
               </h2>
 
-              <p className="font-body text-text-muted leading-relaxed mb-10">
-                We are available to assist you Monday through Saturday, from
-                9:00 AM to 7:00 PM. Emergency consultations are available by
-                appointment.
-              </p>
-
               {/* Contact Details */}
               <div className="flex flex-col gap-6 mb-12">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 border border-border flex items-center justify-center shrink-0 mt-0.5">
-                    <IconPhone size={18} className="text-secondary" />
+                    <IconPhone size={18} className="text-black" />
                   </div>
                   <div>
                     <p className="font-body text-xs text-text-muted uppercase tracking-widest mb-1">
                       Phone
                     </p>
                     <a
-                      href={`tel:${SITE_CONFIG.phone}`}
-                      className="font-body font-medium text-primary hover:text-secondary transition-colors"
+                      href="tel:+919306185801"
+                      className="font-body font-medium text-primary hover:text-white transition-colors"
                     >
-                      {SITE_CONFIG.phone}
+                      +91 93061 85801
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 border border-border flex items-center justify-center shrink-0 mt-0.5">
-                    <IconMail size={18} className="text-secondary" />
+                    <IconMail size={18} className="text-black" />
                   </div>
                   <div>
                     <p className="font-body text-xs text-text-muted uppercase tracking-widest mb-1">
                       Email
                     </p>
                     <a
-                      href={`mailto:${SITE_CONFIG.email}`}
-                      className="font-body font-medium text-primary hover:text-secondary transition-colors"
+                      href="mailto:contact@bhushanandsons.com"
+                      className="font-body font-medium text-primary hover:text-white transition-colors"
                     >
-                      {SITE_CONFIG.email}
+                      contact@bhushanandsons.com
                     </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 border border-border flex items-center justify-center shrink-0 mt-0.5">
-                    <IconMapPin size={18} className="text-secondary" />
-                  </div>
-                  <div>
-                    <p className="font-body text-xs text-text-muted uppercase tracking-widest mb-1">
-                      Head Office
-                    </p>
-                    <p className="font-body font-medium text-primary">
-                      {SITE_CONFIG.address.street}
-                    </p>
-                    <p className="font-body text-text-muted text-sm">
-                      {SITE_CONFIG.address.city} — {SITE_CONFIG.address.pincode}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 border border-border flex items-center justify-center shrink-0 mt-0.5">
-                    <IconClock size={18} className="text-secondary" />
-                  </div>
-                  <div>
-                    <p className="font-body text-xs text-text-muted uppercase tracking-widest mb-1">
-                      Office Hours
-                    </p>
-                    <p className="font-body font-medium text-primary">
-                      Mon – Sat: 9:00 AM – 7:00 PM
-                    </p>
-                    <p className="font-body text-text-muted text-sm">
-                      Sunday: By appointment only
-                    </p>
                   </div>
                 </div>
               </div>
@@ -141,7 +100,7 @@ export default function ContactPage() {
               {/* Office Locations */}
               <div>
                 <p className="font-body text-xs font-semibold uppercase tracking-widest text-primary mb-4">
-                  Our Offices
+                  Location
                 </p>
                 <div className="flex flex-col gap-4">
                   {OFFICE_LOCATIONS.map((office) => (
@@ -153,25 +112,12 @@ export default function ContactPage() {
                         <div className="w-2 h-2 rounded-full bg-secondary mt-2" />
                       </div>
                       <div>
-                        <div className="flex items-center gap-2 mb-1">
-                          <p className="font-body font-semibold text-primary text-sm">
-                            {office.city}
-                          </p>
-                          {office.isHeadquarters && (
-                            <span className="font-body text-xs text-secondary border border-secondary/20 px-1.5 py-0.5">
-                              HQ
-                            </span>
-                          )}
-                        </div>
+                        <p className="font-body font-semibold text-primary text-sm mb-1">
+                          {office.city}
+                        </p>
                         <p className="font-body text-xs text-text-muted leading-relaxed">
                           {office.address}
                         </p>
-                        <a
-                          href={`tel:${office.phone}`}
-                          className="font-body text-xs text-text-muted hover:text-secondary transition-colors mt-1 block"
-                        >
-                          {office.phone}
-                        </a>
                       </div>
                     </div>
                   ))}
@@ -183,11 +129,10 @@ export default function ContactPage() {
             <AnimatedSection direction="left" delay={0.1} className="lg:col-span-3">
               <div className="border border-border p-8 lg:p-12">
                 <h3 className="font-heading font-semibold text-primary text-2xl mb-2">
-                  Book a Consultation
+                  Get Callback
                 </h3>
                 <p className="font-body text-text-muted text-sm mb-8">
-                  Complete the form below and a senior attorney will be in touch
-                  within one business day.
+                  Complete the form details and a senior attorney will call you back.
                 </p>
 
                 <ConsultationForm variant="light" />
@@ -210,19 +155,19 @@ export default function ContactPage() {
 
           <div className="relative z-10 text-center">
             <div className="w-12 h-12 rounded-full bg-[#0A0A0A] flex items-center justify-center mb-4 mx-auto">
-              <IconMapPin size={22} className="text-secondary" />
+              <IconMapPin size={22} className="text-black" />
             </div>
             <p className="font-heading font-semibold text-primary text-lg mb-1">
-              Connaught Place, New Delhi
+              SBS Block, District Court, Gurugram
             </p>
             <p className="font-body text-sm text-text-muted mb-4">
-              12th Floor, Tower A — 110001
+              Chamber No- 142
             </p>
             <a
               href="https://maps.google.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-body text-sm font-medium text-secondary hover:text-secondary-hover transition-colors underline underline-offset-2"
+              className="inline-flex items-center gap-2 font-body text-sm font-medium text-white hover:text-white-hover transition-colors underline underline-offset-2"
             >
               Open in Google Maps
               <IconArrowRight size={14} />
@@ -236,7 +181,7 @@ export default function ContactPage() {
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <AnimatedSection direction="up" className="text-center max-w-2xl mx-auto mb-16">
             <div className="flex flex-col items-center gap-3 mb-6">
-              <p className="overline text-secondary">FAQ</p>
+              <p className="overline text-white">FAQ</p>
               <GoldDivider align="center" />
             </div>
             <h2
