@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   IconMail,
   IconPhone,
@@ -7,7 +8,6 @@ import {
 } from "@tabler/icons-react";
 import { SITE_CONFIG, NAV_ITEMS, OFFICE_LOCATIONS, PRACTICE_AREAS } from "@/config/constants";
 import { Container } from "@/components/ui/container";
-import { Separator } from "@/components/ui/separator";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -21,9 +21,11 @@ export function Footer() {
             {/* Brand Column */}
             <div className="lg:col-span-4">
               <Link href="/" className="flex items-center gap-3 mb-6">
-                <img
+                <Image
                   src="/logo.jpeg"
                   alt="Bhushan & Sons Logo"
+                  width={48}
+                  height={48}
                   className="w-12 h-12 object-contain rounded"
                 />
                 <div>

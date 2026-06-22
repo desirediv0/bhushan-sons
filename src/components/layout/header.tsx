@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { IconMenu2, IconX, IconPhone } from "@tabler/icons-react";
@@ -48,9 +49,11 @@ export function Header() {
 
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 sm:gap-3 group shrink-0">
-              <img
+              <Image
                 src="/logo.jpeg"
                 alt="Bhushan & Sons Logo"
+                width={40}
+                height={40}
                 className="w-8 h-8 sm:w-10 sm:h-10 object-contain rounded"
               />
               <div className="flex flex-col">
