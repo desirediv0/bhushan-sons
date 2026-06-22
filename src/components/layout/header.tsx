@@ -40,7 +40,7 @@ export function Header() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-sticky transition-all duration-300",
+          "sticky top-0 left-0 right-0 z-sticky transition-all duration-300",
           "bg-white border-b border-border shadow-sm"
         )}
       >
@@ -52,15 +52,15 @@ export function Header() {
               <Image
                 src="/logo.jpeg"
                 alt="Bhushan & Sons Logo"
-                width={40}
-                height={40}
-                className="w-8 h-8 sm:w-10 sm:h-10 object-contain rounded"
+                width={50}
+                height={50}
+                className="w-14 h-14 sm:w-16 sm:h-16 object-contain rounded"
               />
               <div className="flex flex-col">
                 <span className="font-heading font-bold text-primary block text-xs sm:text-[15px] leading-tight sm:leading-[1.1]">
                   Bhushan &amp; Sons
                 </span>
-                <span className="font-body block text-[7px] sm:text-[8px] tracking-[0.15em] sm:tracking-[0.2em] uppercase text-[#6B6B6B]">
+                <span className="font-body block text-[8px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.2em] uppercase text-[#6B6B6B]">
                   Advocates &amp; Solicitors
                 </span>
               </div>

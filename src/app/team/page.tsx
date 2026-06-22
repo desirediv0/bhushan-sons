@@ -60,7 +60,7 @@ export default function TeamPage() {
             {/* Content */}
             <AnimatedSection direction="left" delay={0.15}>
               <div className="flex flex-col gap-3 mb-8">
-                <p className="overline text-secondary">Founding Partner</p>
+                <p className="overline text-white">Founding Partner</p>
                 <GoldDivider />
               </div>
 
@@ -70,7 +70,7 @@ export default function TeamPage() {
               >
                 {managingPartner.name}
               </h2>
-              <p className="font-body text-secondary text-sm uppercase tracking-widest mb-8">
+              <p className="font-body text-white text-sm uppercase tracking-widest mb-8">
                 {managingPartner.designation}
               </p>
 
@@ -78,7 +78,7 @@ export default function TeamPage() {
               <div className="relative pl-5 border-l border-secondary mb-8">
                 <IconQuote
                   size={20}
-                  className="text-secondary/40 mb-2"
+                  className="text-white/40 mb-2"
                   style={{ transform: "scaleX(-1)" }}
                 />
                 <p
@@ -116,7 +116,7 @@ export default function TeamPage() {
                   href={managingPartner.linkedIn}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-body text-sm text-white/60 hover:text-secondary transition-colors"
+                  className="inline-flex items-center gap-2 font-body text-sm text-white/60 hover:text-white transition-colors"
                 >
                   <IconBrandLinkedin size={18} />
                   LinkedIn Profile
@@ -132,7 +132,7 @@ export default function TeamPage() {
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <AnimatedSection direction="up" className="mb-16">
             <div className="flex flex-col gap-3 mb-6">
-              <p className="overline text-secondary">Senior Leadership</p>
+              <p className="overline text-white">Senior Leadership</p>
               <GoldDivider />
             </div>
             <h2
@@ -159,7 +159,7 @@ export default function TeamPage() {
           <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
             <AnimatedSection direction="up" className="mb-16">
               <div className="flex flex-col gap-3 mb-6">
-                <p className="overline text-secondary">Our Associates</p>
+                <p className="overline text-white">Our Associates</p>
                 <GoldDivider />
               </div>
               <h2
@@ -187,7 +187,7 @@ export default function TeamPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection direction="right">
               <div className="flex flex-col gap-3 mb-6">
-                <p className="overline text-secondary">Careers</p>
+                <p className="overline text-white">Careers</p>
                 <GoldDivider />
               </div>
               <h2
@@ -196,7 +196,7 @@ export default function TeamPage() {
               >
                 Join Our
                 <span
-                  className="block text-secondary"
+                  className="block text-white"
                   style={{ fontFamily: "var(--font-accent)", fontStyle: "italic", fontWeight: 500 }}
                 >
                   Legal Team
