@@ -123,7 +123,7 @@ export default function PracticeAreasPage() {
                   {/* Benefits */}
                   {area.benefits && (
                     <div className="bg-[#0A0A0A] p-6 mb-8">
-                      <p className="font-body text-xs font-semibold uppercase tracking-widest text-secondary mb-4">
+                      <p className="font-body text-xs font-semibold uppercase tracking-widest text-white mb-4">
                         Why Choose Us
                       </p>
                       <div className="space-y-2">
