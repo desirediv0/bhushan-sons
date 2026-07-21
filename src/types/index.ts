@@ -10,6 +10,16 @@ export interface Stat {
   prefix?: string;
 }
 
+export interface ProcessPhase {
+  phase: string;
+  description: string;
+}
+
+export interface PracticeAreaFAQ {
+  question: string;
+  answer: string;
+}
+
 export interface PracticeArea {
   id: string;
   title: string;
@@ -18,6 +28,24 @@ export interface PracticeArea {
   image?: string;
   services: string[];
   benefits?: string[];
+  /** Short punchy line used in the detail-page hero, under the title */
+  tagline?: string;
+  /** Primary CTA label for the detail-page hero (falls back to a generic label) */
+  ctaLabel?: string;
+  /** Who this service is for — rendered as a numbered "Is This For You?" list */
+  audience?: string[];
+  /** Why clients trust the firm for this specific matter */
+  trustPoints?: string[];
+  /** What changes / outcomes once the firm takes over the matter */
+  outcomes?: string[];
+  /** Statutes / regulations relevant to this practice area */
+  statutes?: string[];
+  /** Documents needed to begin the case */
+  documents?: string[];
+  /** Phased case-handling process */
+  process?: ProcessPhase[];
+  /** Service-specific FAQs (falls back to general FAQ_ITEMS when absent) */
+  faqs?: PracticeAreaFAQ[];
 }
 
 export interface TeamMember {

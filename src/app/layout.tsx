@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter, Cormorant_Garamond } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { FloatingCall } from "@/components/ui/floating-call";
 import "./globals.css";
 
 // Use DIFFERENT variable names from what globals.css registers
@@ -80,6 +81,7 @@ export default function RootLayout({
         <Header />
         <main className="">{children}</main>
         <Footer />
+        <FloatingCall />
       </body>
     </html>
   );

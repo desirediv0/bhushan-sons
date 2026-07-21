@@ -37,28 +37,28 @@ export default function TeamPage() {
       />
 
       {/* Managing Partner Feature */}
-      <section className="py-12 lg:py-14 bg-[#0A0A0A] overflow-hidden">
+      <section className="relative py-12 lg:py-14 bg-navy-texture overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Portrait */}
             <AnimatedSection direction="right" className="relative">
-              <div className="relative aspect-[3/4] overflow-hidden">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
                 <Image
                   src={managingPartner.image}
                   alt={managingPartner.name}
                   fill
-                  className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/60 to-transparent" />
               </div>
-              <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-secondary/30" />
-              <div className="absolute -bottom-4 -right-4 w-20 h-20 border-b-2 border-r-2 border-secondary/30" />
+              <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-white/40 rounded-tl-2xl" />
+              <div className="absolute -bottom-4 -right-4 w-20 h-20 border-b-2 border-r-2 border-white/40 rounded-br-2xl" />
             </AnimatedSection>
 
             {/* Content */}
             <AnimatedSection direction="left" delay={0.15}>
               <div className="flex flex-col gap-3 mb-8">
-                <p className="overline text-white">Founding Partner</p>
+                <p className="overline">Founding Partner</p>
                 <GoldDivider />
               </div>
 
@@ -68,20 +68,20 @@ export default function TeamPage() {
               >
                 {managingPartner.name}
               </h2>
-              <p className="font-body text-white text-sm uppercase tracking-widest mb-8">
+              <p className="font-body text-secondary-light font-semibold text-sm uppercase tracking-widest mb-8">
                 {managingPartner.designation}
               </p>
 
               {/* Quote */}
-              <div className="relative pl-5 border-l border-secondary mb-8">
+              <div className="relative pl-5 border-l-2 border-secondary mb-8">
                 <IconQuote
                   size={20}
-                  className="text-white/40 mb-2"
+                  className="text-secondary/70 mb-2"
                   style={{ transform: "scaleX(-1)" }}
                 />
                 <p
-                  className="font-accent italic text-white/70 text-lg leading-relaxed"
-                  style={{ fontFamily: "var(--font-accent)" }}
+                  className="font-accent italic text-secondary-light/90 text-lg leading-relaxed"
+                  style={{}}
                 >
                   &ldquo;Excellence is not an act but a habit. At Bhushan & Sons,
                   we have made excellence the habit of a lifetime.&rdquo;
@@ -100,8 +100,8 @@ export default function TeamPage() {
                   { label: "Specialization", value: managingPartner.specialization.join(", ") },
                   { label: "Admitted", value: "Bar Council of Delhi" },
                 ].map((d) => (
-                  <div key={d.label} className="border border-white/10 p-4">
-                    <p className="font-body text-xs text-white/40 uppercase tracking-widest mb-1">
+                  <div key={d.label} className="rounded-xl border border-white/10 bg-white/[0.03] p-4 hover:border-white/40 transition-colors duration-300">
+                    <p className="font-body text-xs text-secondary-light uppercase tracking-widest mb-1">
                       {d.label}
                     </p>
                     <p className="font-body text-sm text-white">{d.value}</p>
@@ -114,7 +114,7 @@ export default function TeamPage() {
                   href={managingPartner.linkedIn}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-body text-sm text-white/60 hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 font-body text-sm text-secondary-light/80 hover:text-secondary-light transition-colors"
                 >
                   <IconBrandLinkedin size={18} />
                   LinkedIn Profile
@@ -130,11 +130,11 @@ export default function TeamPage() {
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <AnimatedSection direction="up" className="mb-12">
             <div className="flex flex-col gap-3 mb-6">
-              <p className="overline text-white">Advocates</p>
+              <p className="overline">Advocates</p>
               <GoldDivider />
             </div>
             <h2
-              className="font-heading font-bold text-primary leading-tight"
+              className="font-heading font-bold text-text leading-tight"
               style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)" }}
             >
               Meet Our Expert Team

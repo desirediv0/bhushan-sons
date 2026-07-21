@@ -16,6 +16,9 @@ import {
   Star,
   ArrowRight,
   Zap,
+  Banknote,
+  Landmark,
+  LockKeyhole,
 
 } from "lucide-react"
 import { motion, useScroll, useTransform, useInView, type Variants } from "framer-motion"
@@ -25,7 +28,7 @@ import { Heart } from "lucide-react";
 
 export default function AboutUsSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(sectionRef, { once: false, amount: 0.1 })
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 })
 
   // Parallax effect for decorative elements
   const { scrollYProgress } = useScroll({
@@ -59,16 +62,22 @@ export default function AboutUsSection() {
   }
 
   const selectedAreaIds = [
+    "loan-settlement-debt-resolution",
+    "sarfaesi-drt-matters",
+    "bank-freeze-cyber-crime",
     "civil-law",
-    "criminal-law",
     "family-law",
     "corporate-law",
-    "realestate-law",
-    "dispute-resolution",
   ];
 
   const getIcon = (id: string) => {
     switch (id) {
+      case "loan-settlement-debt-resolution":
+        return <Banknote className="w-6 h-6" />;
+      case "sarfaesi-drt-matters":
+        return <Landmark className="w-6 h-6" />;
+      case "bank-freeze-cyber-crime":
+        return <LockKeyhole className="w-6 h-6" />;
       case "civil-law":
         return <Scale className="w-6 h-6" />;
       case "criminal-law":
@@ -88,21 +97,24 @@ export default function AboutUsSection() {
 
   const getSecondaryIcon = (id: string) => {
     switch (id) {
+      case "loan-settlement-debt-resolution":
       case "civil-law":
       case "family-law":
       case "realestate-law":
-        return <Sparkles className="w-4 h-4 absolute -top-1 -right-1 text-[#A9BBC8]" />;
+        return <Sparkles className="w-4 h-4 absolute -top-1 -right-1 text-secondary" />;
+      case "sarfaesi-drt-matters":
       case "criminal-law":
       case "dispute-resolution":
-        return <CheckCircle className="w-4 h-4 absolute -top-1 -right-1 text-[#A9BBC8]" />;
+        return <CheckCircle className="w-4 h-4 absolute -top-1 -right-1 text-secondary" />;
       default:
-        return <Star className="w-4 h-4 absolute -top-1 -right-1 text-[#A9BBC8]" />;
+        return <Star className="w-4 h-4 absolute -top-1 -right-1 text-secondary" />;
     }
   };
 
   const services = selectedAreaIds.map((id, index) => {
     const area = PRACTICE_AREAS.find((a) => a.id === id) || PRACTICE_AREAS[0];
     return {
+      id: area.id,
       icon: getIcon(id),
       secondaryIcon: getSecondaryIcon(id),
       title: area.title,
@@ -116,19 +128,19 @@ export default function AboutUsSection() {
     <section
       id="about-section"
       ref={sectionRef}
-      className="w-full py-12 lg:py-14 px-4 bg-white text-[#202e44] overflow-hidden relative"
+      className="w-full py-12 lg:py-14 px-4 bg-white text-text overflow-hidden relative"
     >
       {/* Decorative background elements */}
       <motion.div
-        className="absolute top-20 left-10 w-64 h-64 rounded-full bg-[#111111]/5 blur-3xl"
+        className="absolute top-20 left-10 w-64 h-64 rounded-full bg-primary/5 blur-3xl"
         style={{ y: y1, rotate: rotate1 }}
       />
       <motion.div
-        className="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-[#A9BBC8]/5 blur-3xl"
+        className="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-secondary/10 blur-3xl"
         style={{ y: y2, rotate: rotate2 }}
       />
       <motion.div
-        className="absolute top-1/2 left-1/4 w-4 h-4 rounded-full bg-[#111111]/30"
+        className="absolute top-1/2 left-1/4 w-4 h-4 rounded-full bg-secondary/40"
         animate={{
           y: [0, -15, 0],
           opacity: [0.5, 1, 0.5],
@@ -140,7 +152,7 @@ export default function AboutUsSection() {
         }}
       />
       <motion.div
-        className="absolute bottom-1/3 right-1/4 w-6 h-6 rounded-full bg-[#A9BBC8]/30"
+        className="absolute bottom-1/3 right-1/4 w-6 h-6 rounded-full bg-primary/20"
         animate={{
           y: [0, 20, 0],
           opacity: [0.5, 1, 0.5],
@@ -161,7 +173,7 @@ export default function AboutUsSection() {
       >
         <motion.div className="flex flex-col items-center mb-6" variants={itemVariants}>
           <motion.span
-            className="text-[#111111] font-semibold mb-2 flex items-center gap-2"
+            className="text-secondary font-semibold uppercase tracking-[0.2em] text-xs mb-2 flex items-center gap-2"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -169,16 +181,16 @@ export default function AboutUsSection() {
             <Zap className="w-4 h-4" />
             DISCOVER OUR STORY
           </motion.span>
-          <h2 className="text-4xl md:text-5xl font-light mb-4 text-center">About Us</h2>
+          <h2 className="font-heading font-bold text-primary text-4xl md:text-5xl mb-4 text-center">About Us</h2>
           <motion.div
-            className="w-24 h-1 bg-[#111111]"
+            className="w-24 h-1 bg-gradient-to-r from-secondary to-secondary-light rounded-full"
             initial={{ width: 0 }}
             animate={{ width: 96 }}
             transition={{ duration: 1, delay: 0.5 }}
           ></motion.div>
         </motion.div>
 
-        <motion.p className="text-center max-w-2xl mx-auto mb-16 text-[#202e44]/80" variants={itemVariants}>
+        <motion.p className="text-center max-w-2xl mx-auto mb-16 text-text-muted" variants={itemVariants}>
           We are a premier full-service law firm dedicated to providing strategic legal counsel, aggressive advocacy, and tailored solutions. With a rich history of excellence and integrity, we protect your interests and drive success.
         </motion.p>
 
@@ -190,6 +202,7 @@ export default function AboutUsSection() {
               .map((service, index) => (
                 <ServiceItem
                   key={`left-${index}`}
+                  id={service.id}
                   icon={service.icon}
                   secondaryIcon={service.secondaryIcon}
                   title={service.title}
@@ -221,7 +234,7 @@ export default function AboutUsSection() {
 
               </motion.div>
               <motion.div
-                className="absolute inset-0 border-4 border-[#111111] rounded-md -m-3 z-[-1]"
+                className="absolute inset-0 border-2 border-secondary/60 rounded-md -m-3 z-[-1]"
                 initial={{ opacity: 0, scale: 1.1 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
@@ -229,14 +242,14 @@ export default function AboutUsSection() {
 
               {/* Floating accent elements */}
               <motion.div
-                className="absolute -top-4 -right-8 w-16 h-16 rounded-full bg-[#111111]/10"
+                className="absolute -top-4 -right-8 w-16 h-16 rounded-full bg-secondary/20"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.9 }}
                 style={{ y: y1 }}
               ></motion.div>
               <motion.div
-                className="absolute -bottom-6 -left-10 w-20 h-20 rounded-full bg-[#A9BBC8]/15"
+                className="absolute -bottom-6 -left-10 w-20 h-20 rounded-full bg-primary/10"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 1.1 }}
@@ -245,7 +258,7 @@ export default function AboutUsSection() {
 
               {/* Additional decorative elements */}
               <motion.div
-                className="absolute -top-10 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#111111]"
+                className="absolute -top-10 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-secondary"
                 animate={{
                   y: [0, -10, 0],
                   opacity: [0.5, 1, 0.5],
@@ -257,7 +270,7 @@ export default function AboutUsSection() {
                 }}
               ></motion.div>
               <motion.div
-                className="absolute -bottom-12 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#A9BBC8]"
+                className="absolute -bottom-12 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-primary/40"
                 animate={{
                   y: [0, 10, 0],
                   opacity: [0.5, 1, 0.5],
@@ -279,6 +292,7 @@ export default function AboutUsSection() {
               .map((service, index) => (
                 <ServiceItem
                   key={`right-${index}`}
+                  id={service.id}
                   icon={service.icon}
                   secondaryIcon={service.secondaryIcon}
                   title={service.title}
@@ -298,6 +312,7 @@ export default function AboutUsSection() {
 }
 
 interface ServiceItemProps {
+  id: string
   icon: React.ReactNode
   secondaryIcon?: React.ReactNode
   title: string
@@ -307,8 +322,7 @@ interface ServiceItemProps {
   direction: "left" | "right"
 }
 
-function ServiceItem({ icon, secondaryIcon, title, description, variants, delay, direction }: ServiceItemProps) {
-  const hash = title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+function ServiceItem({ id, icon, secondaryIcon, title, description, variants, delay, direction }: ServiceItemProps) {
   return (
     <motion.div
       className="flex flex-col group cursor-pointer"
@@ -316,7 +330,7 @@ function ServiceItem({ icon, secondaryIcon, title, description, variants, delay,
       transition={{ delay }}
       whileHover={{ y: -5, transition: { duration: 0.2 } }}
     >
-      <Link href={`/practice-areas#${hash}`} className="block">
+      <Link href={`/practice-areas/${id}`} className="block">
         <motion.div
           className="flex items-center gap-3 mb-3"
           initial={{ x: direction === "left" ? -20 : 20, opacity: 0 }}
@@ -324,18 +338,18 @@ function ServiceItem({ icon, secondaryIcon, title, description, variants, delay,
           transition={{ duration: 0.6, delay: delay + 0.2 }}
         >
           <motion.div
-            className="text-[#111111] bg-[#111111]/10 p-3 rounded-lg transition-colors duration-300 group-hover:bg-[#111111]/20 relative"
+            className="text-secondary bg-secondary/10 p-3 rounded-xl border border-secondary/20 transition-colors duration-300 group-hover:bg-secondary group-hover:text-white relative"
             whileHover={{ rotate: [0, -10, 10, -5, 0], transition: { duration: 0.5 } }}
           >
             {icon}
             {secondaryIcon}
           </motion.div>
-          <h3 className="text-xl font-medium text-[#202e44] group-hover:text-[#111111] transition-colors duration-300">
+          <h3 className="text-xl font-medium text-primary group-hover:text-secondary transition-colors duration-300">
             {title}
           </h3>
         </motion.div>
         <motion.p
-          className="text-sm text-[#202e44]/80 leading-relaxed pl-12"
+          className="text-sm text-text-muted leading-relaxed pl-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: delay + 0.4 }}
@@ -343,7 +357,7 @@ function ServiceItem({ icon, secondaryIcon, title, description, variants, delay,
           {description}
         </motion.p>
         <motion.div
-          className="mt-3 pl-12 flex items-center text-[#111111] text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          className="mt-3 pl-12 flex items-center text-secondary text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           initial={{ opacity: 0 }}
           animate={{ opacity: 0 }}
         >

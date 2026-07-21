@@ -43,18 +43,17 @@ export default function ContactPage() {
             {/* Left: Contact Info */}
             <AnimatedSection direction="right" className="lg:col-span-2">
               <div className="flex flex-col gap-3 mb-8">
-                <p className="overline text-white">Get in Touch</p>
+                <p className="overline">Get in Touch</p>
                 <GoldDivider />
               </div>
 
               <h2
-                className="font-heading font-bold text-primary leading-tight mb-6"
+                className="font-heading font-bold text-text leading-tight mb-6"
                 style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)" }}
               >
                 Contact
                 <span
-                  className="block text-white"
-                  style={{ fontFamily: "var(--font-accent)", fontStyle: "italic", fontWeight: 500 }}
+                  className="block text-violet-gradient"
                 >
                   Information
                 </span>
@@ -63,8 +62,8 @@ export default function ContactPage() {
               {/* Contact Details */}
               <div className="flex flex-col gap-6 mb-12">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 border border-border flex items-center justify-center shrink-0 mt-0.5">
-                    <IconPhone size={18} className="text-black" />
+                  <div className="w-11 h-11 rounded-xl bg-violet-100 border border-violet-200 flex items-center justify-center shrink-0 mt-0.5">
+                    <IconPhone size={18} className="text-primary" />
                   </div>
                   <div>
                     <p className="font-body text-xs text-text-muted uppercase tracking-widest mb-1">
@@ -72,7 +71,7 @@ export default function ContactPage() {
                     </p>
                     <a
                       href="tel:+919306185801"
-                      className="font-body font-medium text-primary hover:text-white transition-colors"
+                      className="font-body font-medium text-primary hover:text-primary transition-colors"
                     >
                       +91 93061 85801
                     </a>
@@ -80,8 +79,8 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 border border-border flex items-center justify-center shrink-0 mt-0.5">
-                    <IconMail size={18} className="text-black" />
+                  <div className="w-11 h-11 rounded-xl bg-violet-100 border border-violet-200 flex items-center justify-center shrink-0 mt-0.5">
+                    <IconMail size={18} className="text-primary" />
                   </div>
                   <div>
                     <p className="font-body text-xs text-text-muted uppercase tracking-widest mb-1">
@@ -89,7 +88,7 @@ export default function ContactPage() {
                     </p>
                     <a
                       href="mailto:contact@bhushanandsons.com"
-                      className="font-body font-medium text-primary hover:text-white transition-colors"
+                      className="font-body font-medium text-primary hover:text-primary transition-colors"
                     >
                       contact@bhushanandsons.com
                     </a>
@@ -106,13 +105,13 @@ export default function ContactPage() {
                   {OFFICE_LOCATIONS.map((office) => (
                     <div
                       key={office.id}
-                      className="flex items-start gap-3 p-4 border border-border hover:border-secondary/20 transition-colors"
+                      className="flex items-start gap-3 p-4 rounded-xl border border-border hover:border-violet-300 hover:shadow-card transition-all duration-300"
                     >
                       <div className="shrink-0">
-                        <div className="w-2 h-2 rounded-full bg-secondary mt-2" />
+                        <div className="w-2 h-2 rounded-full bg-primary mt-2" />
                       </div>
                       <div>
-                        <p className="font-body font-semibold text-primary text-sm mb-1">
+                        <p className="font-body font-semibold text-text text-sm mb-1">
                           {office.city}
                         </p>
                         <p className="font-body text-xs text-text-muted leading-relaxed">
@@ -127,8 +126,9 @@ export default function ContactPage() {
 
             {/* Right: Form */}
             <AnimatedSection direction="left" delay={0.1} className="lg:col-span-3">
-              <div className="border border-border p-8 lg:p-12">
-                <h3 className="font-heading font-semibold text-primary text-2xl mb-2">
+              <div className="rounded-2xl border border-border shadow-card p-8 lg:p-12 bg-white relative overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary via-primary-light to-secondary" />
+                <h3 className="font-heading font-semibold text-text text-2xl mb-2">
                   Get Callback
                 </h3>
                 <p className="font-body text-text-muted text-sm mb-8">
@@ -143,21 +143,21 @@ export default function ContactPage() {
       </section>
 
       {/* Map Section (Styled Placeholder) */}
-      <section className="h-80 lg:h-96 bg-[#F0EDE8] relative overflow-hidden">
+      <section className="h-80 lg:h-96 bg-background-alt relative overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
           {/* Grid pattern */}
           <div
             className="absolute inset-0 opacity-20"
             style={{
-              backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 40px, #111111 40px, #111111 41px), repeating-linear-gradient(90deg, transparent, transparent 40px, #111111 40px, #111111 41px)`,
+              backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 40px, #6D28D9 40px, #6D28D9 41px), repeating-linear-gradient(90deg, transparent, transparent 40px, #6D28D9 40px, #6D28D9 41px)`,
             }}
           />
 
           <div className="relative z-10 text-center">
-            <div className="w-12 h-12 rounded-full bg-[#0A0A0A] flex items-center justify-center mb-4 mx-auto">
-              <IconMapPin size={22} className="text-black" />
+            <div className="w-12 h-12 rounded-full bg-primary shadow-navy flex items-center justify-center mb-4 mx-auto">
+              <IconMapPin size={22} className="text-white" />
             </div>
-            <p className="font-heading font-semibold text-primary text-lg mb-1">
+            <p className="font-heading font-semibold text-text text-lg mb-1">
               SBS Block, District Court, Gurugram
             </p>
             <p className="font-body text-sm text-text-muted mb-4">
@@ -167,7 +167,7 @@ export default function ContactPage() {
               href="https://maps.google.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-body text-sm font-medium text-white hover:text-white-hover transition-colors underline underline-offset-2"
+              className="inline-flex items-center gap-2 font-body text-sm font-semibold text-primary hover:text-primary-light transition-colors underline underline-offset-4"
             >
               Open in Google Maps
               <IconArrowRight size={14} />
@@ -181,11 +181,11 @@ export default function ContactPage() {
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <AnimatedSection direction="up" className="text-center max-w-2xl mx-auto mb-16">
             <div className="flex flex-col items-center gap-3 mb-6">
-              <p className="overline text-white">FAQ</p>
+              <p className="overline">FAQ</p>
               <GoldDivider align="center" />
             </div>
             <h2
-              className="font-heading font-bold text-primary leading-tight"
+              className="font-heading font-bold text-text leading-tight"
               style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)" }}
             >
               Frequently Asked Questions

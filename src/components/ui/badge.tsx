@@ -18,7 +18,7 @@ const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
           size === "sm" && "px-2.5 py-0.5 text-xs",
           size === "md" && "px-3 py-1 text-sm",
           variant === "default" && "bg-primary/10 text-primary",
-          variant === "secondary" && "bg-secondary/10 text-white",
+          variant === "secondary" && "bg-secondary/10 text-secondary-hover",
           variant === "outline" && "border border-border text-text-muted",
           variant === "gold" &&
           "bg-secondary text-primary font-semibold",

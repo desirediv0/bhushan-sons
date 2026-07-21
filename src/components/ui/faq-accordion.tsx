@@ -28,13 +28,13 @@ export function FAQAccordion({ items, className }: FAQAccordionProps) {
               id={`faq-button-${item.id}`}
               aria-controls={`faq-panel-${item.id}`}
             >
-              <span className="font-heading font-semibold text-primary text-lg leading-snug group-hover:text-secondary transition-colors duration-300">
-                <span className="font-body text-sm text-secondary mr-4 font-normal" style={{ fontFamily: "var(--font-accent)", fontStyle: "italic" }}>
+              <span className="font-heading font-semibold text-text text-lg leading-snug group-hover:text-primary transition-colors duration-300">
+                <span className="font-body text-sm text-primary font-semibold mr-4">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 {item.question}
               </span>
-              <span className="shrink-0 w-8 h-8 rounded-full border border-border flex items-center justify-center text-secondary transition-all duration-300 group-hover:border-secondary group-hover:bg-secondary group-hover:text-white">
+              <span className="shrink-0 w-8 h-8 rounded-full border border-border flex items-center justify-center text-primary transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-white">
                 {isOpen ? <IconMinus size={16} /> : <IconPlus size={16} />}
               </span>
             </button>

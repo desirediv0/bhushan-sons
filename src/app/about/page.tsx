@@ -35,7 +35,7 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Image placeholder */}
             <AnimatedSection direction="right" className="relative">
-              <div className="relative aspect-[3/4] overflow-hidden">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
                 <Image
                   src="/sunil-square.jpeg"
                   alt="Adv. Sunil Kr. Yadav"
@@ -43,27 +43,27 @@ export default function AboutPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 left-12 top-6 border border-secondary/15 -z-10" />
+              <div className="absolute -bottom-6 -right-6 left-12 top-6 rounded-2xl bg-gradient-to-br from-violet-200/60 to-emerald-100/60 -z-10" />
             </AnimatedSection>
 
             {/* Content */}
             <AnimatedSection direction="left" delay={0.15}>
               <div className="flex flex-col gap-3 mb-8">
-                <p className="overline text-white">Leadership</p>
+                <p className="overline">Leadership</p>
                 <GoldDivider />
               </div>
               <h2
-                className="font-heading font-bold text-primary leading-tight mb-4"
+                className="font-heading font-bold text-text leading-tight mb-4"
                 style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)" }}
               >
                 Adv. Sunil Kr. Yadav
               </h2>
-              <p className="font-body text-white text-sm uppercase tracking-widest mb-6">
+              <p className="font-body text-primary font-semibold text-sm uppercase tracking-widest mb-6">
                 Senior Legal Counsel
               </p>
               <div className="font-body text-text-muted leading-relaxed space-y-4">
                 <p>
-                  With an exceptional legal career spanning over two decades, Adv. Sunil Kr. Yadav stands as a pillar of legal excellence within Bhushan & Sons. A distinguished practitioner before the Hon&apos;ble Supreme Court of India, various High Courts, and specialized Tribunals, Adv. Yadav has established an impeccable reputation for his jurisprudential acumen and strategic advocacy.
+                  With an exceptional legal career spanning over two decades, Adv. Sunil Kr. Yadav stands as a pillar of legal excellence within Bhushan & Sons. A distinguished practitioner before various High Courts and specialized Tribunals, Adv. Yadav has established an impeccable reputation for his jurisprudential acumen and strategic advocacy.
                 </p>
                 <p>
                   His comprehensive expertise encompasses diverse practice areas including civil litigation, criminal defense, matrimonial disputes, and corporate legal counsel. Adv. Yadav&apos;s client representations are characterized by meticulous preparation, ethical counsel, and unwavering commitment to protecting his clients&apos; legal interests.
@@ -78,15 +78,15 @@ export default function AboutPage() {
       </section>
 
       {/* Section 02: Journey / Pillars */}
-      <section className="py-12 lg:py-14 bg-[#FAFAFA]">
+      <section className="py-12 lg:py-14 bg-background-alt">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <AnimatedSection direction="up" className="text-center max-w-2xl mx-auto mb-20">
             <div className="flex flex-col items-center gap-3 mb-6">
-              <p className="overline text-white">Our Path</p>
+              <p className="overline">Our Path</p>
               <GoldDivider align="center" />
             </div>
             <h2
-              className="font-heading font-bold text-primary leading-tight"
+              className="font-heading font-bold text-text leading-tight"
               style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)" }}
             >
               Learn About Our Journey
@@ -113,9 +113,9 @@ export default function AboutPage() {
               },
             ].map((item, index) => (
               <StaggerItem key={index} direction="up">
-                <div className="bg-white p-8 h-full border border-border flex flex-col hover:shadow-md transition-shadow">
-                  <span className="font-heading text-black text-2xl font-bold mb-4 block">0{index + 1}</span>
-                  <h3 className="font-heading font-semibold text-lg text-primary mb-4 leading-snug">
+                <div className="group bg-white p-8 h-full rounded-2xl border border-border flex flex-col shadow-card hover:shadow-card-hover hover:-translate-y-1.5 hover:border-violet-300 transition-all duration-500">
+                  <span className="font-heading text-primary text-2xl font-bold mb-4 block">0{index + 1}</span>
+                  <h3 className="font-heading font-semibold text-lg text-text mb-4 leading-snug">
                     {item.title}
                   </h3>
                   <p className="font-body text-sm text-text-muted leading-relaxed">
@@ -131,12 +131,12 @@ export default function AboutPage() {
       {/* Section 03: Stats */}
       <section className="py-16 bg-white border-t border-border">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-          <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-border">
+          <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-5">
             {FIRM_STATS.map((stat) => (
               <StaggerItem key={stat.label} direction="up">
-                <div className="bg-white p-10 text-center">
+                <div className="bg-background-alt rounded-2xl border border-border p-10 text-center hover:border-violet-300 hover:shadow-card-hover transition-all duration-500">
                   <p
-                    className="font-heading font-bold text-primary leading-none mb-2"
+                    className="font-heading font-bold text-violet-gradient leading-none mb-2"
                     style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}
                   >
                     {stat.value}{stat.suffix}

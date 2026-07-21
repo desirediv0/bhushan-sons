@@ -58,11 +58,15 @@ export default function HomePage() {
       <PartnerSpotlight />
 
       {/* Expert Team Section */}
-      <section className="py-12 lg:py-14 bg-[#FAFAFA]">
+      <section className="py-12 lg:py-14 bg-background-alt">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="overline text-white">Meet Our Expert Team</span>
-            <h2 className="font-heading font-bold text-primary text-3xl sm:text-4xl mt-2">Our Dedicated Attorneys</h2>
+            <span className="overline">Meet Our Expert Team</span>
+            <h2 className="font-heading font-bold text-text text-3xl sm:text-4xl mt-2">Our Dedicated Attorneys</h2>
+            <div
+              className="w-16 h-[3px] rounded-full mx-auto mt-4"
+              style={{ background: "linear-gradient(90deg, #7C3AED, #34D399)" }}
+            />
           </div>
 
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -80,18 +84,18 @@ export default function HomePage() {
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
-              <span className="overline text-white">Our Blogs</span>
-              <h2 className="font-heading font-bold text-primary text-3xl sm:text-4xl mt-2">Latest Insights & Legal News</h2>
+              <span className="overline">Our Blogs</span>
+              <h2 className="font-heading font-bold text-text text-3xl sm:text-4xl mt-2">Latest Insights & Legal News</h2>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {BLOGS_DATA.map((blog) => (
               <article key={blog.title} className="flex flex-col border border-border p-6 hover:shadow-md transition-shadow">
-                <span className="font-body text-xs text-white font-medium tracking-wide uppercase">{blog.category} | {blog.date}</span>
+                <span className="font-body text-xs text-secondary font-medium tracking-wide uppercase">{blog.category} | {blog.date}</span>
                 <h3 className="font-heading font-bold text-lg text-primary mt-2 mb-3 leading-snug">{blog.title}</h3>
                 <p className="font-body text-sm text-text-muted leading-relaxed mb-4 flex-1">{blog.desc}</p>
-                <div className="w-8 h-px bg-primary" />
+                <div className="w-8 h-px bg-secondary" />
               </article>
             ))}
           </div>

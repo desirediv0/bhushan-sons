@@ -5,42 +5,37 @@ import { TESTIMONIALS } from "@/config/constants";
 
 export function TestimonialsSection() {
   return (
-    <section className="py-12 lg:py-14 bg-[#0A0A0A] overflow-hidden">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-        {/* Header */}
-        <AnimatedSection direction="up" className="max-w-2xl mb-20">
-          <div className="flex flex-col gap-3 mb-6">
-            <p className="overline text-white">Client Testimonials</p>
-            <GoldDivider />
+    <section className="relative py-14 lg:py-20 bg-background-alt overflow-hidden">
+      <div className="relative max-w-[1280px] mx-auto px-6 lg:px-8">
+        {/* Header — centered */}
+        <AnimatedSection direction="up" className="text-center max-w-2xl mx-auto mb-16">
+          <div className="flex flex-col items-center gap-3 mb-6">
+            <p className="overline">Client Testimonials</p>
+            <GoldDivider align="center" />
           </div>
           <h2
-            className="font-heading font-bold text-white leading-tight"
-            style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)" }}
+            className="font-heading font-bold text-text leading-tight tracking-tight"
+            style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
           >
-            What Our Clients
-            <span
-              className="block text-white"
-              style={{ fontFamily: "var(--font-accent)", fontStyle: "italic", fontWeight: 500 }}
-            >
-              Say About Us
-            </span>
+            What Our Clients{" "}
+            <span className="text-violet-gradient">Say About Us</span>
           </h2>
         </AnimatedSection>
 
         {/* Testimonials grid */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.5">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {TESTIMONIALS.slice(0, 3).map((testimonial) => (
             <StaggerItem key={testimonial.id} direction="up">
-              <TestimonialCard testimonial={testimonial} variant="dark" className="h-full" />
+              <TestimonialCard testimonial={testimonial} className="h-full" />
             </StaggerItem>
           ))}
         </StaggerContainer>
 
         {/* Bottom testimonials — 2 more */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-0.5 mt-0.5">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
           {TESTIMONIALS.slice(3, 5).map((testimonial) => (
             <StaggerItem key={testimonial.id} direction="up">
-              <TestimonialCard testimonial={testimonial} variant="dark" className="h-full" />
+              <TestimonialCard testimonial={testimonial} className="h-full" />
             </StaggerItem>
           ))}
         </StaggerContainer>

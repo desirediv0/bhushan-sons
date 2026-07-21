@@ -8,27 +8,32 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        /* Brand */
-        primary:          "#111111",
-        secondary:        "#111111",
-        "secondary-hover":"#333333",
+        /* Brand — violet + emerald + amber (clean & colorful) */
+        primary:          "#6D28D9",
+        "primary-light":  "#7C3AED",
+        "primary-dark":   "#4C1D95",
+        secondary:        "#10B981",
+        "secondary-hover":"#059669",
+        "secondary-light":"#A7F3D0",
+        accent:           "#F59E0B",
+        "accent-light":   "#FBBF24",
 
         /* Backgrounds */
         background:       "#FFFFFF",
-        "background-alt": "#FAFAFA",
-        "background-dark":"#0A0A0A",
+        "background-alt": "#F8FAFC",
+        "background-dark":"#0F172A",
 
         /* Text */
-        text:             "#111111",
-        "text-muted":     "#666666",
-        "text-light":     "#9CA3AF",
-        "text-on-dark":   "#F9FAFB",
-        "text-on-gold":   "#FFFFFF",
+        text:             "#0F172A",
+        "text-muted":     "#475569",
+        "text-light":     "#94A3B8",
+        "text-on-dark":   "#F8FAFC",
+        "text-on-gold":   "#0F172A",
 
         /* Borders */
-        border:           "#EAEAEA",
-        "border-light":   "#FAFAFA",
-        "border-gold":    "#111111",
+        border:           "#E2E8F0",
+        "border-light":   "#F1F5F9",
+        "border-gold":    "#7C3AED",
 
         /* Semantic */
         success:          "#059669",
@@ -38,9 +43,9 @@ module.exports = {
       },
 
       fontFamily: {
-        heading: ["var(--font-playfair)", "Playfair Display", "Georgia", "serif"],
-        body:    ["var(--font-inter)",    "Inter", "system-ui", "sans-serif"],
-        accent:  ["var(--font-cormorant)","Cormorant Garamond", "Georgia", "serif"],
+        heading: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
+        body:    ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
+        accent:  ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
       },
 
       fontSize: {
@@ -86,9 +91,10 @@ module.exports = {
       },
 
       boxShadow: {
-        gold:        "0 4px 14px rgba(17, 17, 17, 0.15)",
-        card:        "0 1px 3px rgba(0,0,0,0.04), 0 0 0 1px rgba(0,0,0,0.02)",
-        "card-hover":"0 12px 24px rgba(0,0,0,0.06), 0 0 0 1px rgba(17,17,17,0.1)",
+        gold:        "0 8px 24px rgba(16, 185, 129, 0.30)",
+        navy:        "0 12px 32px rgba(109, 40, 217, 0.22)",
+        card:        "0 1px 3px rgba(15,23,42,0.05), 0 0 0 1px rgba(15,23,42,0.03)",
+        "card-hover":"0 20px 40px rgba(15,23,42,0.08), 0 0 0 1px rgba(124,58,237,0.20)",
       },
 
       transitionTimingFunction: {
@@ -119,13 +125,23 @@ module.exports = {
           "0%":   { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
         },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%":      { transform: "translateY(-12px)" },
+        },
+        "pulse-soft": {
+          "0%, 100%": { opacity: "0.35" },
+          "50%":      { opacity: "0.7" },
+        },
       },
 
       animation: {
-        "fade-in":     "fade-in 0.6s ease-out forwards",
-        "fade-in-up":  "fade-in-up 0.6s ease-out forwards",
-        "scale-in":    "scale-in 0.4s ease-out forwards",
-        shimmer:       "shimmer 2s infinite linear",
+        "fade-in":    "fade-in 0.6s ease-out forwards",
+        "fade-in-up": "fade-in-up 0.6s ease-out forwards",
+        "scale-in":   "scale-in 0.4s ease-out forwards",
+        shimmer:      "shimmer 2.5s linear infinite",
+        float:        "float 5s ease-in-out infinite",
+        "pulse-soft": "pulse-soft 4s ease-in-out infinite",
       },
     },
   },

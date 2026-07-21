@@ -26,18 +26,13 @@ export function GoldDivider({
   return (
     <div
       className={cn(
-        "h-px",
+        "h-[3px] rounded-full",
         widths[width],
         alignments[align],
         className
       )}
       style={{
-        background:
-          align === "center"
-            ? "linear-gradient(90deg, transparent, #111111, transparent)"
-            : align === "right"
-              ? "linear-gradient(90deg, transparent, #111111)"
-              : "linear-gradient(90deg, #111111, transparent)",
+        background: "linear-gradient(90deg, #7C3AED, #34D399)",
       }}
     />
   );
@@ -56,7 +51,7 @@ export function SectionLabel({
 }: SectionLabelProps) {
   return (
     <div className={cn("flex flex-col gap-3", align === "center" && "items-center", className)}>
-      <p className="overline text-white">{children}</p>
+      <p className="overline">{children}</p>
       <GoldDivider align={align === "center" ? "center" : "left"} />
     </div>
   );

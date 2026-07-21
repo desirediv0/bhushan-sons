@@ -8,21 +8,21 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "bg-primary text-white hover:bg-primary/90 active:bg-primary/95 shadow-sm hover:shadow-md",
+          "bg-primary text-white hover:bg-primary-light active:bg-primary-dark shadow-sm hover:shadow-navy hover:-translate-y-0.5",
         secondary:
-          "bg-secondary text-white font-semibold hover:bg-secondary/90 active:bg-secondary/95 shadow-sm",
+          "bg-secondary text-white font-semibold hover:bg-secondary-hover active:bg-secondary-hover shadow-sm hover:shadow-gold hover:-translate-y-0.5",
         outline:
           "border border-primary text-primary bg-transparent hover:bg-primary hover:text-white",
         "outline-gold":
-          "border border-secondary text-white bg-transparent hover:bg-secondary hover:text-white",
+          "border border-secondary text-secondary bg-transparent hover:bg-secondary hover:text-white",
         ghost:
           "text-text hover:bg-background-alt active:bg-background-alt/80",
         "ghost-gold":
-          "text-white hover:bg-secondary/10 active:bg-secondary/15",
+          "text-secondary hover:bg-secondary/10 active:bg-secondary/15",
         link:
           "text-primary underline-offset-4 hover:underline p-0 h-auto",
         "link-gold":
-          "text-white underline-offset-4 hover:underline p-0 h-auto",
+          "text-secondary underline-offset-4 hover:underline p-0 h-auto",
       },
       size: {
         sm: "h-9 px-4 text-sm rounded",

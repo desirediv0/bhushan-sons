@@ -5,25 +5,27 @@ import { FAQ_ITEMS } from "@/config/constants";
 
 export function FAQSection() {
   return (
-    <section className="py-12 lg:py-14 bg-white">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
+    <section className="py-12 lg:py-14 bg-white relative overflow-hidden">
+      <div
+        className="pointer-events-none absolute -bottom-24 -left-24 w-[420px] h-[420px] rounded-full opacity-[0.05] animate-drift-slow"
+        style={{ background: "radial-gradient(circle, #7C3AED, transparent 70%)" }}
+      />
+
+      <div className="relative max-w-[1280px] mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-5 gap-16 lg:gap-20">
           {/* Left: Header */}
           <AnimatedSection direction="right" className="lg:col-span-2">
             <div className="lg:sticky lg:top-36">
               <div className="flex flex-col gap-3 mb-6">
-                <p className="overline text-white">Frequently Asked</p>
+                <p className="overline">Frequently Asked</p>
                 <GoldDivider />
               </div>
               <h2
-                className="font-heading font-bold text-primary leading-tight mb-6"
+                className="font-heading font-bold text-text leading-tight mb-6"
                 style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)" }}
               >
                 Questions
-                <span
-                  className="block text-white"
-                  style={{ fontFamily: "var(--font-accent)", fontStyle: "italic", fontWeight: 500 }}
-                >
+                <span className="block text-violet-gradient">
                   &amp; Answers
                 </span>
               </h2>
@@ -33,13 +35,13 @@ export function FAQSection() {
                 directly for a personalized response.
               </p>
 
-              <div className="mt-8 p-6 border border-border bg-[#FAFAFA]">
+              <div className="mt-8 p-6 rounded-2xl border border-violet-200 bg-violet-50">
                 <p className="font-body text-sm text-text-muted mb-2">
                   Still have questions?
                 </p>
                 <a
                   href="/contact"
-                  className="font-body text-sm font-medium text-white hover:text-white-hover transition-colors inline-flex items-center gap-1 underline underline-offset-2"
+                  className="font-body text-sm font-semibold text-primary hover:text-primary-light transition-colors inline-flex items-center gap-1 underline underline-offset-4"
                 >
                   Contact us directly →
                 </a>

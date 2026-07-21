@@ -40,11 +40,236 @@ export const NAV_ITEMS: NavItem[] = [
 export const FIRM_STATS: Stat[] = [
   { value: "20", label: "Years of Experience", suffix: "+" },
   { value: "2500", label: "Cases Handled", suffix: "+" },
-  { value: "98", label: "Success Rate", suffix: "%" },
-  { value: "5", label: "Expert Attorneys", suffix: "" },
+  { value: "11", label: "Practice Areas", suffix: "+" },
+  { value: "28", label: "Expert Attorneys", suffix: "+" },
 ];
 
 export const PRACTICE_AREAS: PracticeArea[] = [
+  {
+    id: "loan-settlement-debt-resolution",
+    title: "Loan Settlement & Debt Resolution",
+    description:
+      "Structured, lawful settlement of bank and NBFC dues — reducing your liability, stopping recovery harassment, and closing loan accounts with documented finality.",
+    icon: "cash",
+    image: "/Banking-Finance.jpg",
+    tagline: "Reduce what you owe. Stop the calls. Close the loan — lawfully.",
+    ctaLabel: "Get Debt Relief",
+    services: [
+      "One-Time Settlement (OTS) Negotiation",
+      "Recovery Harassment Defense",
+      "NPA & Loan Restructuring",
+      "Written Closure & No-Dues Certificate",
+    ],
+    benefits: [
+      "Direct negotiation with banks & NBFCs on your behalf",
+      "Protection from unlawful recovery agent conduct",
+      "Settlement documented and legally enforceable",
+    ],
+    audience: [
+      "Borrowers facing repeated recovery calls, visits or legal notices",
+      "Anyone who defaulted due to a medical emergency, job loss or business setback",
+      "Homeowners or businesses under pressure from mounting loan dues",
+      "Families seeking a documented, final exit from a stressed loan",
+    ],
+    trustPoints: [
+      "We negotiate directly with banks and NBFCs on your behalf",
+      "Settlements are structured under RBI's recovery and fair-practice framework, not informal promises",
+      "Every closure is backed by a written settlement and No-Dues Certificate",
+    ],
+    outcomes: [
+      "Reduced overall loan liability",
+      "An end to recovery calls and field visits",
+      "Protection against coercive or unlawful recovery conduct",
+      "Written settlement and account closure on record",
+    ],
+    statutes: [
+      "RBI Recovery & Fair Practice Guidelines",
+      "Banking Regulation Act, 1949",
+      "SARFAESI Act, 2002 (where applicable)",
+      "Indian Contract Act, 1872",
+    ],
+    documents: [
+      "Loan sanction letter and account statements",
+      "Recovery or default notices received",
+      "Proof of income loss, medical emergency or business setback",
+      "Any written or recorded communication from the bank or recovery agents",
+    ],
+    process: [
+      { phase: "Assessment", description: "Review of your total outstanding liability and financial position." },
+      { phase: "Document Review", description: "Legal review of loan agreements and recovery correspondence." },
+      { phase: "Negotiation Strategy", description: "A settlement position is built around what you can lawfully pay." },
+      { phase: "Settlement", description: "A formal One-Time Settlement is negotiated with the bank or NBFC." },
+      { phase: "Closure", description: "Written settlement letter and No-Dues Certificate secured." },
+    ],
+    faqs: [
+      {
+        question: "Will settling my loan affect my credit score?",
+        answer: "A settlement is usually reported differently from a regular closure and can affect your credit report. We explain the likely impact before you decide, and where possible negotiate terms that limit the effect.",
+      },
+      {
+        question: "Can banks or recovery agents legally harass me?",
+        answer: "No. RBI's fair practice guidelines restrict when and how recovery agents can contact you. We step in to stop conduct that crosses those limits.",
+      },
+      {
+        question: "How much of my dues can realistically be reduced?",
+        answer: "It depends on your loan type, overdue period and financial position. We assess your case before committing to a settlement target.",
+      },
+      {
+        question: "Is a One-Time Settlement legally binding?",
+        answer: "Yes — once documented and accepted by the bank, an OTS is enforceable and closes the account against future claims for the settled amount.",
+      },
+    ],
+  },
+  {
+    id: "sarfaesi-drt-matters",
+    title: "SARFAESI Act & DRT Matters",
+    description:
+      "Representation for borrowers facing SARFAESI possession notices, property auctions or Debt Recovery Tribunal proceedings — built around protecting your assets and enforcing your procedural rights.",
+    icon: "bank",
+    image: "/Real%20Estate%20Law.jpg",
+    tagline: "Facing a SARFAESI notice or auction? Every step a bank takes must follow the law — we make sure it does.",
+    ctaLabel: "Stop the Auction",
+    services: [
+      "SARFAESI Notice & Possession Defense",
+      "DRT Securitisation Applications",
+      "Auction Stay & Interim Relief",
+      "DRAT Appellate Representation",
+    ],
+    benefits: [
+      "Fast response to possession and auction threats",
+      "Strong procedural review of every bank action",
+      "Representation before DRT and appellate forums",
+    ],
+    audience: [
+      "Borrowers who have received a SARFAESI demand or possession notice",
+      "Property owners facing symbolic or physical possession action",
+      "Anyone under threat of a bank-led auction or distress sale",
+      "Businesses with secured loans under enforcement proceedings",
+    ],
+    trustPoints: [
+      "Focused experience in SARFAESI enforcement and borrower defense",
+      "Rapid response when a possession or auction date is imminent",
+      "Careful procedural review — banks must follow strict statutory steps",
+    ],
+    outcomes: [
+      "A stay on possession or auction proceedings, where legally available",
+      "Protection of property and business assets during the dispute",
+      "A procedural check on the bank's or NBFC's enforcement action",
+      "A fair, lawful recovery process instead of a rushed one",
+    ],
+    statutes: [
+      "SARFAESI Act, 2002",
+      "Debt Recovery Tribunal (DRT) Rules",
+      "DRAT Appellate Procedure",
+      "Principles of Natural Justice",
+    ],
+    documents: [
+      "SARFAESI demand or possession notice",
+      "Loan and security / mortgage documents",
+      "Property title and ownership records",
+      "Correspondence with the bank or its recovery agents",
+    ],
+    process: [
+      { phase: "Notice Review", description: "Line-by-line review of the SARFAESI notice for procedural validity." },
+      { phase: "Gap Assessment", description: "Checking for statutory lapses in the bank's enforcement steps." },
+      { phase: "DRT Filing", description: "A securitisation application is drafted and filed before the Tribunal." },
+      { phase: "Interim Relief", description: "An urgent hearing is sought to pause possession or auction action." },
+      { phase: "Representation", description: "Ongoing representation before DRT and, where needed, DRAT." },
+    ],
+    faqs: [
+      {
+        question: "Can a bank take possession of my property without a court order?",
+        answer: "SARFAESI allows banks to take possession through a defined statutory process rather than a civil court decree — but that process carries strict procedural requirements that are frequently open to challenge.",
+      },
+      {
+        question: "Can a DRT stop a scheduled auction?",
+        answer: "Yes — in appropriate cases the Tribunal can grant a stay or interim relief while it examines whether the bank followed the required procedure.",
+      },
+      {
+        question: "What is a securitisation application?",
+        answer: "It's the formal application under Section 17 of the SARFAESI Act through which a borrower challenges a bank's possession or enforcement action before the DRT.",
+      },
+      {
+        question: "How quickly do I need to act after receiving a notice?",
+        answer: "SARFAESI timelines are short and strictly enforced, so the response window is limited — acting as soon as you receive a notice materially improves your options.",
+      },
+    ],
+  },
+  {
+    id: "bank-freeze-cyber-crime",
+    title: "Bank Account Freeze & Cyber Crime",
+    description:
+      "Legal support when a bank account is frozen over a cyber-crime complaint, suspicious-transaction flag or regulatory hold — aimed at a lawful, documented unfreezing and protection from unwarranted criminal exposure.",
+    icon: "lock",
+    image: "/law_firm_office.jpg",
+    tagline: "An account freeze can stall your life or business overnight — we work to lift it lawfully and quickly.",
+    ctaLabel: "Unfreeze My Account",
+    services: [
+      "Bank Account Unfreezing",
+      "Cyber Cell & Investigating Authority Coordination",
+      "Suspicious Transaction Response",
+      "Criminal Exposure Risk Mitigation",
+    ],
+    benefits: [
+      "Direct coordination with banks, cyber cells and investigating authorities",
+      "Compliance-first strategy to justify legitimate transactions",
+      "Focus on fast restoration of your financial operations",
+    ],
+    audience: [
+      "Individuals whose bank accounts were frozen without prior notice",
+      "Businesses facing blocked transactions due to a cyber complaint",
+      "Anyone flagged by a regulatory or suspicious-activity alert",
+      "Fraud victims whose own funds are now stuck in the dispute",
+    ],
+    trustPoints: [
+      "We identify the exact statutory or investigative reason behind a freeze",
+      "Direct representations are made to banks, cyber cells and regulators",
+      "Every explanation we submit is backed by documentation, not assurances",
+    ],
+    outcomes: [
+      "Unfreezing of the affected bank account",
+      "Restoration of normal banking and business operations",
+      "Protection from unwarranted criminal exposure",
+      "A documented, compliance-based closure of the underlying issue",
+    ],
+    statutes: [
+      "Information Technology Act, 2000",
+      "Code of Criminal Procedure",
+      "RBI Banking & Compliance Guidelines",
+      "Prevention of Money Laundering Act",
+    ],
+    documents: [
+      "Bank freeze or lien notification",
+      "Recent transaction statements",
+      "Cyber complaint or FIR copy, if any",
+      "Proof of business or income source",
+    ],
+    process: [
+      { phase: "Freeze Review", description: "Identifying the exact trigger — cyber complaint, regulatory flag or bank-initiated hold." },
+      { phase: "Documentation", description: "Preparing transaction justifications and compliance evidence." },
+      { phase: "Representation", description: "Formal submissions made to the bank and the relevant cyber cell." },
+      { phase: "Follow-Up", description: "Continuous follow-up until the lien is released." },
+      { phase: "Closure", description: "Confirmation of unfreezing and closure of the underlying complaint." },
+    ],
+    faqs: [
+      {
+        question: "Why do banks freeze accounts over cyber complaints?",
+        answer: "Banks often place a precautionary lien when funds are linked, even indirectly, to a cyber-crime complaint filed elsewhere, while the matter is investigated.",
+      },
+      {
+        question: "Do I need a court order to get my account unfrozen?",
+        answer: "Not always — many freezes can be resolved through representations to the bank and investigating authority, though some do require judicial intervention.",
+      },
+      {
+        question: "Will a frozen account affect my business operations?",
+        answer: "It can immediately block payments, salaries and vendor transactions, which is why a fast, well-documented response matters.",
+      },
+      {
+        question: "Am I automatically treated as a suspect if my account is frozen?",
+        answer: "No — a freeze is a precautionary financial measure, not a finding of guilt, and it can often be resolved without any criminal proceeding against you.",
+      },
+    ],
+  },
   {
     id: "civil-law",
     title: "Civil Law",
@@ -199,8 +424,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     image: "/sunil-square.jpeg",
     specialization: ["Civil Litigation", "Criminal Defense", "Matrimonial Disputes", "Corporate Legal Counsel"],
     experience: "20+ Years",
-    education: "Practitioner before Hon'ble Supreme Court of India, High Courts & Tribunals",
-    bio: "With an exceptional legal career spanning over two decades, Adv. Sunil Kr. Yadav stands as a pillar of legal excellence within Bhushan & Sons. A distinguished practitioner before the Hon'ble Supreme Court of India, various High Courts, and specialized Tribunals, Adv. Yadav has established an impeccable reputation for his jurisprudential acumen and strategic advocacy. His comprehensive expertise encompasses diverse practice areas including civil litigation, criminal defense, matrimonial disputes, and corporate legal counsel. Adv. Yadav's client representations are characterized by meticulous preparation, ethical counsel, and unwavering commitment to protecting his clients' legal interests. His remarkable ability to navigate complex legal frameworks while maintaining the highest professional standards has resulted in numerous landmark judgments and favorable settlements. Dedicated to the principle that justice must be both accessible and effectively delivered, Adv. Yadav combines scholarly legal knowledge with practical wisdom to provide solutions that stand the test of both legal scrutiny and human compassion.",
+    education: "Practitioner before High Courts & Tribunals",
+    bio: "With an exceptional legal career spanning over two decades, Adv. Sunil Kr. Yadav stands as a pillar of legal excellence within Bhushan & Sons. A distinguished practitioner before various High Courts and specialized Tribunals, Adv. Yadav has established an impeccable reputation for his jurisprudential acumen and strategic advocacy. His comprehensive expertise encompasses diverse practice areas including civil litigation, criminal defense, matrimonial disputes, and corporate legal counsel. Adv. Yadav's client representations are characterized by meticulous preparation, ethical counsel, and unwavering commitment to protecting his clients' legal interests. His remarkable ability to navigate complex legal frameworks while maintaining the highest professional standards has resulted in numerous landmark judgments and favorable settlements. Dedicated to the principle that justice must be both accessible and effectively delivered, Adv. Yadav combines scholarly legal knowledge with practical wisdom to provide solutions that stand the test of both legal scrutiny and human compassion.",
     linkedIn: "#",
   },
   {
@@ -383,7 +608,7 @@ export const WHY_CHOOSE_US: WhyChooseUsItem[] = [
 export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "a1",
-    value: "20+",
+    value: "28+",
     label: "Legal Experts",
     description: "Experienced advocates defending your rights",
   },
@@ -395,9 +620,9 @@ export const ACHIEVEMENTS: Achievement[] = [
   },
   {
     id: "a3",
-    value: "98%",
-    label: "Client Satisfaction",
-    description: "Highly rated legal services and consultation",
+    value: "3",
+    label: "Office Locations",
+    description: "Serving clients across Delhi NCR",
   },
   {
     id: "a4",

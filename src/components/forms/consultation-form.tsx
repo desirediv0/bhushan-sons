@@ -49,7 +49,7 @@ export function ConsultationForm({
   const isDark = variant === "dark";
 
   const inputClass = cn(
-    "w-full font-body text-sm px-4 py-3.5 border transition-all duration-200 outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-0",
+    "w-full font-body text-sm px-4 py-3.5 border rounded-lg transition-all duration-200 outline-none focus:ring-2 focus:ring-secondary/40 focus:ring-offset-0",
     isDark
       ? "bg-white/5 border-white/15 text-white placeholder:text-white/40 focus:border-secondary focus:bg-white/10"
       : "bg-white border-border text-primary placeholder:text-text-muted/60 focus:border-secondary hover:border-primary/30"
@@ -67,12 +67,12 @@ export function ConsultationForm({
       <div
         className={cn(
           "flex flex-col items-center justify-center text-center p-8 border min-h-[300px]",
-          isDark ? "border-white/10 bg-white/5" : "border-border bg-[#FAFAFA]",
+          isDark ? "border-white/10 bg-white/5 rounded-2xl" : "border-border bg-background-alt rounded-2xl",
           className
         )}
       >
         <div className="w-16 h-16 rounded-full bg-secondary/10 border border-secondary/30 flex items-center justify-center mb-6">
-          <IconCheck size={28} className="text-white" />
+          <IconCheck size={28} className="text-secondary" />
         </div>
         <h3 className={cn("font-heading font-semibold text-xl mb-3", isDark ? "text-white" : "text-primary")}>
           We Will Call You Back
@@ -82,7 +82,7 @@ export function ConsultationForm({
         </p>
         <button
           onClick={() => { setIsSubmitted(false); reset(); }}
-          className="font-body text-sm text-white hover:text-white-hover underline underline-offset-2"
+          className="font-body text-sm text-secondary hover:text-secondary-hover underline underline-offset-2"
         >
           Submit another request
         </button>
@@ -140,6 +140,9 @@ export function ConsultationForm({
           <option value="" disabled>
             Select Case Category
           </option>
+          <option value="loan-settlement-debt-resolution">Loan Settlement & Debt Resolution</option>
+          <option value="sarfaesi-drt-matters">SARFAESI Act & DRT Matters</option>
+          <option value="bank-freeze-cyber-crime">Bank Account Freeze & Cyber Crime</option>
           <option value="civil-law">Civil Law</option>
           <option value="criminal-law">Criminal Law</option>
           <option value="family-law">Family Law</option>
@@ -179,7 +182,7 @@ export function ConsultationForm({
         type="submit"
         variant="secondary"
         size="lg"
-        className="w-full group gap-3 font-medium bg-[#111111] text-white hover:bg-[#333333]"
+        className="w-full group gap-3 font-semibold rounded-full"
         loading={isSubmitting}
         disabled={isSubmitting}
       >
