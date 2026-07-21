@@ -54,7 +54,12 @@ const CARD_COLORS: Record<string, { chip: string; icon: string; hoverBorder: str
   sky:     { chip: "bg-sky-100",     icon: "text-sky-600",     hoverBorder: "hover:border-sky-300" },
 };
 
-const TRUSTED = ["Tata Group", "Reliance", "HDFC Bank", "Mahindra"];
+const FIRM_HIGHLIGHTS = [
+  "Bar Council Registered Advocates",
+  "Confidential, Client-First Approach",
+  "Delhi-NCR Legal Support",
+  "Free Initial Consultation",
+];
 
 export function HeroSection() {
   const statPills = [
@@ -62,8 +67,8 @@ export function HeroSection() {
     `${FIRM_STATS[2].value}${FIRM_STATS[2].suffix} ${FIRM_STATS[2].label}`,
   ];
 
-  // marquee needs the list twice for a seamless loop
-  const marqueeItems = [...TRUSTED, ...TRUSTED, ...TRUSTED];
+  // marquee needs the list repeated for a seamless loop
+  const marqueeItems = [...FIRM_HIGHLIGHTS, ...FIRM_HIGHLIGHTS, ...FIRM_HIGHLIGHTS];
 
   return (
     <>
@@ -209,7 +214,7 @@ export function HeroSection() {
           </AnimatedSection>
         </div>
 
-        {/* Trusted by — infinite marquee ticker */}
+        {/* Firm highlights — infinite marquee ticker */}
         <div className="relative z-10 border-t border-white/10 bg-white/[0.03] backdrop-blur-sm py-4 overflow-hidden">
           <div className="flex w-max animate-marquee gap-14 px-7">
             {marqueeItems.map((name, i) => (
