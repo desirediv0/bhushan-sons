@@ -1,55 +1,35 @@
 import Link from "next/link";
-import { IconArrowRight, IconCalendar, IconPhone } from "@tabler/icons-react";
 import { AnimatedSection } from "@/components/animations/animated-section";
+import { SITE_CONFIG } from "@/config/constants";
 
 export function CTASection() {
   return (
-    <section className="relative py-16 lg:py-20 bg-emerald-band overflow-hidden">
-      {/* Soft orbs */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full opacity-30 animate-drift"
-          style={{ background: "radial-gradient(circle, rgba(255,255,255,0.25), transparent 70%)" }}
-        />
-      </div>
-
-      <div className="relative z-10 max-w-[1100px] mx-auto px-6 lg:px-8 text-center">
+    <section className="bg-emerald-band py-[clamp(56px,6.8vw,96px)] text-center">
+      <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <AnimatedSection direction="up">
-          <p className="font-body text-xs font-bold uppercase tracking-[0.18em] text-white/80 mb-6">
-            Begin Your Journey
-          </p>
+          <p className="overline justify-center mb-5">Get in touch</p>
 
-          <h2
-            className="font-heading font-extrabold text-white leading-tight mx-auto max-w-3xl mb-6 tracking-tight"
-            style={{ fontSize: "clamp(2.25rem, 5vw, 3.5rem)" }}
-          >
-            Ready to Protect What{" "}
-            <span className="text-emerald-100">Matters Most?</span>
+          <h2 className="heading-section !text-white max-w-[20ch] mx-auto mb-4">
+            Speak to an advocate about your matter
           </h2>
 
-          <p className="font-body text-white/85 text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-            Schedule a confidential consultation with our expert legal allies.
-            We will assess your situation and chart the clearest path forward.
+          <p className="font-body text-white/70 max-w-[58ch] mx-auto mb-8 leading-relaxed">
+            Mention your case type for faster assistance. Consultation is by
+            prior appointment at the chamber nearest you.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex gap-3 justify-center flex-wrap">
             <Link
               href="/contact"
-              className="group inline-flex items-center justify-center gap-3 font-body font-semibold text-emerald-700 bg-white hover:bg-emerald-50 px-9 py-4 text-sm rounded-full shadow-lg transition-all duration-300 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 font-body font-semibold uppercase tracking-wider text-white text-[13.5px] bg-secondary hover:bg-secondary-hover px-7 py-4 rounded transition-all duration-200 hover:-translate-y-px"
             >
-              <IconCalendar size={18} />
-              Get Callback
-              <IconArrowRight
-                size={16}
-                className="transition-transform group-hover:translate-x-1"
-              />
+              Request a Consultation
             </Link>
             <a
-              href="tel:+919306185801"
-              className="inline-flex items-center justify-center gap-3 font-body font-medium text-white bg-white/10 hover:bg-white/20 border border-white/30 px-9 py-4 text-sm rounded-full transition-all duration-300"
+              href={`tel:${SITE_CONFIG.phone}`}
+              className="inline-flex items-center gap-2 font-body font-semibold uppercase tracking-wider text-white text-[13.5px] border border-white/35 hover:bg-white hover:text-primary px-7 py-4 rounded transition-all duration-200"
             >
-              <IconPhone size={18} />
-              +91-9306185801
+              {SITE_CONFIG.phone}
             </a>
           </div>
         </AnimatedSection>

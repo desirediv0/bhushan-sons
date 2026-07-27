@@ -1,4 +1,3 @@
-import { IconQuote, IconStarFilled } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import type { Testimonial } from "@/types";
 
@@ -14,71 +13,42 @@ export function TestimonialCard({
   variant = "default",
 }: TestimonialCardProps) {
   return (
-    <div
+    <figure
       className={cn(
-        "flex flex-col h-full p-8 rounded-2xl border transition-all duration-400 group hover:-translate-y-1",
+        "flex flex-col h-full p-[clamp(24px,2.8vw,33px)] border",
         variant === "dark"
-          ? "bg-white/[0.06] border-white/15 hover:border-white/30 hover:bg-white/[0.1]"
-          : "bg-white border-border shadow-card hover:border-violet-300 hover:shadow-card-hover",
+          ? "bg-white/[0.05] border-white/15"
+          : "bg-white border-border",
         className
       )}
     >
-      {/* Quote Icon + stars */}
-      <div className="mb-6 flex items-center justify-between">
-        <span
-          className={cn(
-            "w-11 h-11 rounded-full flex items-center justify-center",
-            variant === "dark" ? "bg-white/15" : "bg-violet-100"
-          )}
-        >
-          <IconQuote
-            size={22}
-            className={variant === "dark" ? "text-white" : "text-primary"}
-            style={{ transform: "scaleX(-1)" }}
-          />
-        </span>
-        <span className="flex gap-1">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <IconStarFilled key={i} size={13} className="text-accent-light" />
-          ))}
-        </span>
+      <div
+        className="font-heading leading-[0.7] text-secondary opacity-32 mb-3.5"
+        style={{ fontSize: "3.2rem", opacity: 0.32 }}
+      >
+        &ldquo;
       </div>
-
-      {/* Quote */}
       <blockquote
         className={cn(
-          "flex-1 font-body italic text-base leading-relaxed mb-6",
-          variant === "dark" ? "text-white/85" : "text-text"
+          "font-heading font-light text-[1.06rem] leading-[1.62] mb-5 flex-1",
+          variant === "dark" ? "text-white/90" : "text-text"
         )}
       >
-        &ldquo;{testimonial.quote}&rdquo;
+        {testimonial.quote}
       </blockquote>
-
-      {/* Divider */}
-      <div
-        className="w-10 h-[3px] rounded-full mb-5 transition-all duration-400 group-hover:w-16"
-        style={{ background: "linear-gradient(90deg, #7C3AED, #34D399)" }}
-      />
-
-      {/* Author */}
-      <div>
-        <p
-          className={cn(
-            "font-heading font-bold text-base",
-            variant === "dark" ? "text-white" : "text-text"
-          )}
-        >
+      <figcaption
+        className={cn(
+          "pt-4 border-t",
+          variant === "dark" ? "border-white/15" : "border-border"
+        )}
+      >
+        <b className={cn("block font-heading font-medium text-[1.01rem] not-italic", variant === "dark" ? "text-white" : "text-text")}>
           {testimonial.author}
-        </p>
-        <p
-          className={cn(
-            "font-body text-sm mt-0.5",
-            variant === "dark" ? "text-white/60" : "text-text-muted"
-          )}
-        >
+        </b>
+        <span className={cn("font-body text-[11.5px] tracking-[0.11em] uppercase", variant === "dark" ? "text-white/55" : "text-text-muted")}>
           {testimonial.designation}, {testimonial.company}
-        </p>
-      </div>
-    </div>
+        </span>
+      </figcaption>
+    </figure>
   );
 }

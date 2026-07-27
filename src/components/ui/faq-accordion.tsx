@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { IconPlus, IconMinus } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import type { FAQItem } from "@/types";
 
@@ -15,28 +14,30 @@ export function FAQAccordion({ items, className }: FAQAccordionProps) {
   const [openId, setOpenId] = useState<string | null>(null);
 
   return (
-    <div className={cn("flex flex-col divide-y divide-border", className)}>
+    <div className={cn("flex flex-col border-t border-border", className)}>
       {items.map((item, index) => {
         const isOpen = openId === item.id;
 
         return (
-          <div key={item.id} className="group">
+          <div key={item.id} className="border-b border-border">
             <button
               onClick={() => setOpenId(isOpen ? null : item.id)}
-              className="flex w-full items-center justify-between py-7 text-left gap-8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 rounded-sm"
+              className="flex w-full items-start gap-4 text-left py-[22px] pr-11 relative focus-visible:outline-none"
               aria-expanded={isOpen}
               id={`faq-button-${item.id}`}
               aria-controls={`faq-panel-${item.id}`}
             >
-              <span className="font-heading font-semibold text-text text-lg leading-snug group-hover:text-primary transition-colors duration-300">
-                <span className="font-body text-sm text-primary font-semibold mr-4">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
+              <span className="font-body text-[11.5px] font-semibold text-secondary pt-1.5 shrink-0">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="font-heading font-medium text-text text-[clamp(1.02rem,1.75vw,1.18rem)] leading-[1.35]">
                 {item.question}
               </span>
-              <span className="shrink-0 w-8 h-8 rounded-full border border-border flex items-center justify-center text-primary transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-white">
-                {isOpen ? <IconMinus size={16} /> : <IconPlus size={16} />}
-              </span>
+              <motion.span
+                className="absolute right-1.5 top-[29px] w-[11px] h-[11px] border-r-[1.5px] border-b-[1.5px] border-secondary"
+                animate={{ rotate: isOpen ? 225 : 45 }}
+                transition={{ duration: 0.3 }}
+              />
             </button>
 
             <AnimatePresence initial={false}>
@@ -51,8 +52,8 @@ export function FAQAccordion({ items, className }: FAQAccordionProps) {
                   transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                   className="overflow-hidden"
                 >
-                  <div className="pb-7 pl-10 pr-12">
-                    <p className="font-body text-text-muted leading-relaxed text-base">
+                  <div className="pb-6 pl-9 pr-10">
+                    <p className="font-body text-text-muted leading-relaxed text-[15px]">
                       {item.answer}
                     </p>
                   </div>

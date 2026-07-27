@@ -40,7 +40,7 @@ export const NAV_ITEMS: NavItem[] = [
 export const FIRM_STATS: Stat[] = [
   { value: "20", label: "Years of Experience", suffix: "+" },
   { value: "2500", label: "Cases Handled", suffix: "+" },
-  { value: "11", label: "Practice Areas", suffix: "+" },
+  { value: "14", label: "Practice Areas", suffix: "+" },
   { value: "28", label: "Expert Attorneys", suffix: "+" },
 ];
 

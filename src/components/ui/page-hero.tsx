@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { GoldDivider } from "@/components/ui/gold-divider";
 import { cn } from "@/lib/utils";
 
 interface PageHeroProps {
@@ -26,7 +25,7 @@ export function PageHero({
   image,
   imageAlt = "Hero image",
   showCTA = false,
-  ctaText = "Book Consultation",
+  ctaText = "Request a Consultation",
   ctaHref = "/contact",
   variant = "dark",
   className,
@@ -43,43 +42,35 @@ export function PageHero({
             className="object-cover"
             priority
           />
-          {/* Navy overlay with subtle gold tint */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-900/80 to-indigo-900/50" />
           <div
-            className="absolute inset-0 opacity-30"
-            style={{ background: "radial-gradient(ellipse at 20% 80%, rgba(52,211,153,0.20), transparent 55%), radial-gradient(ellipse at 85% 20%, rgba(124,58,237,0.25), transparent 50%)" }}
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(102deg, #16332B 30%, rgba(22,51,43,0.55) 100%)" }}
           />
         </div>
 
-        {/* Gold hairline bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-[2px] z-10 bg-gradient-to-r from-primary via-primary-light to-secondary" />
+        {/* Brass hairline bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-[2px] z-10 bg-secondary" />
 
         {/* Content */}
-        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 lg:px-8 pb-20 pt-40">
+        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 lg:px-8 pb-16 pt-36">
           {label && (
-            <div className="mb-6 flex flex-col gap-3 animate-fade-in-down">
-              <p className="overline !text-white/80">{label}</p>
-              <GoldDivider />
-            </div>
+            <p className="overline !text-white/70 mb-5 animate-fade-in-down">{label}</p>
           )}
-          <h1 className="font-heading text-white font-bold leading-tight max-w-2xl animate-fade-in-up"
-            style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)" }}>
-
-            {titleAccent && (
-              <span className="block text-gold-gradient font-bold">
-                {titleAccent}
-              </span>
-            )}
+          <h1
+            className="font-heading font-normal text-white leading-[1.05] max-w-2xl animate-fade-in-up"
+            style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)" }}
+          >
+            {titleAccent}
           </h1>
           {description && (
-            <p className="mt-6 text-white/75 font-body text-lg leading-relaxed max-w-xl animate-fade-in-up">
+            <p className="mt-5 text-white/70 font-body text-[15.5px] leading-relaxed max-w-xl animate-fade-in-up">
               {description}
             </p>
           )}
           {showCTA && (
-            <div className="mt-10 animate-fade-in-up">
+            <div className="mt-8 animate-fade-in-up">
               <Link href={ctaHref}>
-                <Button variant="secondary" size="lg" className="rounded-full">
+                <Button variant="secondary" size="lg">
                   {ctaText}
                 </Button>
               </Link>
@@ -93,9 +84,9 @@ export function PageHero({
   return (
     <section
       className={cn(
-        "relative py-32 lg:py-44 overflow-hidden",
+        "relative py-28 lg:py-36 overflow-hidden",
         variant === "dark"
-          ? "bg-navy-texture"
+          ? "bg-primary"
           : "bg-background-alt border-b border-border",
         className
       )}
@@ -106,47 +97,29 @@ export function PageHero({
             src={image}
             alt={imageAlt}
             fill
-            className="object-cover opacity-10"
+            className="object-cover opacity-[0.12] grayscale"
             priority
           />
         </div>
       )}
 
-      {variant === "dark" && (
-        <div
-          className="pointer-events-none absolute -top-24 right-0 w-[560px] h-[560px] rounded-full opacity-[0.08]"
-          style={{ background: "radial-gradient(circle, #34D399, transparent 70%)" }}
-        />
-      )}
-
       <div className="relative z-10 max-w-[1280px] mx-auto px-6 lg:px-8">
         {label && (
-          <div className="mb-8 flex flex-col gap-3">
-            <p className="overline">{label}</p>
-            <GoldDivider />
-          </div>
+          <p className={cn("overline mb-5", variant === "dark" && "!text-secondary-light")}>{label}</p>
         )}
         <h1
           className={cn(
-            "font-heading font-bold leading-tight max-w-3xl",
+            "font-heading font-normal leading-[1.05] max-w-3xl",
             variant === "dark" ? "text-white" : "text-primary"
           )}
-          style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
+          style={{ fontSize: "clamp(2.5rem, 5vw, 4.25rem)" }}
         >
-
-          {titleAccent && (
-            <span
-              className={cn("block", variant === "dark" ? "text-gold-gradient" : "text-violet-gradient")}
-              style={{}}
-            >
-              {titleAccent}
-            </span>
-          )}
+          {titleAccent}
         </h1>
         {description && (
           <p
             className={cn(
-              "mt-6 text-lg leading-relaxed max-w-2xl font-body",
+              "mt-5 text-[15.5px] leading-relaxed max-w-2xl font-body",
               variant === "dark" ? "text-white/70" : "text-text-muted"
             )}
           >
@@ -154,12 +127,11 @@ export function PageHero({
           </p>
         )}
         {showCTA && (
-          <div className="mt-10">
+          <div className="mt-8">
             <Link href={ctaHref}>
               <Button
-                variant={variant === "dark" ? "secondary" : "primary"}
+                variant="secondary"
                 size="lg"
-                className="rounded-full"
               >
                 {ctaText}
               </Button>

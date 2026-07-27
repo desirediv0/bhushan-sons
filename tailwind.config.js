@@ -8,44 +8,45 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        /* Brand — violet + emerald + amber (clean & colorful) */
-        primary:          "#6D28D9",
-        "primary-light":  "#7C3AED",
-        "primary-dark":   "#4C1D95",
-        secondary:        "#10B981",
-        "secondary-hover":"#059669",
-        "secondary-light":"#A7F3D0",
-        accent:           "#F59E0B",
-        "accent-light":   "#FBBF24",
+        /* Brand — editorial forest green + brass */
+        primary:          "#16332B",
+        "primary-light":  "#204338",
+        "primary-dark":   "#0D211B",
+        secondary:        "#B08A4A",
+        "secondary-hover":"#9C7940",
+        "secondary-light":"#CBA765",
+        accent:           "#CBA765",
+        "accent-light":   "#DDBE8A",
 
         /* Backgrounds */
         background:       "#FFFFFF",
-        "background-alt": "#F8FAFC",
-        "background-dark":"#0F172A",
+        "background-alt": "#EDEBE4",
+        "background-dark":"#16332B",
 
         /* Text */
-        text:             "#0F172A",
-        "text-muted":     "#475569",
-        "text-light":     "#94A3B8",
-        "text-on-dark":   "#F8FAFC",
-        "text-on-gold":   "#0F172A",
+        text:             "#1B1E1C",
+        "text-muted":     "#5E635F",
+        "text-light":     "#8B9089",
+        "text-on-dark":   "#FFFFFF",
+        "text-on-gold":   "#FFFFFF",
 
         /* Borders */
-        border:           "#E2E8F0",
-        "border-light":   "#F1F5F9",
-        "border-gold":    "#7C3AED",
+        border:           "#DCDAD2",
+        "border-light":   "#EDEBE4",
+        "border-gold":    "#B08A4A",
+        "border-dark":    "rgba(255,255,255,0.14)",
 
         /* Semantic */
-        success:          "#059669",
-        error:            "#DC2626",
-        warning:          "#D97706",
-        info:             "#2563EB",
+        success:          "#4B7A5E",
+        error:            "#B0453F",
+        warning:          "#B08A4A",
+        info:             "#3E5C6E",
       },
 
       fontFamily: {
-        heading: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
-        body:    ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
-        accent:  ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
+        heading: ["var(--font-playfair)", "Newsreader", "Georgia", "serif"],
+        body:    ["var(--font-inter)",    "Instrument Sans", "system-ui", "sans-serif"],
+        accent:  ["var(--font-playfair)", "Newsreader", "Georgia", "serif"],
       },
 
       fontSize: {
@@ -90,11 +91,16 @@ module.exports = {
         superwide: "0.2em",
       },
 
+      borderRadius: {
+        sm: "3px",
+        DEFAULT: "3px",
+      },
+
       boxShadow: {
-        gold:        "0 8px 24px rgba(16, 185, 129, 0.30)",
-        navy:        "0 12px 32px rgba(109, 40, 217, 0.22)",
-        card:        "0 1px 3px rgba(15,23,42,0.05), 0 0 0 1px rgba(15,23,42,0.03)",
-        "card-hover":"0 20px 40px rgba(15,23,42,0.08), 0 0 0 1px rgba(124,58,237,0.20)",
+        gold:        "0 18px 44px -26px rgba(13,33,27,0.42)",
+        navy:        "0 26px 64px -32px rgba(13,33,27,0.55)",
+        card:        "0 1px 3px rgba(27,30,28,0.04)",
+        "card-hover":"0 18px 44px -26px rgba(13,33,27,0.42)",
       },
 
       transitionTimingFunction: {
@@ -114,7 +120,7 @@ module.exports = {
           to:   { opacity: "1" },
         },
         "fade-in-up": {
-          from: { opacity: "0", transform: "translateY(24px)" },
+          from: { opacity: "0", transform: "translateY(22px)" },
           to:   { opacity: "1", transform: "translateY(0)" },
         },
         "scale-in": {

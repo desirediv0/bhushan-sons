@@ -58,18 +58,14 @@ export default function HomePage() {
       <PartnerSpotlight />
 
       {/* Expert Team Section */}
-      <section className="py-12 lg:py-14 bg-background-alt">
+      <section className="py-14 lg:py-20 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="overline">Meet Our Expert Team</span>
-            <h2 className="font-heading font-bold text-text text-3xl sm:text-4xl mt-2">Our Dedicated Attorneys</h2>
-            <div
-              className="w-16 h-[3px] rounded-full mx-auto mt-4"
-              style={{ background: "linear-gradient(90deg, #7C3AED, #34D399)" }}
-            />
+            <p className="overline justify-center mb-4">Meet our team</p>
+            <h2 className="heading-section">Our Dedicated Attorneys</h2>
           </div>
 
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(16px,2.2vw,26px)]">
             {TEAM_MEMBERS.slice(1).map((member) => (
               <StaggerItem key={member.id} direction="up">
                 <TeamCard member={member} />

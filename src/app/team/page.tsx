@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { IconBrandLinkedin, IconQuote } from "@tabler/icons-react";
+import { IconBrandLinkedin } from "@tabler/icons-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/animations/animated-section";
 import { PageHero } from "@/components/ui/page-hero";
-import { GoldDivider } from "@/components/ui/gold-divider";
 import { TeamCard } from "@/components/ui/team-card";
 import { CTASection } from "@/components/sections/cta-section";
 import { TEAM_MEMBERS } from "@/config/constants";
@@ -28,8 +27,7 @@ export default function TeamPage() {
     <>
       {/* Hero */}
       <PageHero
-        label="Teams"
-
+        label="Team"
         titleAccent="Team"
         description="Meet Our Expert Team"
         image="/our-team.png"
@@ -37,111 +35,70 @@ export default function TeamPage() {
       />
 
       {/* Managing Partner Feature */}
-      <section className="relative py-12 lg:py-14 bg-navy-texture overflow-hidden">
+      <section className="py-14 lg:py-20 bg-primary overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="grid lg:grid-cols-[0.76fr_1.24fr] gap-10 lg:gap-16 items-start">
             {/* Portrait */}
-            <AnimatedSection direction="right" className="relative">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
-                <Image
-                  src={managingPartner.image}
-                  alt={managingPartner.name}
-                  fill
-                  className="object-cover transition-transform duration-700 hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/60 to-transparent" />
+            <AnimatedSection direction="right">
+              <div className="relative">
+                <div className="absolute inset-[-14px_-14px_14px_14px] border border-secondary -z-0" />
+                <div className="relative z-10 aspect-[3/3.7] overflow-hidden">
+                  <Image src={managingPartner.image} alt={managingPartner.name} fill className="object-cover object-top" />
+                </div>
               </div>
-              <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-white/40 rounded-tl-2xl" />
-              <div className="absolute -bottom-4 -right-4 w-20 h-20 border-b-2 border-r-2 border-white/40 rounded-br-2xl" />
+              <div className="relative z-20 bg-primary-dark border-l-2 border-secondary px-5 py-4 flex items-center justify-between gap-3.5">
+                <span>
+                  <b className="block font-heading font-medium text-white text-[1.15rem]">{managingPartner.name}</b>
+                  <em className="not-italic text-[10.5px] tracking-[0.17em] uppercase text-secondary-light">{managingPartner.designation}</em>
+                </span>
+                {managingPartner.linkedIn && (
+                  <Link href={managingPartner.linkedIn} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" className="text-secondary-light shrink-0">
+                    <IconBrandLinkedin size={18} />
+                  </Link>
+                )}
+              </div>
             </AnimatedSection>
 
             {/* Content */}
-            <AnimatedSection direction="left" delay={0.15}>
-              <div className="flex flex-col gap-3 mb-8">
-                <p className="overline">Founding Partner</p>
-                <GoldDivider />
-              </div>
+            <AnimatedSection direction="left" delay={0.1}>
+              <p className="overline mb-4">Founding Partner</p>
+              <blockquote className="font-heading font-extralight italic text-white text-[clamp(1.28rem,2.5vw,1.85rem)] leading-[1.42] border-l-2 border-secondary pl-[clamp(18px,2.4vw,30px)] mb-7">
+                &ldquo;Excellence is not an act but a habit. At Bhushan &amp; Sons, we have made excellence the habit of a lifetime.&rdquo;
+              </blockquote>
 
-              <h2
-                className="font-heading font-bold text-white leading-tight mb-2"
-                style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)" }}
-              >
-                {managingPartner.name}
-              </h2>
-              <p className="font-body text-secondary-light font-semibold text-sm uppercase tracking-widest mb-8">
-                {managingPartner.designation}
-              </p>
-
-              {/* Quote */}
-              <div className="relative pl-5 border-l-2 border-secondary mb-8">
-                <IconQuote
-                  size={20}
-                  className="text-secondary/70 mb-2"
-                  style={{ transform: "scaleX(-1)" }}
-                />
-                <p
-                  className="font-accent italic text-secondary-light/90 text-lg leading-relaxed"
-                  style={{}}
-                >
-                  &ldquo;Excellence is not an act but a habit. At Bhushan & Sons,
-                  we have made excellence the habit of a lifetime.&rdquo;
-                </p>
-              </div>
-
-              <p className="font-body text-white/60 leading-relaxed mb-8">
+              <p className="font-body text-white/75 text-[15.4px] leading-[1.82] max-w-[70ch] mb-4">
                 {managingPartner.bio}
               </p>
 
-              {/* Details */}
-              <div className="grid grid-cols-2 gap-3 mb-8">
+              <div className="grid grid-cols-2 hairline-grid-dark my-8">
                 {[
                   { label: "Experience", value: managingPartner.experience },
                   { label: "Education", value: managingPartner.education },
                   { label: "Specialization", value: managingPartner.specialization.join(", ") },
                   { label: "Admitted", value: "Bar Council of Delhi" },
                 ].map((d) => (
-                  <div key={d.label} className="rounded-xl border border-white/10 bg-white/[0.03] p-4 hover:border-white/40 transition-colors duration-300">
-                    <p className="font-body text-xs text-secondary-light uppercase tracking-widest mb-1">
+                  <div key={d.label} className="bg-primary p-5">
+                    <span className="block text-[10.5px] font-semibold tracking-[0.18em] uppercase text-secondary-light mb-2 font-body">
                       {d.label}
-                    </p>
-                    <p className="font-body text-sm text-white">{d.value}</p>
+                    </span>
+                    <b className="font-heading font-normal text-white text-[1.02rem] leading-tight block">{d.value}</b>
                   </div>
                 ))}
               </div>
-
-              {managingPartner.linkedIn && (
-                <Link
-                  href={managingPartner.linkedIn}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-body text-sm text-secondary-light/80 hover:text-secondary-light transition-colors"
-                >
-                  <IconBrandLinkedin size={18} />
-                  LinkedIn Profile
-                </Link>
-              )}
             </AnimatedSection>
           </div>
         </div>
       </section>
 
       {/* Expert Team Grid */}
-      <section className="py-12 lg:py-14 bg-white">
+      <section className="py-14 lg:py-20 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-          <AnimatedSection direction="up" className="mb-12">
-            <div className="flex flex-col gap-3 mb-6">
-              <p className="overline">Advocates</p>
-              <GoldDivider />
-            </div>
-            <h2
-              className="font-heading font-bold text-text leading-tight"
-              style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)" }}
-            >
-              Meet Our Expert Team
-            </h2>
+          <AnimatedSection direction="up" className="text-center max-w-2xl mx-auto mb-12">
+            <p className="overline justify-center mb-4">Advocates</p>
+            <h2 className="heading-section">Meet Our Expert Team</h2>
           </AnimatedSection>
 
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(16px,2.2vw,26px)]">
             {seniorTeam.map((member) => (
               <StaggerItem key={member.id} direction="up">
                 <TeamCard member={member} />

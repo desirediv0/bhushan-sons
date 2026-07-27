@@ -1,41 +1,12 @@
-import { cn } from "@/lib/utils";
-
-interface GoldDividerProps {
-  className?: string;
-  align?: "left" | "center" | "right";
-  width?: "sm" | "md" | "lg";
-}
-
-export function GoldDivider({
-  className,
-  align = "left",
-  width = "md",
-}: GoldDividerProps) {
-  const widths = {
-    sm: "w-10",
-    md: "w-16",
-    lg: "w-24",
-  };
-
-  const alignments = {
-    left: "mr-auto",
-    center: "mx-auto",
-    right: "ml-auto",
-  };
-
-  return (
-    <div
-      className={cn(
-        "h-[3px] rounded-full",
-        widths[width],
-        alignments[align],
-        className
-      )}
-      style={{
-        background: "linear-gradient(90deg, #7C3AED, #34D399)",
-      }}
-    />
-  );
+/**
+ * The editorial "kicker" style (.overline) now carries its own short
+ * leading rule via a ::before pseudo-element (see globals.css), so a
+ * separate divider line under it would double up. This component is kept
+ * as a no-op so the many existing <GoldDivider /> call sites don't need
+ * to be touched — it simply renders nothing.
+ */
+export function GoldDivider() {
+  return null;
 }
 
 interface SectionLabelProps {
@@ -50,9 +21,8 @@ export function SectionLabel({
   align = "left",
 }: SectionLabelProps) {
   return (
-    <div className={cn("flex flex-col gap-3", align === "center" && "items-center", className)}>
+    <div className={`flex flex-col gap-3 ${align === "center" ? "items-center" : ""} ${className ?? ""}`}>
       <p className="overline">{children}</p>
-      <GoldDivider align={align === "center" ? "center" : "left"} />
     </div>
   );
 }

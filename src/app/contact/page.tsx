@@ -7,7 +7,6 @@ import {
 } from "@tabler/icons-react";
 import { AnimatedSection } from "@/components/animations/animated-section";
 import { PageHero } from "@/components/ui/page-hero";
-import { GoldDivider } from "@/components/ui/gold-divider";
 import { FAQAccordion } from "@/components/ui/faq-accordion";
 import { ConsultationForm } from "@/components/forms/consultation-form";
 import { OFFICE_LOCATIONS, FAQ_ITEMS } from "@/config/constants";
@@ -15,11 +14,10 @@ import { OFFICE_LOCATIONS, FAQ_ITEMS } from "@/config/constants";
 export const metadata: Metadata = {
   title: "Contact Us | Bhushan & Sons — Advocates & Solicitors",
   description:
-    "Get in touch with Bhushan & Sons. Schedule a consultation at our offices in New Delhi, Mumbai, or Bangalore. Available Monday to Saturday, 9 AM to 7 PM.",
+    "Get in touch with Bhushan & Sons. Schedule a consultation at our offices in Gurugram and New Delhi.",
   openGraph: {
     title: "Contact Bhushan & Sons | Book a Legal Consultation",
-    description:
-      "Offices in New Delhi, Mumbai & Bangalore. Book a confidential consultation today.",
+    description: "Offices in Gurugram &amp; New Delhi. Book a confidential consultation today.",
   },
 };
 
@@ -29,7 +27,6 @@ export default function ContactPage() {
       {/* Hero */}
       <PageHero
         label="Contact"
-
         titleAccent="Contact"
         description="For career opportunities and other requirements"
         image="/contact-us.png"
@@ -37,59 +34,35 @@ export default function ContactPage() {
       />
 
       {/* Main Contact Section — Split Layout */}
-      <section className="py-12 lg:py-14 bg-white">
+      <section className="py-14 lg:py-20 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-5 gap-16 lg:gap-20">
+          <div className="grid lg:grid-cols-5 gap-12 lg:gap-20">
             {/* Left: Contact Info */}
             <AnimatedSection direction="right" className="lg:col-span-2">
-              <div className="flex flex-col gap-3 mb-8">
-                <p className="overline">Get in Touch</p>
-                <GoldDivider />
-              </div>
-
-              <h2
-                className="font-heading font-bold text-text leading-tight mb-6"
-                style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)" }}
-              >
-                Contact
-                <span
-                  className="block text-violet-gradient"
-                >
-                  Information
-                </span>
-              </h2>
+              <p className="overline mb-4">Get in touch</p>
+              <h2 className="heading-section mb-6">Contact Information</h2>
 
               {/* Contact Details */}
-              <div className="flex flex-col gap-6 mb-12">
+              <div className="flex flex-col gap-5 mb-10">
                 <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-violet-100 border border-violet-200 flex items-center justify-center shrink-0 mt-0.5">
-                    <IconPhone size={18} className="text-primary" />
-                  </div>
+                  <IconPhone size={17} className="text-secondary mt-0.5 shrink-0" />
                   <div>
-                    <p className="font-body text-xs text-text-muted uppercase tracking-widest mb-1">
+                    <p className="font-body text-[11px] text-text-muted uppercase tracking-widest mb-1">
                       Phone
                     </p>
-                    <a
-                      href="tel:+919306185801"
-                      className="font-body font-medium text-primary hover:text-primary transition-colors"
-                    >
+                    <a href="tel:+919306185801" className="font-body font-semibold text-text hover:text-primary transition-colors">
                       +91 93061 85801
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-violet-100 border border-violet-200 flex items-center justify-center shrink-0 mt-0.5">
-                    <IconMail size={18} className="text-primary" />
-                  </div>
+                  <IconMail size={17} className="text-secondary mt-0.5 shrink-0" />
                   <div>
-                    <p className="font-body text-xs text-text-muted uppercase tracking-widest mb-1">
+                    <p className="font-body text-[11px] text-text-muted uppercase tracking-widest mb-1">
                       Email
                     </p>
-                    <a
-                      href="mailto:contact@bhushanandsons.com"
-                      className="font-body font-medium text-primary hover:text-primary transition-colors"
-                    >
+                    <a href="mailto:contact@bhushanandsons.com" className="font-body font-semibold text-text hover:text-primary transition-colors">
                       contact@bhushanandsons.com
                     </a>
                   </div>
@@ -98,18 +71,13 @@ export default function ContactPage() {
 
               {/* Office Locations */}
               <div>
-                <p className="font-body text-xs font-semibold uppercase tracking-widest text-primary mb-4">
-                  Location
+                <p className="font-body text-[11px] font-semibold uppercase tracking-widest text-primary mb-4">
+                  Our Offices
                 </p>
-                <div className="flex flex-col gap-4">
+                <div className="space-y-px bg-border">
                   {OFFICE_LOCATIONS.map((office) => (
-                    <div
-                      key={office.id}
-                      className="flex items-start gap-3 p-4 rounded-xl border border-border hover:border-violet-300 hover:shadow-card transition-all duration-300"
-                    >
-                      <div className="shrink-0">
-                        <div className="w-2 h-2 rounded-full bg-primary mt-2" />
-                      </div>
+                    <div key={office.id} className="flex items-start gap-3 bg-white p-4">
+                      <IconMapPin size={15} className="text-secondary mt-1 shrink-0" />
                       <div>
                         <p className="font-body font-semibold text-text text-sm mb-1">
                           {office.city}
@@ -126,12 +94,11 @@ export default function ContactPage() {
 
             {/* Right: Form */}
             <AnimatedSection direction="left" delay={0.1} className="lg:col-span-3">
-              <div className="rounded-2xl border border-border shadow-card p-8 lg:p-12 bg-white relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary via-primary-light to-secondary" />
-                <h3 className="font-heading font-semibold text-text text-2xl mb-2">
-                  Get Callback
+              <div className="border border-border p-8 lg:p-12 bg-white">
+                <h3 className="font-heading font-medium text-text text-[1.45rem] mb-1.5">
+                  Request a Callback
                 </h3>
-                <p className="font-body text-text-muted text-sm mb-8">
+                <p className="font-body text-text-muted text-[13.8px] mb-6">
                   Complete the form details and a senior attorney will call you back.
                 </p>
 
@@ -145,19 +112,18 @@ export default function ContactPage() {
       {/* Map Section (Styled Placeholder) */}
       <section className="h-80 lg:h-96 bg-background-alt relative overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
-          {/* Grid pattern */}
           <div
             className="absolute inset-0 opacity-20"
             style={{
-              backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 40px, #6D28D9 40px, #6D28D9 41px), repeating-linear-gradient(90deg, transparent, transparent 40px, #6D28D9 40px, #6D28D9 41px)`,
+              backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 40px, #16332B 40px, #16332B 41px), repeating-linear-gradient(90deg, transparent, transparent 40px, #16332B 40px, #16332B 41px)`,
             }}
           />
 
           <div className="relative z-10 text-center">
-            <div className="w-12 h-12 rounded-full bg-primary shadow-navy flex items-center justify-center mb-4 mx-auto">
+            <div className="w-12 h-12 bg-primary flex items-center justify-center mb-4 mx-auto">
               <IconMapPin size={22} className="text-white" />
             </div>
-            <p className="font-heading font-semibold text-text text-lg mb-1">
+            <p className="font-heading font-medium text-text text-lg mb-1">
               SBS Block, District Court, Gurugram
             </p>
             <p className="font-body text-sm text-text-muted mb-4">
@@ -167,7 +133,7 @@ export default function ContactPage() {
               href="https://maps.google.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-body text-sm font-semibold text-primary hover:text-primary-light transition-colors underline underline-offset-4"
+              className="inline-flex items-center gap-2 font-body text-sm font-semibold text-primary border-b border-secondary pb-0.5"
             >
               Open in Google Maps
               <IconArrowRight size={14} />
@@ -177,19 +143,11 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-12 lg:py-14 bg-white">
+      <section className="py-14 lg:py-20 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-          <AnimatedSection direction="up" className="text-center max-w-2xl mx-auto mb-16">
-            <div className="flex flex-col items-center gap-3 mb-6">
-              <p className="overline">FAQ</p>
-              <GoldDivider align="center" />
-            </div>
-            <h2
-              className="font-heading font-bold text-text leading-tight"
-              style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)" }}
-            >
-              Frequently Asked Questions
-            </h2>
+          <AnimatedSection direction="up" className="text-center max-w-2xl mx-auto mb-12">
+            <p className="overline justify-center mb-4">FAQ</p>
+            <h2 className="heading-section">Frequently Asked Questions</h2>
           </AnimatedSection>
 
           <AnimatedSection direction="up" delay={0.1} className="max-w-3xl mx-auto">

@@ -1,31 +1,25 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter, Cormorant_Garamond } from "next/font/google";
+import { Newsreader, Instrument_Sans } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { FloatingCall } from "@/components/ui/floating-call";
 import "./globals.css";
 
-// Use DIFFERENT variable names from what globals.css registers
-// to avoid circular var() references in Tailwind v4 @theme
-const playfairDisplay = Playfair_Display({
+// Editorial serif display face — variable name kept as --font-playfair
+// so the rest of the codebase (font-heading utility etc.) needs no changes.
+const newsreader = Newsreader({
   subsets: ["latin"],
-  variable: "--font-playfair",   // ← renamed (was --font-heading)
+  variable: "--font-playfair",
   display: "swap",
-  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+  weight: ["200", "300", "400", "500", "600", "700"],
 });
 
-const inter = Inter({
+const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",      // ← renamed (was --font-body)
+  variable: "--font-inter",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const cormorantGaramond = Cormorant_Garamond({
-  subsets: ["latin"],
-  variable: "--font-cormorant",  // ← renamed (was --font-accent)
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -75,7 +69,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${playfairDisplay.variable} ${inter.variable} ${cormorantGaramond.variable} antialiased`}
+        className={`${newsreader.variable} ${instrumentSans.variable} antialiased`}
         style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}
       >
         <Header />

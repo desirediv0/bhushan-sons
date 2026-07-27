@@ -49,14 +49,14 @@ export function ConsultationForm({
   const isDark = variant === "dark";
 
   const inputClass = cn(
-    "w-full font-body text-sm px-4 py-3.5 border rounded-lg transition-all duration-200 outline-none focus:ring-2 focus:ring-secondary/40 focus:ring-offset-0",
+    "w-full font-body text-[15px] px-[15px] py-[13px] border rounded transition-all duration-200 outline-none",
     isDark
       ? "bg-white/5 border-white/15 text-white placeholder:text-white/40 focus:border-secondary focus:bg-white/10"
-      : "bg-white border-border text-primary placeholder:text-text-muted/60 focus:border-secondary hover:border-primary/30"
+      : "bg-[#F6F5F1] border-border text-text placeholder:text-text-muted/60 focus:border-primary focus:bg-white"
   );
 
   const labelClass = cn(
-    "block font-body text-xs uppercase tracking-widest mb-2",
+    "block font-body text-[11px] font-semibold uppercase tracking-[0.14em] mb-[7px]",
     isDark ? "text-white/60" : "text-text-muted"
   );
 
@@ -67,7 +67,7 @@ export function ConsultationForm({
       <div
         className={cn(
           "flex flex-col items-center justify-center text-center p-8 border min-h-[300px]",
-          isDark ? "border-white/10 bg-white/5 rounded-2xl" : "border-border bg-background-alt rounded-2xl",
+          isDark ? "border-white/10 bg-white/5" : "border-border bg-background-alt",
           className
         )}
       >
@@ -182,7 +182,7 @@ export function ConsultationForm({
         type="submit"
         variant="secondary"
         size="lg"
-        className="w-full group gap-3 font-semibold rounded-full"
+        className="w-full group gap-3"
         loading={isSubmitting}
         disabled={isSubmitting}
       >

@@ -1,373 +1,81 @@
-"use client"
+import Image from "next/image";
+import { AnimatedSection } from "@/components/animations/animated-section";
+import { SITE_CONFIG } from "@/config/constants";
 
-import type React from "react"
-
-import { useRef } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import {
-  Scale,
-  Briefcase,
-  Shield,
-  Gavel,
-  Scroll,
-  CheckCircle,
-  Sparkles,
-  Star,
-  ArrowRight,
-  Zap,
-  Banknote,
-  Landmark,
-  LockKeyhole,
-
-} from "lucide-react"
-import { motion, useScroll, useTransform, useInView, type Variants } from "framer-motion"
-
-import { PRACTICE_AREAS } from "@/config/constants";
-import { Heart } from "lucide-react";
+const FACTS = [
+  {
+    title: "Full-Service",
+    body: "Civil, criminal, family, corporate, banking and real estate matters.",
+  },
+  {
+    title: "Court-Facing",
+    body: "A litigation practice first — matters are argued, not only advised upon.",
+  },
+  {
+    title: "Delhi-NCR Coverage",
+    body: "Chambers in Gurugram and New Delhi, across the district courts.",
+  },
+  {
+    title: "Clear Fees",
+    body: "Professional fees are set out and agreed before an engagement begins.",
+  },
+];
 
 export default function AboutUsSection() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(sectionRef, { once: true, amount: 0.1 })
-
-  // Parallax effect for decorative elements
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  })
-
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -50])
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, 50])
-  const rotate1 = useTransform(scrollYProgress, [0, 1], [0, 20])
-  const rotate2 = useTransform(scrollYProgress, [0, 1], [0, -20])
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  }
-
-  const itemVariants: Variants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  }
-
-  const selectedAreaIds = [
-    "loan-settlement-debt-resolution",
-    "sarfaesi-drt-matters",
-    "bank-freeze-cyber-crime",
-    "civil-law",
-    "family-law",
-    "corporate-law",
-  ];
-
-  const getIcon = (id: string) => {
-    switch (id) {
-      case "loan-settlement-debt-resolution":
-        return <Banknote className="w-6 h-6" />;
-      case "sarfaesi-drt-matters":
-        return <Landmark className="w-6 h-6" />;
-      case "bank-freeze-cyber-crime":
-        return <LockKeyhole className="w-6 h-6" />;
-      case "civil-law":
-        return <Scale className="w-6 h-6" />;
-      case "criminal-law":
-        return <Shield className="w-6 h-6" />;
-      case "family-law":
-        return <Heart className="w-6 h-6" />;
-      case "corporate-law":
-        return <Briefcase className="w-6 h-6" />;
-      case "realestate-law":
-        return <Scroll className="w-6 h-6" />;
-      case "dispute-resolution":
-        return <Gavel className="w-6 h-6" />;
-      default:
-        return <Scale className="w-6 h-6" />;
-    }
-  };
-
-  const getSecondaryIcon = (id: string) => {
-    switch (id) {
-      case "loan-settlement-debt-resolution":
-      case "civil-law":
-      case "family-law":
-      case "realestate-law":
-        return <Sparkles className="w-4 h-4 absolute -top-1 -right-1 text-secondary" />;
-      case "sarfaesi-drt-matters":
-      case "criminal-law":
-      case "dispute-resolution":
-        return <CheckCircle className="w-4 h-4 absolute -top-1 -right-1 text-secondary" />;
-      default:
-        return <Star className="w-4 h-4 absolute -top-1 -right-1 text-secondary" />;
-    }
-  };
-
-  const services = selectedAreaIds.map((id, index) => {
-    const area = PRACTICE_AREAS.find((a) => a.id === id) || PRACTICE_AREAS[0];
-    return {
-      id: area.id,
-      icon: getIcon(id),
-      secondaryIcon: getSecondaryIcon(id),
-      title: area.title,
-      description: area.description,
-      position: index < 3 ? "left" : "right",
-    };
-  });
-
-
   return (
-    <section
-      id="about-section"
-      ref={sectionRef}
-      className="w-full py-12 lg:py-14 px-4 bg-white text-text overflow-hidden relative"
-    >
-      {/* Decorative background elements */}
-      <motion.div
-        className="absolute top-20 left-10 w-64 h-64 rounded-full bg-primary/5 blur-3xl"
-        style={{ y: y1, rotate: rotate1 }}
-      />
-      <motion.div
-        className="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-secondary/10 blur-3xl"
-        style={{ y: y2, rotate: rotate2 }}
-      />
-      <motion.div
-        className="absolute top-1/2 left-1/4 w-4 h-4 rounded-full bg-secondary/40"
-        animate={{
-          y: [0, -15, 0],
-          opacity: [0.5, 1, 0.5],
-        }}
-        transition={{
-          duration: 3,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      />
-      <motion.div
-        className="absolute bottom-1/3 right-1/4 w-6 h-6 rounded-full bg-primary/20"
-        animate={{
-          y: [0, 20, 0],
-          opacity: [0.5, 1, 0.5],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-          delay: 1,
-        }}
-      />
+    <section id="about-section" className="bg-white py-14 lg:py-20">
+      <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
+        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
+          <AnimatedSection direction="right" className="relative">
+            <div className="relative aspect-[4/3.6] overflow-hidden">
+              <Image
+                src="/about.png"
+                alt="Bhushan & Sons law firm chamber"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="absolute -right-3.5 -bottom-3.5 bg-primary text-white px-6 py-5 border-l-2 border-secondary max-w-[205px]">
+              <b className="block font-heading font-light text-white text-[2rem] leading-none">
+                {SITE_CONFIG.founded}
+              </b>
+              <span className="text-[11px] tracking-[0.16em] uppercase text-white/70 block mt-2">
+                Serving Delhi NCR
+              </span>
+            </div>
+          </AnimatedSection>
 
-      <motion.div
-        className="container mx-auto max-w-6xl relative z-10"
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        variants={containerVariants}
-      >
-        <motion.div className="flex flex-col items-center mb-6" variants={itemVariants}>
-          <motion.span
-            className="text-secondary font-semibold uppercase tracking-[0.2em] text-xs mb-2 flex items-center gap-2"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <Zap className="w-4 h-4" />
-            DISCOVER OUR STORY
-          </motion.span>
-          <h2 className="font-heading font-bold text-primary text-4xl md:text-5xl mb-4 text-center">About Us</h2>
-          <motion.div
-            className="w-24 h-1 bg-gradient-to-r from-secondary to-secondary-light rounded-full"
-            initial={{ width: 0 }}
-            animate={{ width: 96 }}
-            transition={{ duration: 1, delay: 0.5 }}
-          ></motion.div>
-        </motion.div>
+          <AnimatedSection direction="left" delay={0.1}>
+            <p className="overline mb-4">Discover our story</p>
+            <h2 className="heading-section mb-5">About Bhushan &amp; Sons</h2>
+            <p className="body-large mb-4">
+              We are a full-service law firm in Gurugram and Delhi NCR, with a team of 28
+              dedicated advocates practising across civil, criminal, family, corporate,
+              banking and real estate matters. Our lawyers combine technical expertise
+              with practical negotiation skills to achieve speedy, cost-effective results.
+            </p>
+            <p className="body-large">
+              Established in {SITE_CONFIG.founded} and led by Adv. Sunil Kr. Yadav, the
+              firm is full-service by design. A matter may arrive as a civil dispute, a
+              criminal notice, a family petition, a bank&apos;s recovery notice or a
+              corporate compliance question — each is taken up by an advocate who works
+              in that field, and carried from the first notice through to hearing,
+              judgment and enforcement.
+            </p>
 
-        <motion.p className="text-center max-w-2xl mx-auto mb-16 text-text-muted" variants={itemVariants}>
-          We are a premier full-service law firm dedicated to providing strategic legal counsel, aggressive advocacy, and tailored solutions. With a rich history of excellence and integrity, we protect your interests and drive success.
-        </motion.p>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-          {/* Left Column */}
-          <div className="space-y-16 col-span-1">
-            {services
-              .filter((service) => service.position === "left")
-              .map((service, index) => (
-                <ServiceItem
-                  key={`left-${index}`}
-                  id={service.id}
-                  icon={service.icon}
-                  secondaryIcon={service.secondaryIcon}
-                  title={service.title}
-                  description={service.description}
-                  variants={itemVariants}
-                  delay={index * 0.2}
-                  direction="left"
-                />
+            <div className="grid grid-cols-1 sm:grid-cols-2 hairline-grid mt-7">
+              {FACTS.map((fact) => (
+                <div key={fact.title} className="bg-white px-5 py-[19px]">
+                  <b className="block font-heading font-medium text-text text-[1.03rem] mb-1">
+                    {fact.title}
+                  </b>
+                  <span className="text-[13.5px] text-text-muted font-body">{fact.body}</span>
+                </div>
               ))}
-          </div>
-
-          {/* Center Image */}
-          <div className="flex justify-center items-center order-first md:order-none mb-8 md:mb-0 col-span-1">
-            <motion.div className="relative w-full max-w-xs" variants={itemVariants}>
-              <motion.div
-                className="rounded-md overflow-hidden shadow-xl"
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
-              >
-                <Image
-                  src="/about.png"
-                  alt="Bhushan & Sons Law Firm"
-                  width={320}
-                  height={400}
-                  className="w-full h-full object-cover"
-                />
-
-              </motion.div>
-              <motion.div
-                className="absolute inset-0 border-2 border-secondary/60 rounded-md -m-3 z-[-1]"
-                initial={{ opacity: 0, scale: 1.1 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-              ></motion.div>
-
-              {/* Floating accent elements */}
-              <motion.div
-                className="absolute -top-4 -right-8 w-16 h-16 rounded-full bg-secondary/20"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.9 }}
-                style={{ y: y1 }}
-              ></motion.div>
-              <motion.div
-                className="absolute -bottom-6 -left-10 w-20 h-20 rounded-full bg-primary/10"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 1.1 }}
-                style={{ y: y2 }}
-              ></motion.div>
-
-              {/* Additional decorative elements */}
-              <motion.div
-                className="absolute -top-10 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-secondary"
-                animate={{
-                  y: [0, -10, 0],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                }}
-              ></motion.div>
-              <motion.div
-                className="absolute -bottom-12 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-primary/40"
-                animate={{
-                  y: [0, 10, 0],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                  delay: 0.5,
-                }}
-              ></motion.div>
-            </motion.div>
-          </div>
-
-          {/* Right Column */}
-          <div className="space-y-16 col-span-1">
-            {services
-              .filter((service) => service.position === "right")
-              .map((service, index) => (
-                <ServiceItem
-                  key={`right-${index}`}
-                  id={service.id}
-                  icon={service.icon}
-                  secondaryIcon={service.secondaryIcon}
-                  title={service.title}
-                  description={service.description}
-                  variants={itemVariants}
-                  delay={index * 0.2}
-                  direction="right"
-                />
-              ))}
-          </div>
+            </div>
+          </AnimatedSection>
         </div>
-
-
-      </motion.div>
+      </div>
     </section>
-  )
+  );
 }
-
-interface ServiceItemProps {
-  id: string
-  icon: React.ReactNode
-  secondaryIcon?: React.ReactNode
-  title: string
-  description: string
-  variants: Variants
-  delay: number
-  direction: "left" | "right"
-}
-
-function ServiceItem({ id, icon, secondaryIcon, title, description, variants, delay, direction }: ServiceItemProps) {
-  return (
-    <motion.div
-      className="flex flex-col group cursor-pointer"
-      variants={variants}
-      transition={{ delay }}
-      whileHover={{ y: -5, transition: { duration: 0.2 } }}
-    >
-      <Link href={`/practice-areas/${id}`} className="block">
-        <motion.div
-          className="flex items-center gap-3 mb-3"
-          initial={{ x: direction === "left" ? -20 : 20, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: delay + 0.2 }}
-        >
-          <motion.div
-            className="text-secondary bg-secondary/10 p-3 rounded-xl border border-secondary/20 transition-colors duration-300 group-hover:bg-secondary group-hover:text-white relative"
-            whileHover={{ rotate: [0, -10, 10, -5, 0], transition: { duration: 0.5 } }}
-          >
-            {icon}
-            {secondaryIcon}
-          </motion.div>
-          <h3 className="text-xl font-medium text-primary group-hover:text-secondary transition-colors duration-300">
-            {title}
-          </h3>
-        </motion.div>
-        <motion.p
-          className="text-sm text-text-muted leading-relaxed pl-12"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: delay + 0.4 }}
-        >
-          {description}
-        </motion.p>
-        <motion.div
-          className="mt-3 pl-12 flex items-center text-secondary text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0 }}
-        >
-          <span className="flex items-center gap-1">
-            Learn more <ArrowRight className="w-3 h-3" />
-          </span>
-        </motion.div>
-      </Link>
-    </motion.div>
-  )
-}
-
-

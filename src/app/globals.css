@@ -1,10 +1,7 @@
 /* ============================================================
    BHUSHAN & SONS — Global CSS (Tailwind v3)
-   Clean & Colorful design system — Violet / Emerald / Amber
+   Editorial design system — Forest Green / Brass / Bone
    ============================================================ */
-
-/* Google Fonts — Typography */
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap");
 
 /* Tailwind v3 Directives */
 @tailwind base;
@@ -15,27 +12,29 @@
    CSS Custom Properties — Design Tokens
    ============================================================ */
 :root {
-  /* Brand Colors — violet + emerald + amber */
-  --color-primary:            #6D28D9;
-  --color-primary-light:      #7C3AED;
-  --color-primary-dark:       #4C1D95;
-  --color-secondary:          #10B981;
-  --color-secondary-hover:    #059669;
-  --color-secondary-light:    #A7F3D0;
-  --color-accent:             #F59E0B;
+  /* Brand Colors — forest green + brass */
+  --color-primary:            #16332B;
+  --color-primary-light:      #204338;
+  --color-primary-dark:       #0D211B;
+  --color-secondary:          #B08A4A;
+  --color-secondary-hover:    #9C7940;
+  --color-secondary-light:    #CBA765;
 
   /* Background Colors */
   --color-background:         #FFFFFF;
-  --color-background-alt:     #F8FAFC;
-  --color-background-dark:    #0F172A;
+  --color-background-bone:    #F6F5F1;
+  --color-background-alt:     #EDEBE4;
+  --color-background-dark:    #16332B;
 
   /* Text Colors */
-  --color-text:               #0F172A;
-  --color-text-muted:         #475569;
-  --color-text-light:         #94A3B8;
+  --color-text:               #1B1E1C;
+  --color-text-muted:         #5E635F;
+  --color-text-light:         #8B9089;
 
   /* Border Colors */
-  --color-border:             #E2E8F0;
+  --color-border:             #DCDAD2;
+  --color-border-dark:        rgba(255,255,255,0.14);
+  --color-border-gold:        #B08A4A;
 
   /* Typography — Scale */
   --text-xs:    0.75rem;
@@ -56,12 +55,12 @@
   --leading-tight:    1.15;
   --leading-snug:     1.3;
   --leading-normal:   1.5;
-  --leading-relaxed:  1.65;
-  --leading-loose:    1.8;
+  --leading-relaxed:  1.7;
+  --leading-loose:    1.82;
 
   /* Typography — Letter Spacing */
-  --tracking-tighter:   -0.04em;
-  --tracking-tight:     -0.025em;
+  --tracking-tighter:   -0.024em;
+  --tracking-tight:     -0.018em;
   --tracking-normal:    0;
   --tracking-wide:      0.025em;
   --tracking-wider:     0.05em;
@@ -69,11 +68,14 @@
   --tracking-superwide: 0.2em;
 
   /* Shadows */
-  --shadow-xs:   0 1px 2px rgba(15,23,42,0.05);
-  --shadow-sm:   0 1px 3px rgba(15,23,42,0.07), 0 1px 2px rgba(15,23,42,0.05);
-  --shadow-md:   0 4px 6px -1px rgba(15,23,42,0.06), 0 2px 4px -2px rgba(15,23,42,0.05);
-  --shadow-lg:   0 10px 15px -3px rgba(15,23,42,0.07), 0 4px 6px -4px rgba(15,23,42,0.05);
-  --shadow-gold: 0 8px 24px rgba(16, 185, 129, 0.30);
+  --shadow-xs:   0 1px 2px rgba(27,30,28,0.04);
+  --shadow-sm:   0 1px 3px rgba(27,30,28,0.05);
+  --shadow-md:   0 12px 30px -14px rgba(13,33,27,0.28);
+  --shadow-lg:   0 26px 64px -32px rgba(13,33,27,0.55);
+  --shadow-gold: 0 18px 44px -26px rgba(13,33,27,0.42);
+
+  /* Corner radius — editorial system is nearly square */
+  --r: 3px;
 
   /* Transitions */
   --transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -102,22 +104,21 @@
   }
 
   body {
-    background-color: #FFFFFF;
-    color: #0F172A;
-    /* Next.js injects --font-playfair / --font-inter / --font-cormorant on body */
-    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+    background-color: #F6F5F1;
+    color: #1B1E1C;
+    font-family: var(--font-inter), 'Instrument Sans', system-ui, sans-serif;
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.7;
     overflow-x: hidden;
   }
 
-  /* Clean modern sans-serif headings */
+  /* Editorial serif headings */
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
-    font-weight: 700;
+    font-family: var(--font-playfair), 'Newsreader', Georgia, serif;
+    font-weight: 400;
     line-height: 1.15;
-    letter-spacing: -0.025em;
-    color: #0F172A;
+    letter-spacing: -0.018em;
+    color: #16332B;
   }
 
   a {
@@ -133,20 +134,20 @@
 
   /* Custom scrollbar */
   ::-webkit-scrollbar         { width: 6px; }
-  ::-webkit-scrollbar-track   { background: #F8FAFC; }
-  ::-webkit-scrollbar-thumb   { background: #C4B5FD; border-radius: 9999px; }
-  ::-webkit-scrollbar-thumb:hover { background: #7C3AED; }
+  ::-webkit-scrollbar-track   { background: #F6F5F1; }
+  ::-webkit-scrollbar-thumb   { background: #B08A4A; border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #9C7940; }
 
   /* Selection */
   ::selection {
-    background-color: rgba(124, 58, 237, 0.18);
-    color: #0F172A;
+    background-color: rgba(176, 138, 74, 0.25);
+    color: #16332B;
   }
 
   /* Focus ring */
   :focus-visible {
-    outline: 2px solid #7C3AED;
-    outline-offset: 2px;
+    outline: 2px solid #B08A4A;
+    outline-offset: 3px;
   }
 }
 
@@ -155,129 +156,137 @@
    ============================================================ */
 @layer components {
   .font-heading {
-    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
-    letter-spacing: -0.025em;
+    font-family: var(--font-playfair), 'Newsreader', Georgia, serif;
   }
 
   .font-body {
-    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+    font-family: var(--font-inter), 'Instrument Sans', system-ui, sans-serif;
   }
 
   .font-accent {
-    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+    font-family: var(--font-playfair), 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
   }
 
   /* Display Headings — Hero */
   .heading-display {
-    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
-    font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-    color: #0F172A;
+    font-family: var(--font-playfair), 'Newsreader', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(2.4rem, 5.8vw, 4.5rem);
+    line-height: 1.03;
+    letter-spacing: -0.024em;
+    color: #16332B;
   }
 
   /* Section Headings */
   .heading-section {
-    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
-    font-size: clamp(1.875rem, 3vw + 0.5rem, 3rem);
-    font-weight: 700;
-    line-height: 1.15;
-    letter-spacing: -0.025em;
-    color: #0F172A;
+    font-family: var(--font-playfair), 'Newsreader', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(1.85rem, 3.9vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.018em;
+    color: #16332B;
   }
 
-  /* Overline — violet eyebrow label */
+  /* Kicker / overline — small brass label with a short leading line */
   .overline {
-    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
+    font-family: var(--font-inter), 'Instrument Sans', system-ui, sans-serif;
+    font-size: 0.688rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #7C3AED;
+    color: #B08A4A;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .overline::before {
+    content: "";
+    width: 26px;
+    height: 1px;
+    background: #B08A4A;
+    flex: 0 0 auto;
   }
 
   /* Body Large */
   .body-large {
-    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
-    font-size: 1.125rem;
-    line-height: 1.65;
-    color: #0F172A;
+    font-family: var(--font-inter), 'Instrument Sans', system-ui, sans-serif;
+    font-size: 1.13rem;
+    line-height: 1.72;
+    color: #5E635F;
+    max-width: 64ch;
   }
 
-  /* Accent Text */
+  /* Accent Text — thin italic serif, used for pull-quotes and taglines */
   .accent-text {
-    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+    font-family: var(--font-playfair), 'Newsreader', Georgia, serif;
+    font-weight: 300;
     font-style: italic;
-    color: #475569;
+    color: #5E635F;
   }
 
-  /* Emerald gradient text — pops on white AND on violet bands */
+  /* Gradient text kept as a single brass tone (no gradient in the editorial system) */
   .text-gold-gradient {
-    background: linear-gradient(105deg, #34D399 0%, #10B981 50%, #059669 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #CBA765;
   }
-
-  /* Violet gradient text — heading highlights on white */
   .text-violet-gradient {
-    background: linear-gradient(105deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #16332B;
   }
 
   /* ============================================================
      Decorative Elements
      ============================================================ */
   .gold-line {
-    width: 60px;
-    height: 3px;
-    border-radius: 9999px;
-    background: linear-gradient(90deg, #7C3AED, #34D399);
+    width: 26px;
+    height: 1px;
+    background: #B08A4A;
   }
 
   .gold-line-center {
-    width: 60px;
-    height: 3px;
-    border-radius: 9999px;
-    background: linear-gradient(90deg, #7C3AED, #34D399);
+    width: 26px;
+    height: 1px;
+    background: #B08A4A;
     margin: 0 auto;
   }
 
   .divider-elegant {
     width: 100%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #E2E8F0 20%, #E2E8F0 80%, transparent);
+    background: #DCDAD2;
   }
 
-  /* Deep indigo-night band — violet & emerald only as glows */
+  /* Dark forest section background with a faint brass glow — used for hero / dark bands */
   .bg-navy-texture {
-    background-color: #0E1130;
+    background-color: #16332B;
     background-image:
-      radial-gradient(ellipse at 12% -10%, rgba(124, 58, 237, 0.38), transparent 55%),
-      radial-gradient(ellipse at 88% 115%, rgba(16, 185, 129, 0.22), transparent 50%),
-      radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    background-size: auto, auto, 28px 28px;
+      radial-gradient(ellipse at 15% 0%, rgba(176, 138, 74, 0.12), transparent 55%),
+      radial-gradient(ellipse at 90% 100%, rgba(176, 138, 74, 0.08), transparent 50%);
   }
 
-  /* Emerald gradient band for CTA sections */
+  /* Darkest forest band — topstrip / marquee / CTA */
   .bg-emerald-band {
-    background-color: #059669;
-    background-image:
-      radial-gradient(ellipse at 15% 0%, rgba(52, 211, 153, 0.55), transparent 55%),
-      radial-gradient(ellipse at 90% 100%, rgba(4, 120, 87, 0.6), transparent 55%),
-      radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-    background-size: auto, auto, 28px 28px;
+    background-color: #0D211B;
+  }
+
+  /* Hairline card-grid — CSS grid gap technique creates 1px dividers between cells */
+  .hairline-grid {
+    background-color: #DCDAD2;
+    gap: 1px;
+    border: 1px solid #DCDAD2;
+  }
+  .hairline-grid-dark {
+    background-color: rgba(255,255,255,0.14);
+    gap: 1px;
+    border: 1px solid rgba(255,255,255,0.14);
   }
 
   /* ============================================================
      Section Padding
      ============================================================ */
   .section-padding {
-    padding-top:    clamp(4rem, 8vw, 8rem);
-    padding-bottom: clamp(4rem, 8vw, 8rem);
+    padding-top:    clamp(3.75rem, 7.6vw, 7rem);
+    padding-bottom: clamp(3.75rem, 7.6vw, 7rem);
   }
 
   .section-padding-sm {
@@ -295,7 +304,7 @@
 }
 
 @keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(22px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
@@ -330,12 +339,11 @@
   66%      { transform: translate(-24px, 18px) scale(0.96); }
 }
 
-.animate-marquee    { animation: marquee 26s linear infinite; }
-.animate-pulse-ring { animation: pulse-ring 1.9s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-.animate-drift      { animation: drift 14s ease-in-out infinite; }
-.animate-drift-slow { animation: drift 20s ease-in-out infinite reverse; }
-
 .animate-fade-in     { animation: fade-in     0.6s ease-out forwards; }
 .animate-fade-in-up  { animation: fade-in-up  0.6s ease-out forwards; }
 .animate-fade-in-down{ animation: fade-in-down 0.5s ease-out forwards; }
 .animate-scale-in    { animation: scale-in    0.4s ease-out forwards; }
+.animate-marquee     { animation: marquee 30s linear infinite; }
+.animate-pulse-ring  { animation: pulse-ring 1.9s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+.animate-drift       { animation: drift 14s ease-in-out infinite; }
+.animate-drift-slow  { animation: drift 20s ease-in-out infinite reverse; }
