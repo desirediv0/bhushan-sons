@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   IconMail,
   IconPhone,
@@ -16,9 +17,7 @@ export function Footer() {
           {/* Brand Column */}
           <div>
             <Link href="/" className="flex items-center gap-3 mb-5">
-              <span className="w-[42px] h-[42px] shrink-0 border border-secondary rounded-full flex items-center justify-center font-heading text-secondary-light text-[17px]">
-                B&amp;S
-              </span>
+              <Image src="/logo-mark-white.png" alt="" width={32} height={48} className="h-12 w-auto shrink-0" />
               <span className="flex flex-col">
                 <strong className="font-heading font-medium text-white text-lg leading-none not-italic">
                   {SITE_CONFIG.name}

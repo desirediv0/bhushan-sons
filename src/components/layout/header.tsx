@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { IconMenu2, IconX, IconPhone, IconMail, IconMapPin, IconArrowRight } from "@tabler/icons-react";
@@ -55,9 +56,7 @@ export function Header() {
 
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group shrink-0">
-              <span className="w-[42px] h-[42px] shrink-0 border border-secondary rounded-full flex items-center justify-center font-heading text-secondary-light text-[17px]">
-                B&amp;S
-              </span>
+              <Image src="/logo-mark-white.png" alt="" width={32} height={48} className="h-12 w-auto shrink-0" priority />
               <span className="flex flex-col">
                 <strong className="font-heading font-medium text-white text-[19px] leading-[1.1] not-italic">
                   Bhushan &amp; Sons
@@ -140,9 +139,7 @@ export function Header() {
           >
             <div className="flex items-center justify-between mb-10">
               <span className="flex items-center gap-3">
-                <span className="w-9 h-9 shrink-0 border border-secondary rounded-full flex items-center justify-center font-heading text-secondary-light text-sm">
-                  B&amp;S
-                </span>
+                <Image src="/logo-mark-white.png" alt="" width={24} height={36} className="h-9 w-auto shrink-0" />
                 <span className="flex flex-col">
                   <strong className="font-heading font-medium text-white text-base leading-tight not-italic">Bhushan &amp; Sons</strong>
                   <span className="font-body text-[9px] tracking-[0.24em] uppercase text-secondary-light mt-0.5">Advocates &amp; Solicitors</span>
