@@ -3,6 +3,7 @@ import { Newsreader, Instrument_Sans } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { FloatingCall } from "@/components/ui/floating-call";
+import { DisclaimerModal } from "@/components/ui/disclaimer-modal";
 import "./globals.css";
 
 // Editorial serif display face — variable name kept as --font-playfair
@@ -76,6 +77,7 @@ export default function RootLayout({
         <main className="">{children}</main>
         <Footer />
         <FloatingCall />
+        <DisclaimerModal />
       </body>
     </html>
   );
