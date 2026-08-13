@@ -92,7 +92,7 @@ export function HeroSection() {
 
               <AnimatedSection direction="up" delay={0.24}>
                 <p className="font-body text-xs font-semibold tracking-[0.28em] uppercase text-secondary-light mb-7">
-                  Experienced &middot; Responsive &middot; Thorough
+                  Responsive &middot; Thorough &middot; Strategic
                 </p>
               </AnimatedSection>
 
@@ -138,7 +138,7 @@ export function HeroSection() {
                 </div>
                 <div className="bg-primary-dark border-l-2 border-secondary px-5 py-4">
                   <b className="block font-heading font-medium text-white text-[1.12rem]">Adv. Sunil Kr. Yadav</b>
-                  <span className="text-[10.5px] tracking-[0.17em] uppercase text-secondary-light">Senior Legal Counsel &middot; 20+ Years</span>
+                  <span className="text-[10.5px] tracking-[0.17em] uppercase text-secondary-light">Senior Legal Counsel</span>
                 </div>
               </div>
             </AnimatedSection>

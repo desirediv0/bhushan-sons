@@ -13,8 +13,6 @@ export function PartnerSpotlight() {
           <p className="overline mb-4">Expert leadership</p>
           <h2 className="heading-section !text-white">
             Senior Legal Counsel
-            <br />
-            20+ Years of Legal Practice
           </h2>
         </div>
 
@@ -50,9 +48,8 @@ export function PartnerSpotlight() {
               {partner.bio}
             </p>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 hairline-grid-dark my-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 hairline-grid-dark my-8">
               {[
-                { label: "Experience", value: partner.experience },
                 { label: "Practice", value: "High Courts & Tribunals" },
                 { label: "Focus", value: "Civil, Criminal, Family" },
                 { label: "Bar Enrolment", value: "Bar Council of Delhi" },

@@ -52,9 +52,6 @@ export function TeamCard({
           fill
           className="object-cover object-top transition-transform duration-500 hover:scale-[1.045]"
         />
-        <span className="absolute left-0 bottom-0 bg-primary text-white text-[10.5px] font-semibold tracking-[0.14em] uppercase font-body px-3.5 py-2">
-          {member.experience}
-        </span>
       </div>
 
       <div className="px-5 pt-5 pb-6">

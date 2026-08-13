@@ -70,9 +70,8 @@ export default function TeamPage() {
                 {managingPartner.bio}
               </p>
 
-              <div className="grid grid-cols-2 hairline-grid-dark my-8">
+              <div className="grid grid-cols-1 sm:grid-cols-3 hairline-grid-dark my-8">
                 {[
-                  { label: "Experience", value: managingPartner.experience },
                   { label: "Education", value: managingPartner.education },
                   { label: "Specialization", value: managingPartner.specialization.join(", ") },
                   { label: "Admitted", value: "Bar Council of Delhi" },

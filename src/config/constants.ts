@@ -38,7 +38,7 @@ export const NAV_ITEMS: NavItem[] = [
 ];
 
 export const FIRM_STATS: Stat[] = [
-  { value: "20", label: "Years of Experience", suffix: "+" },
+  { value: "High Courts & Tribunals", label: "Court Coverage" },
   { value: "2500", label: "Cases Handled", suffix: "+" },
   { value: "14", label: "Practice Areas", suffix: "+" },
   { value: "28", label: "Expert Attorneys", suffix: "+" },
@@ -586,7 +586,7 @@ export const WHY_CHOOSE_US: WhyChooseUsItem[] = [
     id: "expertise",
     title: "Expert Legal Guidance",
     description:
-      "Our team consists of experienced family law specialists, ensuring you get the most accurate advice and effective solutions for your case.",
+      "Our team consists of family law specialists, ensuring you get the most accurate advice and effective solutions for your case.",
     icon: "award",
   },
   {
@@ -610,7 +610,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: "a1",
     value: "28+",
     label: "Legal Experts",
-    description: "Experienced advocates defending your rights",
+    description: "Dedicated advocates defending your rights",
   },
   {
     id: "a2",

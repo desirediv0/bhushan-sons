@@ -22,8 +22,8 @@ const JOURNEY = [
     body: "Our journey began with a simple yet powerful vision: to make family law accessible, fair, and supportive for everyone. We are committed to helping families navigate complex legal matters with ease and confidence.",
   },
   {
-    title: "Years of Expertise in Family Law",
-    body: "With decades of combined experience, our team has handled thousands of family law cases, from divorce and child custody to inheritance and domestic violence issues. We have the knowledge to guide you through any legal challenge.",
+    title: "Family Law Practice",
+    body: "Our team has handled thousands of family law cases, from divorce and child custody to inheritance and domestic violence issues. We have the knowledge to guide you through any legal challenge.",
   },
   {
     title: "Client-Centered Approach",
@@ -31,7 +31,7 @@ const JOURNEY = [
   },
   {
     title: "Solid Law Practice",
-    body: "At our law firm, we pride ourselves on having a solid and reputable legal practice. Our team of lawyers brings a wealth of knowledge and experience to every case we handle.",
+    body: "At our law firm, we pride ourselves on having a solid and reputable legal practice. Our team brings strong knowledge to every case we handle.",
   },
 ];
 
@@ -66,7 +66,7 @@ export default function AboutPage() {
               </p>
               <div className="body-large max-w-none space-y-4">
                 <p>
-                  With an exceptional legal career spanning over two decades, Adv. Sunil Kr. Yadav stands as a pillar of legal excellence within Bhushan &amp; Sons. A distinguished practitioner before various High Courts and specialized Tribunals, Adv. Yadav has established an impeccable reputation for his jurisprudential acumen and strategic advocacy.
+                  Adv. Sunil Kr. Yadav stands as a pillar of legal excellence within Bhushan &amp; Sons. A distinguished practitioner before various High Courts and specialized Tribunals, he has established an impeccable reputation for his jurisprudential acumen and strategic advocacy.
                 </p>
                 <p>
                   His comprehensive expertise encompasses diverse practice areas including civil litigation, criminal defense, matrimonial disputes, and corporate legal counsel. Adv. Yadav&apos;s client representations are characterized by meticulous preparation, ethical counsel, and unwavering commitment to protecting his clients&apos; legal interests.
