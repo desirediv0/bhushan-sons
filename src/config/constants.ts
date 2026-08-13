@@ -19,7 +19,7 @@ export const SITE_CONFIG = {
   url: "https://bhushanandsons.com",
   email: "contact@bhushanandsons.com",
   phone: "+91-9306185801",
-  founded: "1989",
+  founded: "2003",
   address: {
     street: "Chamber No- 142, SBS Block, District Court",
     city: "Gurugram",
@@ -622,7 +622,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: "a3",
     value: "3",
     label: "Office Locations",
-    description: "Serving clients across Delhi NCR",
+    description: "Serving clients across Delhi and Haryana",
   },
   {
     id: "a4",
@@ -634,7 +634,7 @@ export const ACHIEVEMENTS: Achievement[] = [
 
 export const FIRM_TIMELINE: TimelineEvent[] = [
   {
-    year: "1989",
+    year: "2003",
     title: "Foundation of Bhushan & Sons",
     description:
       "Establishing the parent firm with a core commitment to principled legal practice in New Delhi.",

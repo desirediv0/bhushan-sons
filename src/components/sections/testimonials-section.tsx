@@ -7,7 +7,7 @@ export function TestimonialsSection() {
     <section className="py-14 lg:py-20 bg-background-alt">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <AnimatedSection direction="up" className="text-center max-w-2xl mx-auto mb-12">
-          <p className="overline justify-center mb-4">Client feedback</p>
+          <p className="overline justify-center mb-4">Client stories</p>
           <h2 className="heading-section">What our clients say</h2>
         </AnimatedSection>
 

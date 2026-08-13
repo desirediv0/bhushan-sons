@@ -37,9 +37,8 @@ const PILLAR_IDS = [
 
 const FIRM_HIGHLIGHTS = [
   "Bar Council Registered Advocates",
-  "District Courts & High Courts, Delhi NCR",
+  "District Courts & High Courts, Delhi and Haryana",
   `Practising Since ${SITE_CONFIG.founded}`,
-  "Clear Fee Agreements",
   "Consultation by Prior Appointment",
 ];
 
@@ -85,15 +84,11 @@ export function HeroSection() {
                   Bhushan &amp; Sons
                 </h1>
                 <p className="font-body font-medium text-secondary-light text-[clamp(0.82rem,1.5vw,1.02rem)] leading-relaxed max-w-[34ch] mt-5">
-                  Legal representation in Gurugram &amp; Delhi NCR for matrimonial, criminal, property, banking and corporate matters.
+                  Legal representation in Gurugram, Delhi and Haryana for matrimonial, criminal, property, banking and corporate matters.
                 </p>
               </AnimatedSection>
 
-              <AnimatedSection direction="up" delay={0.18}>
-                <p className="font-heading font-extralight text-white/85 text-[clamp(1.1rem,2.1vw,1.42rem)] leading-[1.55] max-w-[44ch] mt-6 mb-3">
-                  We offer personalised legal strategies, urgent court support and clear fee agreements — before the District Courts and High Courts of Delhi NCR.
-                </p>
-              </AnimatedSection>
+
 
               <AnimatedSection direction="up" delay={0.24}>
                 <p className="font-body text-xs font-semibold tracking-[0.28em] uppercase text-secondary-light mb-7">

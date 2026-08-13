@@ -12,12 +12,12 @@ const FACTS = [
     body: "A litigation practice first — matters are argued, not only advised upon.",
   },
   {
-    title: "Delhi-NCR Coverage",
+    title: "Delhi and Haryana Coverage",
     body: "Chambers in Gurugram and New Delhi, across the district courts.",
   },
   {
-    title: "Clear Fees",
-    body: "Professional fees are set out and agreed before an engagement begins.",
+    title: "Client-First Process",
+    body: "Engagement terms are confirmed before work begins.",
   },
 ];
 
@@ -40,7 +40,7 @@ export default function AboutUsSection() {
                 {SITE_CONFIG.founded}
               </b>
               <span className="text-[11px] tracking-[0.16em] uppercase text-white/70 block mt-2">
-                Serving Delhi NCR
+                Serving Delhi and Haryana
               </span>
             </div>
           </AnimatedSection>
@@ -49,7 +49,7 @@ export default function AboutUsSection() {
             <p className="overline mb-4">Discover our story</p>
             <h2 className="heading-section mb-5">About Bhushan &amp; Sons</h2>
             <p className="body-large mb-4">
-              We are a full-service law firm in Gurugram and Delhi NCR, with a team of 28
+              We are a full-service law firm in Gurugram, Delhi and Haryana, with a team of 28
               dedicated advocates practising across civil, criminal, family, corporate,
               banking and real estate matters. Our lawyers combine technical expertise
               with practical negotiation skills to achieve speedy, cost-effective results.

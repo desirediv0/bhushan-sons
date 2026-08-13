@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | Bhushan & Sons",
   },
   description:
-    "A premier full-service law firm delivering exceptional legal counsel with integrity, precision, and an unwavering commitment to excellence. Established 1989.",
+    "A premier full-service law firm delivering exceptional legal counsel with integrity, precision, and an unwavering commitment to excellence. Established 2003.",
   keywords: [
     "law firm India",
     "advocates solicitors",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bhushan & Sons | Advocates & Solicitors",
     description:
-      "Strategic legal counsel, exceptional advocacy, and unwavering commitment to protecting your interests. Premier law firm since 1989.",
+      "Strategic legal counsel, exceptional advocacy, and unwavering commitment to protecting your interests. Premier law firm since 2003.",
     type: "website",
     siteName: "Bhushan & Sons",
     locale: "en_IN",
