@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { IconCheck, IconLoader2, IconArrowRight } from "@tabler/icons-react";
+import { IconCheck, IconLoader2, IconArrowRight, IconAlertCircle } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -14,8 +14,10 @@ const consultationSchema = z.object({
     .string()
     .min(10, "Please enter a valid phone number")
     .max(15, "Phone number too long"),
+  email: z.string().email("Invalid email address").or(z.literal("")).optional(),
   category: z.string().min(1, "Please select a case category"),
   issue: z.string().min(1, "Please select your issue"),
+  message: z.string().optional(),
 });
 
 type ConsultationFormData = z.infer<typeof consultationSchema>;
@@ -30,6 +32,7 @@ export function ConsultationForm({
   className,
 }: ConsultationFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
 
   const {
     register,
@@ -40,10 +43,27 @@ export function ConsultationForm({
     resolver: zodResolver(consultationSchema),
   });
 
-  const onSubmit = async () => {
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitted(true);
+  const onSubmit = async (data: ConsultationFormData) => {
+    setServerError(null);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const resData = await response.json();
+
+      if (!response.ok) {
+        throw new Error(resData.error || "Failed to submit request.");
+      }
+
+      setIsSubmitted(true);
+    } catch (err: any) {
+      setServerError(err?.message || "Something went wrong. Please try again.");
+    }
   };
 
   const isDark = variant === "dark";
@@ -75,10 +95,10 @@ export function ConsultationForm({
           <IconCheck size={28} className="text-secondary" />
         </div>
         <h3 className={cn("font-heading font-semibold text-xl mb-3", isDark ? "text-white" : "text-primary")}>
-          We Will Call You Back
+          Request Received Successfully!
         </h3>
         <p className={cn("font-body leading-relaxed mb-6 max-w-sm text-sm", isDark ? "text-white/60" : "text-text-muted")}>
-          Thank you for requesting a call back. A senior attorney will get in touch shortly to assist with your issue.
+          Thank you for reaching out. An email has been sent to our team at <strong>bhushanandsonsllp@gmail.com</strong>, and a senior advocate will call you back shortly.
         </p>
         <button
           onClick={() => { setIsSubmitted(false); reset(); }}
@@ -96,6 +116,13 @@ export function ConsultationForm({
       className={cn("space-y-4", className)}
       noValidate
     >
+      {serverError && (
+        <div className="p-3 bg-red-500/10 border border-red-500/30 text-red-600 rounded flex items-center gap-2 text-xs font-body">
+          <IconAlertCircle size={16} className="shrink-0" />
+          <span>{serverError}</span>
+        </div>
+      )}
+
       {/* Name */}
       <div>
         <label htmlFor="name" className={labelClass}>
@@ -126,6 +153,21 @@ export function ConsultationForm({
         {errors.phone && <p className={errorClass}>{errors.phone.message}</p>}
       </div>
 
+      {/* Email (Optional) */}
+      <div>
+        <label htmlFor="email" className={labelClass}>
+          Email Address (Optional)
+        </label>
+        <input
+          id="email"
+          type="email"
+          placeholder="your.name@example.com"
+          className={inputClass}
+          {...register("email")}
+        />
+        {errors.email && <p className={errorClass}>{errors.email.message}</p>}
+      </div>
+
       {/* Select Case Category */}
       <div>
         <label htmlFor="category" className={labelClass}>
@@ -140,15 +182,15 @@ export function ConsultationForm({
           <option value="" disabled>
             Select Case Category
           </option>
-          <option value="loan-settlement-debt-resolution">Loan Settlement & Debt Resolution</option>
-          <option value="sarfaesi-drt-matters">SARFAESI Act & DRT Matters</option>
-          <option value="bank-freeze-cyber-crime">Bank Account Freeze & Cyber Crime</option>
-          <option value="civil-law">Civil Law</option>
-          <option value="criminal-law">Criminal Law</option>
-          <option value="family-law">Family Law</option>
-          <option value="corporate-law">Corporate Law</option>
-          <option value="realestate-law">Realestate Law</option>
-          <option value="immigration-law">Immigration Law</option>
+          <option value="Loan Settlement & Debt Resolution">Loan Settlement & Debt Resolution</option>
+          <option value="SARFAESI Act & DRT Matters">SARFAESI Act & DRT Matters</option>
+          <option value="Bank Account Freeze & Cyber Crime">Bank Account Freeze & Cyber Crime</option>
+          <option value="Civil Law">Civil Law</option>
+          <option value="Criminal Law">Criminal Law</option>
+          <option value="Family Law">Family Law</option>
+          <option value="Corporate Law">Corporate Law</option>
+          <option value="Real Estate Law">Real Estate Law</option>
+          <option value="Immigration Law">Immigration Law</option>
         </select>
         {errors.category && <p className={errorClass}>{errors.category.message}</p>}
       </div>
@@ -167,14 +209,29 @@ export function ConsultationForm({
           <option value="" disabled>
             Select Your Issue
           </option>
-          <option value="divorce">Divorce & Matrimonial</option>
-          <option value="child-custody">Child Custody</option>
-          <option value="property">Property Transactions & Disputes</option>
-          <option value="criminal">Vigorous Defense / Bail</option>
-          <option value="corporate">Business / Corporate Counsel</option>
-          <option value="other">General Civil Litigation</option>
+          <option value="Divorce & Matrimonial">Divorce & Matrimonial</option>
+          <option value="Child Custody">Child Custody</option>
+          <option value="Property Transactions & Disputes">Property Transactions & Disputes</option>
+          <option value="Vigorous Defense / Bail">Vigorous Defense / Bail</option>
+          <option value="Business / Corporate Counsel">Business / Corporate Counsel</option>
+          <option value="General Civil Litigation">General Civil Litigation</option>
+          <option value="Other Legal Query">Other Legal Query</option>
         </select>
         {errors.issue && <p className={errorClass}>{errors.issue.message}</p>}
+      </div>
+
+      {/* Message (Optional) */}
+      <div>
+        <label htmlFor="message" className={labelClass}>
+          Brief Case Description (Optional)
+        </label>
+        <textarea
+          id="message"
+          rows={3}
+          placeholder="Briefly describe your situation..."
+          className={cn(inputClass, "resize-none")}
+          {...register("message")}
+        />
       </div>
 
       {/* Submit */}
@@ -189,7 +246,7 @@ export function ConsultationForm({
         {isSubmitting ? (
           <>
             <IconLoader2 size={18} className="animate-spin" />
-            Requesting Callback...
+            Sending Email & Requesting...
           </>
         ) : (
           <>
