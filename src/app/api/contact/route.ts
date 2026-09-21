@@ -147,11 +147,10 @@ export async function POST(req: Request) {
       { success: true, message: "Consultation request sent successfully." },
       { status: 200 }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Nodemailer Email Error:", error);
-    return NextResponse.json(
-      { error: error?.message || "Failed to send email. Please try again later." },
-      { status: 500 }
-    );
+    const message =
+      error instanceof Error ? error.message : "Failed to send email. Please try again later.";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
