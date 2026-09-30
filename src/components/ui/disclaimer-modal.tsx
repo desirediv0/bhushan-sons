@@ -8,8 +8,8 @@ export function DisclaimerModal() {
   const [isDeclined, setIsDeclined] = useState<boolean>(false);
 
   useEffect(() => {
-    // Check if user has already accepted terms in this session/browser
-    const hasAccepted = localStorage.getItem("bhushan_disclaimer_accepted");
+    // Show again on every new visit (tab/browser session); not on in-session reloads
+    const hasAccepted = sessionStorage.getItem("bhushan_disclaimer_accepted");
     if (!hasAccepted) {
       setIsOpen(true);
       document.body.style.overflow = "hidden";
@@ -17,7 +17,7 @@ export function DisclaimerModal() {
   }, []);
 
   const handleAgree = () => {
-    localStorage.setItem("bhushan_disclaimer_accepted", "true");
+    sessionStorage.setItem("bhushan_disclaimer_accepted", "true");
     setIsOpen(false);
     document.body.style.overflow = "unset";
   };
