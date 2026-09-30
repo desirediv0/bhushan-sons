@@ -101,6 +101,19 @@ export function Footer() {
             <Link href="/disclaimer" className="hover:text-white transition-colors">Disclaimer</Link>
           </nav>
         </div>
+        <div className="border-t border-border-dark py-4 text-center text-[13px] font-body">
+          <p>
+            Designed &amp; Developed by{" "}
+            <a
+              href="https://desirediv.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-secondary-light hover:text-white transition-colors"
+            >
+              Desire Div
+            </a>
+          </p>
+        </div>
       </Container>
     </footer>
   );
