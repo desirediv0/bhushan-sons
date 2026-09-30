@@ -8,16 +8,12 @@ export function DisclaimerModal() {
   const [isDeclined, setIsDeclined] = useState<boolean>(false);
 
   useEffect(() => {
-    // Show again on every new visit (tab/browser session); not on in-session reloads
-    const hasAccepted = sessionStorage.getItem("bhushan_disclaimer_accepted");
-    if (!hasAccepted) {
-      setIsOpen(true);
-      document.body.style.overflow = "hidden";
-    }
+    // Show on every page load/reload
+    setIsOpen(true);
+    document.body.style.overflow = "hidden";
   }, []);
 
   const handleAgree = () => {
-    sessionStorage.setItem("bhushan_disclaimer_accepted", "true");
     setIsOpen(false);
     document.body.style.overflow = "unset";
   };
