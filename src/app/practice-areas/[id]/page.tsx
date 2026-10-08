@@ -8,6 +8,7 @@ import {
 } from "@tabler/icons-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/animations/animated-section";
 import { PageHero } from "@/components/ui/page-hero";
+import { PracticeEnquiryForm } from "@/components/forms/practice-enquiry-form";
 import { Button } from "@/components/ui/button";
 import { FAQAccordion } from "@/components/ui/faq-accordion";
 import { CTASection } from "@/components/sections/cta-section";
@@ -45,6 +46,11 @@ export default async function PracticeAreaDetailPage({ params }: PageProps) {
   }
 
   const otherAreas = PRACTICE_AREAS.filter((a) => a.id !== area.id).slice(0, 3);
+  const hasHeroForm = [
+    "loan-settlement-debt-resolution",
+    "sarfaesi-drt-matters",
+    "bank-freeze-cyber-crime",
+  ].includes(area.id);
   const faqItems = area.faqs?.length
     ? area.faqs.map((f, i) => ({ id: `${area.id}-faq-${i}`, ...f }))
     : FAQ_ITEMS.slice(0, 4);
@@ -61,7 +67,8 @@ export default async function PracticeAreaDetailPage({ params }: PageProps) {
         variant="split"
         showCTA
         ctaText={area.ctaLabel || "Request a Consultation"}
-        ctaHref="/contact"
+        ctaHref={hasHeroForm ? "#practice-enquiry" : "/contact"}
+        aside={hasHeroForm ? <PracticeEnquiryForm category={area.title} /> : undefined}
       />
 
       {/* Back link */}

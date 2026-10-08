@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -15,6 +16,7 @@ interface PageHeroProps {
   ctaHref?: string;
   variant?: "dark" | "light" | "split";
   className?: string;
+  aside?: ReactNode;
 }
 
 export function PageHero({
@@ -29,6 +31,7 @@ export function PageHero({
   ctaHref = "/contact",
   variant = "dark",
   className,
+  aside,
 }: PageHeroProps) {
   if (variant === "split" && image) {
     return (
@@ -52,30 +55,33 @@ export function PageHero({
         <div className="absolute bottom-0 left-0 right-0 h-[2px] z-10 bg-secondary" />
 
         {/* Content */}
-        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 lg:px-8 pb-16 pt-36">
-          {label && (
-            <p className="overline !text-white/70 mb-5 animate-fade-in-down">{label}</p>
-          )}
-          <h1
-            className="font-heading font-normal text-white leading-[1.05] max-w-2xl animate-fade-in-up"
-            style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)" }}
-          >
-            {titleAccent}
-          </h1>
-          {description && (
-            <p className="mt-5 text-white/70 font-body text-[15.5px] leading-relaxed max-w-xl animate-fade-in-up">
-              {description}
-            </p>
-          )}
-          {showCTA && (
-            <div className="mt-8 animate-fade-in-up">
-              <Link href={ctaHref}>
-                <Button variant="secondary" size="lg">
-                  {ctaText}
-                </Button>
-              </Link>
-            </div>
-          )}
+        <div className={cn("relative z-10 w-full max-w-[1280px] mx-auto px-6 lg:px-8 pb-16 pt-36", aside && "grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-14")}>
+          <div className="min-w-0">
+            {label && (
+              <p className="overline !text-white/70 mb-5 animate-fade-in-down">{label}</p>
+            )}
+            <h1
+              className="font-heading font-normal text-white leading-[1.05] max-w-2xl animate-fade-in-up"
+              style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)" }}
+            >
+              {titleAccent}
+            </h1>
+            {description && (
+              <p className="mt-5 text-white/70 font-body text-[15.5px] leading-relaxed max-w-xl animate-fade-in-up">
+                {description}
+              </p>
+            )}
+            {showCTA && (
+              <div className="mt-8 animate-fade-in-up">
+                <Link href={ctaHref}>
+                  <Button variant="secondary" size="lg">
+                    {ctaText}
+                  </Button>
+                </Link>
+              </div>
+            )}
+          </div>
+          {aside}
         </div>
       </section>
     );
