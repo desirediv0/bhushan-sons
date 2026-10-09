@@ -55,7 +55,7 @@ export function PageHero({
         <div className="absolute bottom-0 left-0 right-0 h-[2px] z-10 bg-secondary" />
 
         {/* Content */}
-        <div className={cn("relative z-10 w-full max-w-[1280px] mx-auto px-6 lg:px-8 pb-16 pt-36", aside && "grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-14")}>
+        <div className={cn("relative z-10 w-full max-w-[1280px] mx-auto px-6 lg:px-8", aside ? "grid items-center gap-10 py-12 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-14" : "pb-16 pt-36")}>
           <div className="min-w-0">
             {label && (
               <p className="overline !text-white/70 mb-5 animate-fade-in-down">{label}</p>
